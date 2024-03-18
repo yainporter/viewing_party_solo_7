@@ -5,6 +5,7 @@ RSpec.describe 'Discover Page', type: :feature do
     @user = User.create!(name: Faker::Name.name, email: Faker::Internet.email)
     visit user_discover_index_path(@user)
   end
+
   describe "User Story 1 - Discover Movies: Search by Title" do
     it "has default page items" do
       expect(page).to have_content("Viewing Party")
@@ -18,6 +19,18 @@ RSpec.describe 'Discover Page', type: :feature do
 
     it "has a button to the movies results page" do
       expect(page).to have_button("Find Top Rated Movies")
+    end
+  end
+
+  describe "User Story 2 - Movie Results Page" do
+    it "has working links for the buttons" do
+      click_button("Find Top Rated Movies")
+      expect(page.current_path).to eq(user_movies_path(@user))
+
+      visit user_discover_index_path(@user)
+      fill_in(:keyword, with: "Bad")
+      click_button("Find Movies")
+      expect(page.current_path).to eq(user_movies_path(@user))
     end
   end
 end
