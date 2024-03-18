@@ -45,6 +45,7 @@ gem "bootsnap", require: false
 gem "bootstrap" 
 gem "faker"
 gem "faraday"
+gem "figaro"
 
 
 # Use Sass to process CSS
