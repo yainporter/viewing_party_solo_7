@@ -1,3 +1,16 @@
 <h1>Viewing Party</h1>
 <%= button_to "Discover Page", user_discover_index_path, method: :get %>
 
+<% if params[:q] == "top 20rated" %>
+  <div>
+    <table id="top-20-movies">
+      <% @facade.make_movies(@facade.top_movies).each do |movie| %>
+        <tr>
+          <td><%= movie.title %></td>
+          <td><%= movie.vote_average %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>
+

@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
   def index
-    @facadegem
+    @facade = MovieFacade.new
   end
 end

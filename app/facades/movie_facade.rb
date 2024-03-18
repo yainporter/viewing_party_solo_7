@@ -6,7 +6,7 @@ class MovieFacade
   end
 
   def top_movies
-    @movie_service.get_top_movies[:results]
+    @movie_service.get_top_movies_service[:results]
   end
 
   def make_movies(data)

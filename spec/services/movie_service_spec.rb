@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Movie Service' do
-  describe "get_top_movies" do
+  describe "get_top_movies_service" do
     it 'searches The MovieDB APi for top 20 movies ' do
       json_response = File.read("spec/fixtures/top_rated_movies.json")
 
@@ -13,7 +13,7 @@ RSpec.describe 'Movie Service' do
         ).to_return(status: 200, body: json_response)
 
       service = MovieService.new
-      top_movies = service.get_top_movies
+      top_movies = service.get_top_movies_service
 
       expect(top_movies).to be_a(Hash)
       expect(top_movies[:results].size).to eq(20)

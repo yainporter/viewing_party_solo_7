@@ -10,7 +10,7 @@ class MovieService
     JSON.parse(response.body, symbolize_names: true)
   end
 
-  def get_top_movies
+  def get_top_movies_service
     get_url("https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1")
   end
 end

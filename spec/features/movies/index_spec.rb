@@ -2,6 +2,15 @@ require 'rails_helper'
 
 RSpec.describe 'Movies Page', type: :feature do
   before do
+    json_response = File.read("spec/fixtures/top_rated_movies.json")
+
+    stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1").
+      with(
+        headers: {
+          "Authorization": ENV["TMDB_ACCESS_TOKEN_KEY"]
+        }
+      ).to_return(status: 200, body: json_response)
+
     @user = User.create!(name: Faker::Name.name, email: Faker::Internet.email)
     visit user_movies_path(@user)
   end
@@ -16,7 +25,8 @@ RSpec.describe 'Movies Page', type: :feature do
 
     it "filters page results" do
       visit user_movies_path(@user, q: "top 20rated")
-      expect(find('ul.text')).to have_selector('li', count: 20)
+
+      expect(find('#top-20-movies')).to have_selector('tr', count: 20)
     end
   end
 end
