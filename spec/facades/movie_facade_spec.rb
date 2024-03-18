@@ -12,6 +12,7 @@ RSpec.describe MovieFacade do
       ).to_return(status: 200, body: json_response)
     @movies = MovieFacade.new
   end
+
   it "should exist" do
     expect(@movies).to be_a(MovieFacade)
   end
@@ -20,12 +21,26 @@ RSpec.describe MovieFacade do
     expect(@movies.movie_service).to be_a(MovieService)
   end
 
-  it "can get the top_movies" do
-    expect(@movies.top_movies).to be_a(Array)
-    expect(@movies.top_movies.size).to eq(20)
-    @movies.top_movies.each do |movie|
-      expect(movie[:title].present?).to eq true
-      expect(movie[:vote_average].present?).to eq true
+  describe "#top_movies" do
+    it "can get the top_movies" do
+      expect(@movies.top_movies).to be_an(Array)
+      expect(@movies.top_movies.size).to eq(20)
+      @movies.top_movies.each do |movie|
+        expect(movie[:title].present?).to eq true
+        expect(movie[:vote_average].present?).to eq true
+      end
+    end
+  end
+
+  describe "#make_top_movies" do
+    it "makes an array of movie poros" do
+      movies = @movies.make_movies(@movies.top_movies)
+      expect(movies).to be_an(Array)
+      movies.each do |movie|
+        expect(movie).to be_a(Movie)
+        expect(movie.title.present?).to eq(true)
+        expect(movie.vote_average.present?).to eq(true)
+      end
     end
   end
 end

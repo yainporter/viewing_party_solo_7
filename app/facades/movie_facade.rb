@@ -8,4 +8,12 @@ class MovieFacade
   def top_movies
     @movie_service.get_top_movies[:results]
   end
+
+  def make_movies(data)
+    movies_array = []
+    data.each do |movie|
+      movies_array << Movie.new(movie)
+    end
+    movies_array
+  end
 end
