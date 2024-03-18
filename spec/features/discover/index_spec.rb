@@ -25,12 +25,12 @@ RSpec.describe 'Discover Page', type: :feature do
   describe "User Story 2 - Movie Results Page" do
     it "has working links for the buttons" do
       click_button("Find Top Rated Movies")
-      expect(page.current_path).to eq(user_movies_path(@user))
+      expect(page.current_path).to eq(user_movies_path(@user, q: "top 20rated"))
 
       visit user_discover_index_path(@user)
       fill_in(:keyword, with: "Bad")
       click_button("Find Movies")
-      expect(page.current_path).to eq(user_movies_path(@user))
+      expect(page.current_path).to eq(user_movies_path(@user, q: "Bad"))
     end
   end
 end
