@@ -69,6 +69,7 @@ RSpec.describe 'Movies Page', type: :feature do
       within "#top-20-movies" do
         movie_names.each do |movie_name|
           expect(page).to have_link(movie_name)
+          expect(page).to have_content("Vote Average: ")
         end
       end
 
@@ -108,8 +109,16 @@ RSpec.describe 'Movies Page', type: :feature do
       within "#search-params" do
         movie_names.each do |movie_name|
           expect(page).to have_link(movie_name)
+          expect(page).to have_content("Vote Average: ")
         end
       end
+    end
+
+    it "takes you to the show page when you click on a link with a movie name", :vcr do
+      visit user_movies_path(@user, q: "top 20rated")
+
+      click_link("The Godfather")
+      expect(page.current_path).to eq("/users/#{@user.id}/movies/238")
     end
   end
 end
