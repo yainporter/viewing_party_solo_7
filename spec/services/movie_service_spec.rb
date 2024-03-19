@@ -23,4 +23,26 @@ RSpec.describe 'Movie Service' do
       end
     end
   end
+
+  describe "#search_movies_service" do
+    it "returns a hash of movies that match the search results" do
+      json_response = File.read("spec/fixtures/movie_search_bad_1.json")
+
+      stub_request(:get, "https://api.themoviedb.org/3/search/movie?query=Bad&include_adult=false&language=en-US&page=1").
+        with(
+          headers: {
+            "Authorization": ENV["TMDB_ACCESS_TOKEN_KEY"]
+          }
+        ).to_return(status: 200, body: json_response)
+
+      service = MovieService.new
+      search_results = service.get_search_results_service("Bad")
+
+      expect(search_results).to be_a(Hash)
+      expect(search_results[:results].size).to eq(20)
+      search_results[:results].each do |movie|
+        expect(movie[:title].downcase.include?("bad")).to eq true
+      end
+    end
+  end
 end

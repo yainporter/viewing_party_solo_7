@@ -16,4 +16,8 @@ class MovieFacade
     end
     movies_array
   end
+
+  def search_movies(keyword)
+    @movie_service.get_search_results_service(keyword)[:results]
+  end
 end

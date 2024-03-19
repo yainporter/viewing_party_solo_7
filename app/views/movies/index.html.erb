@@ -12,5 +12,16 @@
       <% end %>
     </table>
   </div>
+<% elsif params[:q].present? %>
+  <div>
+    <table id="search-params">
+      <% @facade.make_movies(@facade.search_movies(params[:q])).each do |movie| %>
+        <tr>
+          <td><%= movie.title %></td>
+          <td><%= movie.vote_average %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 <% end %>
 

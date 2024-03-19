@@ -27,6 +27,16 @@ RSpec.describe 'Movies Page', type: :feature do
       visit user_movies_path(@user, q: "top 20rated")
 
       expect(find('#top-20-movies')).to have_selector('tr', count: 20)
+      json_response = File.read("spec/fixtures/movie_search_bad_1.json")
+
+      stub_request(:get, "https://api.themoviedb.org/3/search/movie?query=Bad&include_adult=false&language=en-US&page=1").
+        with(
+          headers: {
+            "Authorization": ENV["TMDB_ACCESS_TOKEN_KEY"]
+          }
+        ).to_return(status: 200, body: json_response)
+
+      visit user_movies_path(@user, q: "Bad")
     end
   end
 end

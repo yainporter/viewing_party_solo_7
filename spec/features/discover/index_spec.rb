@@ -30,7 +30,7 @@ RSpec.describe 'Discover Page', type: :feature do
       visit user_discover_index_path(@user)
       fill_in(:keyword, with: "Bad")
       click_button("Find Movies")
-      expect(page.current_path).to eq(user_movies_path(@user, q: "Bad"))
+      expect(page.current_path).to eq(user_movies_path(@user))
     end
   end
 end
