@@ -64,4 +64,53 @@ RSpec.describe MovieFacade do
       end
     end
   end
+
+  describe "#movie_info" do
+    it "returns the information for a movie" do
+      json_response = File.read("spec/fixtures/movie_show_porter.json")
+
+      stub_request(:get, "https://api.themoviedb.org/3/movie/1090265?language=en-US").
+        with(
+          headers: {
+            "Authorization": ENV["TMDB_ACCESS_TOKEN_KEY"]
+          }
+        ).to_return(status: 200, body: json_response)
+
+      expect(@movies.movie_info(1090265)).to be_an(Array)
+      @movies.movie_info(1090265).each do |info|
+        expect(info).to be_a(Hash)
+      end
+    end
+  end
+
+  describe "#movie_reviews" do
+    it "returns the results of movie reviews" do
+      json_response = File.read("spec/fixtures/movie_reviews.json")
+
+      stub_request(:get, "https://api.themoviedb.org/3/movie/240/reviews?language=en-US&page=1").
+        with(
+          headers: {
+            "Authorization": ENV["TMDB_ACCESS_TOKEN_KEY"]
+          }
+        ).to_return(status: 200, body: json_response)
+
+      expect(@movies.movie_reviews(240)).to be_an(Array)
+    end
+  end
+
+  describe "#movie_cast" do
+    it "returns the results of a Movie's cast" do
+      json_response = File.read("spec/fixtures/movie_cast.json")
+
+      stub_request(:get, "https://api.themoviedb.org/3/movie/240/credits?language=en-US").
+        with(
+          headers: {
+            "Authorization": ENV["TMDB_ACCESS_TOKEN_KEY"]
+          }
+        ).to_return(status: 200, body: json_response)
+
+      expect(@movies.movie_cast(240)).to be_an(Array)
+      expect(@movies.movie_cast(240).size).to eq(10)
+    end
+  end
 end

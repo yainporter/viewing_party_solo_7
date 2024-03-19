@@ -17,4 +17,16 @@ class MovieService
   def get_search_results_service(keyword)
     get_url("https://api.themoviedb.org/3/search/movie?query=#{keyword}&include_adult=false&language=en-US&page=1")
   end
+
+  def get_movie_service(id)
+    get_url("https://api.themoviedb.org/3/movie/#{id}?language=en-US")
+  end
+
+  def get_movie_reviews_service(id)
+    get_url("https://api.themoviedb.org/3/movie/#{id}/reviews?language=en-US&page=1")
+  end
+
+  def get_movie_cast_service(id)
+    get_url("https://api.themoviedb.org/3/movie/#{id}/credits?language=en-US")
+  end
 end

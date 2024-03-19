@@ -13,4 +13,11 @@ RSpec.describe Movie do
     expect(movie.vote_average).to eq(8.7)
     expect(movie.vote_average).to be_a(Float)
   end
+
+  it "has extra attributes" do
+    data = {
+      title: "Happy",
+      vote_average: 8.7
+    }
+  end
 end
