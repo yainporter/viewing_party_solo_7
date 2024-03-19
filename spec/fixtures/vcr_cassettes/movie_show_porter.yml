@@ -1,0 +1,67 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - c19c21c4899cc4badf7add13266575f7
+      X-Memc-Age:
+      - '19858'
+      X-Memc-Expires:
+      - '4827'
+      Date:
+      - Tue, 19 Mar 2024 19:41:34 GMT
+      Cache-Control:
+      - public, max-age=27157
+      Etag:
+      - W/"48da4ef798b19b2400acdae8b310fe64"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 b53110859cfc7819470fe06f91c67856.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - LAX50-C2
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - bznIJu3UkF3Ta0rcTrOzGYfdKvbtjGRWcOsjezXHMTAjf1Qv1CdDYg==
+      Age:
+      - '5078'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"adult":false,"backdrop_path":null,"belongs_to_collection":null,"budget":0,"genres":[{"id":80,"name":"Crime"}],"homepage":"","id":1090265,"imdb_id":"tt12793888","original_language":"en","original_title":"Porter","overview":"An
+        aging and mute rodeo clown struggles between macabre dreams and reality.","popularity":1.837,"poster_path":"/nUv3wjneRP6Eu6jQNjpZzPZAow0.jpg","production_companies":[{"id":194091,"logo_path":null,"name":"Pristine
+        Entertainment Ltd.","origin_country":""}],"production_countries":[{"iso_3166_1":"CA","name":"Canada"}],"release_date":"","revenue":0,"runtime":82,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"Good
+        clowns, Bad clowns","title":"Porter","video":false,"vote_average":0.0,"vote_count":0}'
+  recorded_at: Tue, 19 Mar 2024 21:06:13 GMT
+recorded_with: VCR 6.2.0

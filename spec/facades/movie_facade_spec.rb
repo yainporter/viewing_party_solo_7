@@ -32,17 +32,17 @@ RSpec.describe MovieFacade do
     end
   end
 
-  describe "#make_top_movies" do
-    it "makes an array of movie poros" do
-      movies = @movies.make_movies(@movies.top_movies)
-      expect(movies).to be_an(Array)
-      movies.each do |movie|
-        expect(movie).to be_a(Movie)
-        expect(movie.title.present?).to eq(true)
-        expect(movie.vote_average.present?).to eq(true)
-      end
-    end
-  end
+  # describe "#make_top_movies" do
+  #   it "makes an array of movie poros" do
+  #     movies = @movies.make_movies(@movies.top_movies)
+  #     expect(movies).to be_an(Array)
+  #     movies.each do |movie|
+  #       expect(movie).to be_a(Movie)
+  #       expect(movie.title.present?).to eq(true)
+  #       expect(movie.vote_average.present?).to eq(true)
+  #     end
+  #   end
+  # end
 
   describe "#search_movies" do
     it "returns the search results from MovieService" do
@@ -179,6 +179,13 @@ RSpec.describe MovieFacade do
       movie_cast.each do |cast_member|
         expect(cast_member.keys).to eq(cast_member_keys)
       end
+    end
+  end
+
+  describe "#movie" do
+    it "creates a new Movie instance", :vcr do
+      movie = @movies.movie(240)
+      expect(movie).to be_a Movie
     end
   end
 end

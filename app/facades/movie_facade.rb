@@ -41,6 +41,10 @@ class MovieFacade
     movie_info
   end
 
+  def movie(id)
+    Movie.new(movie_info(id))
+  end
+
   def get_movie_reviews(id)
     movie_reviews_data = Hash.new
     movie_reviews_data[:data] = @movie_service.get_movie_reviews_service(id)[:results]

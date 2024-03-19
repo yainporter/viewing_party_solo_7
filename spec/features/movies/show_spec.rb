@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Movies Page', type: :feature do
+RSpec.describe 'Movie Details Page', type: :feature do
   before do
     # json_response = File.read("spec/fixtures/movie_show_porter.json")
 
@@ -34,5 +34,9 @@ RSpec.describe 'Movies Page', type: :feature do
     expect(page).to have_content("Vote: 0")
     expect(page).to have_content("Runtime: 1 hour, 22 minutes")
     expect(page).to have_content("Genre: Crime")
+    expect(page).to have_selector("h3", text: "Summary")
+    expect(page).to have_selector("h3", text: "Cast")
+    expect(page).to have_selector("h3", text: "0 Reviews")
+
   end
 end
