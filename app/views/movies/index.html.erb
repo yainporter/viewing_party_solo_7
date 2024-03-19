@@ -6,7 +6,8 @@
     <table id="top-20-movies">
       <% @facade.make_movies(@facade.top_movies).each do |movie| %>
         <tr>
-          <td><%= movie.title %></td>
+          
+          <td><%= link_to movie.title, user_movie_path(params[:user_id], movie.id), data: { turbo_method: :get } %></td>
           <td><%= movie.vote_average %></td>
         </tr>
       <% end %>
@@ -17,7 +18,7 @@
     <table id="search-params">
       <% @facade.make_movies(@facade.search_movies(params[:keyword])).each do |movie| %>
         <tr>
-          <td><%= movie.title %></td>
+          <td><%= link_to movie.title, user_movie_path(params[:user_id], movie.id), data: { turbo_method: :get } %></td>
           <td><%= movie.vote_average %></td>
         </tr>
       <% end %>

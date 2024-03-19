@@ -38,9 +38,7 @@ RSpec.describe 'Movie Details Page', type: :feature do
     end
     expect(page).to have_selector("h3", text: "Summary")
     expect(page).to have_selector("h3", text: "Cast")
-    within "#cast" do
-      expect().to eq()
-    end
+    expect(find('#cast')).to have_selector('tr', count: 11)
     expect(page).to have_selector("h3", text: "0 Reviews")
   end
 end
