@@ -65,7 +65,7 @@ RSpec.describe MovieFacade do
     end
   end
 
-  describe "#movie_info" do
+  describe "#get_movie_info" do
     it "returns the information for a movie" do
       json_response = File.read("spec/fixtures/movie_show_porter.json")
 
@@ -76,14 +76,68 @@ RSpec.describe MovieFacade do
           }
         ).to_return(status: 200, body: json_response)
 
-      expect(@movies.movie_info(1090265)).to be_an(Array)
-      @movies.movie_info(1090265).each do |info|
-        expect(info).to be_a(Hash)
+      data_keys = [
+        :adult,
+        :backdrop_path,
+        :belongs_to_collection,
+        :budget,
+        :genres,
+        :homepage,
+        :id,
+        :imdb_id,
+        :original_language,
+        :original_title,
+        :overview,
+        :popularity,
+        :poster_path,
+        :production_companies,
+        :production_countries,
+        :release_date,
+        :revenue,
+        :runtime,
+        :spoken_languages,
+        :status,
+        :tagline,
+        :title,
+        :video,
+        :vote_average,
+        :vote_count
+      ]
+
+      expect(@movies.get_movie_info(1090265)).to be_a(Hash)
+      expect(@movies.get_movie_info(1090265)[:data]).to eq(nil)
+      expect(@movies.get_movie_info(1090265).keys).to eq data_keys
+    end
+  end
+
+  describe "#movie_info" do
+    it "returns the data from #get_movie_info and sorts it", :vcr do
+      expect(@movies.movie_info(1090265)).to be_a(Hash)
+      expect(@movies.movie_info(1090265)[:id]).to be_a(Integer)
+      expect(@movies.movie_info(1090265)[:genres]).to be_a(Array)
+
+      @movies.movie_info(1090265)[:genres].each do |genre|
+        expect(genre).to be_a(Hash)
+      end
+
+      expect(@movies.movie_info(1090265)[:summary]).to be_a(String)
+      expect(@movies.movie_info(1090265)[:runtime]).to be_a(Integer)
+      expect(@movies.movie_info(1090265)[:vote_average]).to be_a(Float)
+      expect(@movies.movie_info(1090265)[:reviews]).to be_an(Array)
+
+      @movies.movie_info(1090265)[:reviews].each do |review|
+        expect(review).to be_a(Hash)
+      end
+
+      expect(@movies.movie_info(1090265)[:cast]).to be_an(Array)
+
+      @movies.movie_info(1090265)[:cast].each do |cast_member|
+        expect(cast_member).to be_a(Hash)
       end
     end
   end
 
-  describe "#movie_reviews" do
+  describe "#get_movie_reviews" do
     it "returns the results of movie reviews" do
       json_response = File.read("spec/fixtures/movie_reviews.json")
 
@@ -94,11 +148,18 @@ RSpec.describe MovieFacade do
           }
         ).to_return(status: 200, body: json_response)
 
-      expect(@movies.movie_reviews(240)).to be_an(Array)
+      review_keys = [:author, :author_details, :content, :created_at, :id, :updated_at, :url]
+
+      movie_reviews = @movies.get_movie_reviews(240)
+
+      expect(movie_reviews).to be_an(Array)
+      movie_reviews.each do |review|
+        expect(review.keys).to eq(review_keys)
+      end
     end
   end
 
-  describe "#movie_cast" do
+  describe "#get_movie_cast" do
     it "returns the results of a Movie's cast" do
       json_response = File.read("spec/fixtures/movie_cast.json")
 
@@ -109,8 +170,15 @@ RSpec.describe MovieFacade do
           }
         ).to_return(status: 200, body: json_response)
 
-      expect(@movies.movie_cast(240)).to be_an(Array)
-      expect(@movies.movie_cast(240).size).to eq(10)
+      cast_member_keys = [:adult, :gender, :id, :known_for_department, :name, :original_name, :popularity, :profile_path, :cast_id, :character, :credit_id, :order]
+
+      movie_cast = @movies.get_movie_cast(240)
+
+      expect(movie_cast).to be_an(Array)
+      expect(movie_cast.size).to eq(10)
+      movie_cast.each do |cast_member|
+        expect(cast_member.keys).to eq(cast_member_keys)
+      end
     end
   end
 end

@@ -4,6 +4,6 @@ class MoviesController < ApplicationController
   end
 
   def show
-    
+    @facade = MovieFacade.new
   end
 end
