@@ -1,6 +1,6 @@
 <h1>Viewing Party</h1>
 <%= button_to "Discover Page", user_discover_index_path, method: :get %>
-
+<br>
 <% if params[:q] == "top 20rated" %>
   <div>
     <table id="top-20-movies">
@@ -12,10 +12,10 @@
       <% end %>
     </table>
   </div>
-<% elsif params[:q].present? %>
+<% elsif params[:keyword].present? %>
   <div>
     <table id="search-params">
-      <% @facade.make_movies(@facade.search_movies(params[:q])).each do |movie| %>
+      <% @facade.make_movies(@facade.search_movies(params[:keyword])).each do |movie| %>
         <tr>
           <td><%= movie.title %></td>
           <td><%= movie.vote_average %></td>

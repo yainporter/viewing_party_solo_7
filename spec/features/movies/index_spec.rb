@@ -36,7 +36,7 @@ RSpec.describe 'Movies Page', type: :feature do
           }
         ).to_return(status: 200, body: json_response)
 
-      visit user_movies_path(@user, q: "Bad")
+      visit user_movies_path(@user, keyword: "Bad")
     end
   end
 end
