@@ -31,11 +31,16 @@ RSpec.describe 'Movie Details Page', type: :feature do
   it "displays information about the Movie", :vcr do
     visit user_movie_path(@user, @movie.id)
     expect(page).to have_selector("h2", text: "Porter")
-    expect(page).to have_content("Vote: 0")
-    expect(page).to have_content("Runtime: 1hr 22min")
-    expect(page).to have_content("Genre: Crime")
+    within "#movie_info" do
+      expect(page).to have_content("Vote: 0")
+      expect(page).to have_content("Runtime: 1hr 22min")
+      expect(page).to have_content("Genre: Crime")
+    end
     expect(page).to have_selector("h3", text: "Summary")
     expect(page).to have_selector("h3", text: "Cast")
+    within "#cast" do
+      expect().to eq()
+    end
     expect(page).to have_selector("h3", text: "0 Reviews")
   end
 end

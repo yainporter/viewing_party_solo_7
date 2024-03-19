@@ -33,6 +33,6 @@
 <h3><%= @facade.movie.num_of_reviews %> Reviews</h3>
   <div id="reviews">
     <% @facade.movie.reviews.each do |review| %>
-    <p></p>
+    <p><strong><%= review[:author] %></strong>: <%= review[:content] %></p>
     <% end %>
   </div>

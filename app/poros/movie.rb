@@ -9,7 +9,6 @@ class Movie
               :cast
 
   def initialize(data)
-    require 'pry'; binding.pry
     if data.keys.include?(:movie_info)
       @id = data[:movie_info][:id]
       @title = data[:movie_info][:title]
