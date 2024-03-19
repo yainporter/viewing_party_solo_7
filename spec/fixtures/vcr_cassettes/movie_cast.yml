@@ -48,15 +48,15 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 87f6ce9d3ab80161e889848b7a767bd4.cloudfront.net (CloudFront)
+      - 1.1 77bc1ffb296c0481de483f3c16355b6e.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - LAX50-C2
+      - PHX50-P1
       Alt-Svc:
       - h3=":443"; ma=86400
       X-Amz-Cf-Id:
-      - kaBpehzTrWw-YDkF0Ykd0ul3fuk0UoSE85r40NKLoCNp28a2APmSzg==
+      - Vd_duIgOrtN5ZLhzX3b0AThZYqd8vR_WTCPwJJ4tM0AnYtUbO94IaQ==
       Age:
-      - '382'
+      - '4980'
     body:
       encoding: ASCII-8BIT
       string: '{"id":240,"cast":[{"adult":false,"gender":2,"id":1158,"known_for_department":"Acting","name":"Al
@@ -318,5 +318,5 @@ http_interactions:
         Houghton","original_name":"Mona Houghton","popularity":6.058,"profile_path":null,"credit_id":"5ffb1499a3b5e60040367dc2","department":"Production","job":"Location
         Assistant"},{"adult":false,"gender":0,"id":4020084,"known_for_department":"Acting","name":"Tony
         Amato Sr.","original_name":"Tony Amato Sr.","popularity":0.648,"profile_path":null,"credit_id":"652b2343f2883802a327b06a","department":"Crew","job":"Stunts"}]}'
-  recorded_at: Tue, 19 Mar 2024 21:06:13 GMT
+  recorded_at: Tue, 19 Mar 2024 22:22:50 GMT
 recorded_with: VCR 6.2.0

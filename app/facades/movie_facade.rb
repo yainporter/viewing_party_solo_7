@@ -26,22 +26,16 @@ class MovieFacade
     @movie_service.get_movie_service(@params[:id])
   end
 
-  def movie_info
-    movie_info = Hash.new
-    movie_info[:id] = get_movie_info[:id]
-    movie_info[:genres] = get_movie_info[:genres]
-    movie_info[:summary] = get_movie_info[:overview]
-    movie_info[:runtime] = get_movie_info[:runtime]
-    movie_info[:title] = get_movie_info[:title]
-    movie_info[:vote_average] = get_movie_info[:vote_average]
-    movie_info[:reviews] = get_movie_reviews
-    movie_info[:cast] = get_movie_cast
-
-    movie_info
+  def movie_data
+    movie_data = Hash.new
+    movie_data[:movie_info] = get_movie_info
+    movie_data[:movie_reviews] = get_movie_reviews
+    movie_data[:movie_cast] = get_movie_cast
+    movie_data
   end
 
   def movie
-    Movie.new(movie_info)
+    Movie.new(movie_data)
   end
 
   def get_movie_reviews

@@ -48,20 +48,20 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 b53110859cfc7819470fe06f91c67856.cloudfront.net (CloudFront)
+      - 1.1 4892b1ac8a5bf76f6f3908b66c300c8c.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - LAX50-C2
+      - PHX50-P1
       Alt-Svc:
       - h3=":443"; ma=86400
       X-Amz-Cf-Id:
-      - bznIJu3UkF3Ta0rcTrOzGYfdKvbtjGRWcOsjezXHMTAjf1Qv1CdDYg==
+      - SYzxBoPVzbRI-SS8I19RGlFLT9gB1sgI1OS6KcGShyCy3zkQHyu6cA==
       Age:
-      - '5078'
+      - '9675'
     body:
       encoding: ASCII-8BIT
       string: '{"adult":false,"backdrop_path":null,"belongs_to_collection":null,"budget":0,"genres":[{"id":80,"name":"Crime"}],"homepage":"","id":1090265,"imdb_id":"tt12793888","original_language":"en","original_title":"Porter","overview":"An
         aging and mute rodeo clown struggles between macabre dreams and reality.","popularity":1.837,"poster_path":"/nUv3wjneRP6Eu6jQNjpZzPZAow0.jpg","production_companies":[{"id":194091,"logo_path":null,"name":"Pristine
         Entertainment Ltd.","origin_country":""}],"production_countries":[{"iso_3166_1":"CA","name":"Canada"}],"release_date":"","revenue":0,"runtime":82,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"Good
         clowns, Bad clowns","title":"Porter","video":false,"vote_average":0.0,"vote_count":0}'
-  recorded_at: Tue, 19 Mar 2024 21:06:13 GMT
+  recorded_at: Tue, 19 Mar 2024 22:22:50 GMT
 recorded_with: VCR 6.2.0

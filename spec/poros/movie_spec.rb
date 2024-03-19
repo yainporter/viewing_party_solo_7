@@ -68,6 +68,42 @@ RSpec.describe Movie do
         movie = Movie.new(data)
 
         expect(movie.convert_runtime).to eq("1hr 40min")
+
+        data_2 = {
+          runtime: 20
+        }
+
+        movie_2 = Movie.new(data_2)
+
+        expect(movie_2.convert_runtime).to eq("0hr 20min")
+      end
+    end
+
+    describe "#genres_to_string" do
+      it "converts the @genres Array to a String" do
+        data = {
+          genres: [{id: 1, name: "Action"}, {id: 2, name: "Romance"}]
+        }
+        movie = Movie.new(data)
+        expect(movie.genres_to_string).to eq("Action, Romance")
+      end
+    end
+
+    describe "#num_of_reviews" do
+      it "counts the size of the number of @reviews" do
+        data = {
+          genres: [{id: 1, genre: "Action"}, {id: 2, genre: "Romance"}]
+        }
+        movie = Movie.new(data)
+
+        expect(movie.num_of_reviews).to eq(0)
+
+        data_2 = {
+          reviews: [{id: 1, genre: "Action"}, {id: 2, genre: "Romance"}]
+        }
+        movie_2 = Movie.new(data_2)
+
+        expect(movie_2.num_of_reviews).to eq(2)
       end
     end
   end
