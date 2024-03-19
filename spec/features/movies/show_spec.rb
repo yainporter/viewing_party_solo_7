@@ -41,4 +41,11 @@ RSpec.describe 'Movie Details Page', type: :feature do
     expect(find('#cast')).to have_selector('tr', count: 11)
     expect(page).to have_selector("h3", text: "0 Reviews")
   end
+
+  it "has a working create viewing party button", :vcr do
+    visit user_movie_path(@user, 240)
+
+    click_button("Create Viewing Party for The Godfather Part II Page")
+    expect(page.current_path).to eq(new_user_movie_viewing_party_path(@user.id, 240))
+  end
 end
