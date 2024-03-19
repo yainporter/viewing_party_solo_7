@@ -1,0 +1,525 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - c19c21c4899cc4badf7add13266575f7
+      X-Memc-Age:
+      - '19858'
+      X-Memc-Expires:
+      - '4827'
+      Date:
+      - Tue, 19 Mar 2024 19:41:34 GMT
+      Cache-Control:
+      - public, max-age=27157
+      Etag:
+      - W/"48da4ef798b19b2400acdae8b310fe64"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 123e69ce4c4641277ec2a7cbf9f44f26.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - VHI4G3X9blWHVTCDhSapaIixGDg5TDzOlsDp7q8P2iYIG0gEhnz-fw==
+      Age:
+      - '3497'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"adult":false,"backdrop_path":null,"belongs_to_collection":null,"budget":0,"genres":[{"id":80,"name":"Crime"}],"homepage":"","id":1090265,"imdb_id":"tt12793888","original_language":"en","original_title":"Porter","overview":"An
+        aging and mute rodeo clown struggles between macabre dreams and reality.","popularity":1.837,"poster_path":"/nUv3wjneRP6Eu6jQNjpZzPZAow0.jpg","production_companies":[{"id":194091,"logo_path":null,"name":"Pristine
+        Entertainment Ltd.","origin_country":""}],"production_countries":[{"iso_3166_1":"CA","name":"Canada"}],"release_date":"","revenue":0,"runtime":82,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"Good
+        clowns, Bad clowns","title":"Porter","video":false,"vote_average":0.0,"vote_count":0}'
+  recorded_at: Tue, 19 Mar 2024 20:39:52 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - c19c21c4899cc4badf7add13266575f7
+      X-Memc-Age:
+      - '19858'
+      X-Memc-Expires:
+      - '4827'
+      Date:
+      - Tue, 19 Mar 2024 19:41:34 GMT
+      Cache-Control:
+      - public, max-age=27157
+      Etag:
+      - W/"48da4ef798b19b2400acdae8b310fe64"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 e2e05b1ebac9d176f82bde2c066c5fa8.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - eP1Edhi8_2flLAxtJXPc8H8s5H5gQ51Kyne8aRuMuvbbVZcYOEnZiw==
+      Age:
+      - '3497'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"adult":false,"backdrop_path":null,"belongs_to_collection":null,"budget":0,"genres":[{"id":80,"name":"Crime"}],"homepage":"","id":1090265,"imdb_id":"tt12793888","original_language":"en","original_title":"Porter","overview":"An
+        aging and mute rodeo clown struggles between macabre dreams and reality.","popularity":1.837,"poster_path":"/nUv3wjneRP6Eu6jQNjpZzPZAow0.jpg","production_companies":[{"id":194091,"logo_path":null,"name":"Pristine
+        Entertainment Ltd.","origin_country":""}],"production_countries":[{"iso_3166_1":"CA","name":"Canada"}],"release_date":"","revenue":0,"runtime":82,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"Good
+        clowns, Bad clowns","title":"Porter","video":false,"vote_average":0.0,"vote_count":0}'
+  recorded_at: Tue, 19 Mar 2024 20:39:52 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - c19c21c4899cc4badf7add13266575f7
+      X-Memc-Age:
+      - '19858'
+      X-Memc-Expires:
+      - '4827'
+      Date:
+      - Tue, 19 Mar 2024 19:41:34 GMT
+      Cache-Control:
+      - public, max-age=27157
+      Etag:
+      - W/"48da4ef798b19b2400acdae8b310fe64"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 ea9117ea813694fc6f724c5d6906cc7a.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - r_FZrz620lsALGW6A6Rt9PKTaM26eQ7xRAUnw9lFg-S8ig3klF23pw==
+      Age:
+      - '3497'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"adult":false,"backdrop_path":null,"belongs_to_collection":null,"budget":0,"genres":[{"id":80,"name":"Crime"}],"homepage":"","id":1090265,"imdb_id":"tt12793888","original_language":"en","original_title":"Porter","overview":"An
+        aging and mute rodeo clown struggles between macabre dreams and reality.","popularity":1.837,"poster_path":"/nUv3wjneRP6Eu6jQNjpZzPZAow0.jpg","production_companies":[{"id":194091,"logo_path":null,"name":"Pristine
+        Entertainment Ltd.","origin_country":""}],"production_countries":[{"iso_3166_1":"CA","name":"Canada"}],"release_date":"","revenue":0,"runtime":82,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"Good
+        clowns, Bad clowns","title":"Porter","video":false,"vote_average":0.0,"vote_count":0}'
+  recorded_at: Tue, 19 Mar 2024 20:39:52 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - c19c21c4899cc4badf7add13266575f7
+      X-Memc-Age:
+      - '19858'
+      X-Memc-Expires:
+      - '4827'
+      Date:
+      - Tue, 19 Mar 2024 19:41:34 GMT
+      Cache-Control:
+      - public, max-age=27157
+      Etag:
+      - W/"48da4ef798b19b2400acdae8b310fe64"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 084b168868a62755fef681094cd20582.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - SkfrGk-nx7HQSdLQqmuc5HY0N_H2cr2LZ-1tSI3vGk6j-1wUB9FqRA==
+      Age:
+      - '3497'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"adult":false,"backdrop_path":null,"belongs_to_collection":null,"budget":0,"genres":[{"id":80,"name":"Crime"}],"homepage":"","id":1090265,"imdb_id":"tt12793888","original_language":"en","original_title":"Porter","overview":"An
+        aging and mute rodeo clown struggles between macabre dreams and reality.","popularity":1.837,"poster_path":"/nUv3wjneRP6Eu6jQNjpZzPZAow0.jpg","production_companies":[{"id":194091,"logo_path":null,"name":"Pristine
+        Entertainment Ltd.","origin_country":""}],"production_countries":[{"iso_3166_1":"CA","name":"Canada"}],"release_date":"","revenue":0,"runtime":82,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"Good
+        clowns, Bad clowns","title":"Porter","video":false,"vote_average":0.0,"vote_count":0}'
+  recorded_at: Tue, 19 Mar 2024 20:39:52 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - c19c21c4899cc4badf7add13266575f7
+      X-Memc-Age:
+      - '19858'
+      X-Memc-Expires:
+      - '4827'
+      Date:
+      - Tue, 19 Mar 2024 19:41:34 GMT
+      Cache-Control:
+      - public, max-age=27157
+      Etag:
+      - W/"48da4ef798b19b2400acdae8b310fe64"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 206f3b6a8991f0da5725b300de19e25e.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - zQcDRHoUJDzrVIzzfXb4RkfUxvawKR9uskgfaPz8ascVDQ5gFtEfRw==
+      Age:
+      - '3497'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"adult":false,"backdrop_path":null,"belongs_to_collection":null,"budget":0,"genres":[{"id":80,"name":"Crime"}],"homepage":"","id":1090265,"imdb_id":"tt12793888","original_language":"en","original_title":"Porter","overview":"An
+        aging and mute rodeo clown struggles between macabre dreams and reality.","popularity":1.837,"poster_path":"/nUv3wjneRP6Eu6jQNjpZzPZAow0.jpg","production_companies":[{"id":194091,"logo_path":null,"name":"Pristine
+        Entertainment Ltd.","origin_country":""}],"production_countries":[{"iso_3166_1":"CA","name":"Canada"}],"release_date":"","revenue":0,"runtime":82,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"Good
+        clowns, Bad clowns","title":"Porter","video":false,"vote_average":0.0,"vote_count":0}'
+  recorded_at: Tue, 19 Mar 2024 20:39:52 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - c19c21c4899cc4badf7add13266575f7
+      X-Memc-Age:
+      - '19858'
+      X-Memc-Expires:
+      - '4827'
+      Date:
+      - Tue, 19 Mar 2024 19:41:34 GMT
+      Cache-Control:
+      - public, max-age=27157
+      Etag:
+      - W/"48da4ef798b19b2400acdae8b310fe64"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 bebd8158555e665274969349ddaed8d4.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - xXYBt8WtX0IKroxlQjt6Xp7EQvSl0EUhv_46zlFw2zxrJwMiIC8X4Q==
+      Age:
+      - '3497'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"adult":false,"backdrop_path":null,"belongs_to_collection":null,"budget":0,"genres":[{"id":80,"name":"Crime"}],"homepage":"","id":1090265,"imdb_id":"tt12793888","original_language":"en","original_title":"Porter","overview":"An
+        aging and mute rodeo clown struggles between macabre dreams and reality.","popularity":1.837,"poster_path":"/nUv3wjneRP6Eu6jQNjpZzPZAow0.jpg","production_companies":[{"id":194091,"logo_path":null,"name":"Pristine
+        Entertainment Ltd.","origin_country":""}],"production_countries":[{"iso_3166_1":"CA","name":"Canada"}],"release_date":"","revenue":0,"runtime":82,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"Good
+        clowns, Bad clowns","title":"Porter","video":false,"vote_average":0.0,"vote_count":0}'
+  recorded_at: Tue, 19 Mar 2024 20:39:52 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265/reviews?language=en-US&page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 19 Mar 2024 19:41:35 GMT
+      Server:
+      - openresty
+      Cache-Control:
+      - public, max-age=22012
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 64fa654978739ba90c2caf639e234fda
+      X-Memc-Age:
+      - '621'
+      X-Memc-Expires:
+      - '22012'
+      Etag:
+      - W/"d25a96f6a5be9d7fc601dc403ca0b909"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 3c72e95d5654421751ecbf6b86c8740a.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - IGps6UF5qJ2LpVyXfBUxv5eXOUuaqkusL3yiOOAo8PH61UEGb20EkQ==
+      Age:
+      - '3497'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":1090265,"page":1,"results":[],"total_pages":0,"total_results":0}'
+  recorded_at: Tue, 19 Mar 2024 20:39:52 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265/credits?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - ba82768956ad4b0f4c0fbe3aa04be82d
+      X-Memc-Age:
+      - '20881'
+      X-Memc-Expires:
+      - '2581'
+      Date:
+      - Tue, 19 Mar 2024 20:39:30 GMT
+      Cache-Control:
+      - public, max-age=26089
+      Etag:
+      - W/"b7d23af7c7b9fa0c02798cf6ac13d42d"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 ec0f42a36d3d8753c07cf1dc17d10fc8.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - SLQj7-KTreA7W10kW375ThJYuVJimK-H3U74xZzSEURXM8Pf7wWuKg==
+      Age:
+      - '22'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":1090265,"cast":[{"adult":false,"gender":2,"id":1761051,"known_for_department":"Acting","name":"Moishe
+        Teichman","original_name":"Moishe Teichman","popularity":2.648,"profile_path":"/1KH5RBAgUkNmVVNL0Wp9pflSYKk.jpg","cast_id":1,"character":"Old
+        Clown","credit_id":"63f6557d9661fc00b6e4d65f","order":0},{"adult":false,"gender":2,"id":1376355,"known_for_department":"Acting","name":"Dayleigh
+        Nelson","original_name":"Dayleigh Nelson","popularity":4.042,"profile_path":"/q4kzO4l09yPiRDHsRGhgcLx9vgW.jpg","cast_id":2,"character":"Renter/
+        Psychopomp","credit_id":"63f6558853f83300c5e482f3","order":1},{"adult":false,"gender":2,"id":1327457,"known_for_department":"Acting","name":"Arpad
+        Balogh","original_name":"Arpad Balogh","popularity":7.871,"profile_path":"/qa8lXjPftAtgYg6kxsXDjtJcEC8.jpg","cast_id":3,"character":"Porter","credit_id":"63f65591b2681f00d416da43","order":2},{"adult":false,"gender":0,"id":1706924,"known_for_department":"Directing","name":"Tyrone
+        Martin Polanski","original_name":"Tyrone Martin Polanski","popularity":0.6,"profile_path":null,"cast_id":4,"character":"Citizen","credit_id":"63f6559b2f791500cdec5330","order":3},{"adult":false,"gender":0,"id":3731873,"known_for_department":"Acting","name":"Dick
+        Pugh","original_name":"Dick Pugh","popularity":0.6,"profile_path":null,"cast_id":5,"character":"","credit_id":"63f655a29661fc008a698556","order":4},{"adult":false,"gender":1,"id":3105797,"known_for_department":"Acting","name":"Madeline
+        Wahl","original_name":"Madeline Wahl","popularity":0.6,"profile_path":null,"cast_id":6,"character":"","credit_id":"63f655a853f83300ddc46159","order":5},{"adult":false,"gender":0,"id":3934011,"known_for_department":"Acting","name":"Braleigh
+        James","original_name":"Braleigh James","popularity":0.706,"profile_path":null,"cast_id":7,"character":"Silver","credit_id":"63f655ae2f791500f0e6411b","order":6},{"adult":false,"gender":2,"id":1245541,"known_for_department":"Acting","name":"Kerry
+        James","original_name":"Kerry James","popularity":15.778,"profile_path":"/cOSqTUcSjlJj8OSgigIk3RjWma3.jpg","cast_id":8,"character":"Angel","credit_id":"63f655c19661fc007c8df0a8","order":7},{"adult":false,"gender":0,"id":3934012,"known_for_department":"Acting","name":"Jason
+        Mireau","original_name":"Jason Mireau","popularity":0.6,"profile_path":null,"cast_id":9,"character":"","credit_id":"63f655ca9661fc00b6e4d688","order":8},{"adult":false,"gender":0,"id":2987467,"known_for_department":"Acting","name":"Delia
+        Tatiana","original_name":"Delia Tatiana","popularity":0.732,"profile_path":null,"cast_id":10,"character":"","credit_id":"63f655cf53f83300c5e4830b","order":9},{"adult":false,"gender":2,"id":3189773,"known_for_department":"Acting","name":"Austin
+        Trapp","original_name":"Austin Trapp","popularity":1.96,"profile_path":"/e4ef25z7AhUimXFsigiMGWmiVdZ.jpg","cast_id":11,"character":"","credit_id":"63f655d4b2681f00d416da5d","order":10}],"crew":[{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655f453f83300ddc46171","department":"Directing","job":"Director"},{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655ec2f791500f0e6412b","department":"Production","job":"Producer"},{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655e453f833007bb63d1a","department":"Writing","job":"Writer"}]}'
+  recorded_at: Tue, 19 Mar 2024 20:39:52 GMT
+recorded_with: VCR 6.2.0

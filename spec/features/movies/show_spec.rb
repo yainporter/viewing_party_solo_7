@@ -2,14 +2,14 @@ require 'rails_helper'
 
 RSpec.describe 'Movies Page', type: :feature do
   before do
-    json_response = File.read("spec/fixtures/movie_show_porter.json")
+    # json_response = File.read("spec/fixtures/movie_show_porter.json")
 
-    stub_request(:get, "https://api.themoviedb.org/3/movie/1090265?language=en-US").
-      with(
-        headers: {
-          "Authorization": ENV["TMDB_ACCESS_TOKEN_KEY"]
-        }
-      ).to_return(status: 200, body: json_response)
+    # stub_request(:get, "https://api.themoviedb.org/3/movie/1090265?language=en-US").
+    #   with(
+    #     headers: {
+    #       "Authorization": ENV["TMDB_ACCESS_TOKEN_KEY"]
+    #     }
+    #   ).to_return(status: 200, body: json_response)
 
     movie_data = {
         id: 1090265,
@@ -21,12 +21,15 @@ RSpec.describe 'Movies Page', type: :feature do
     visit user_movie_path(@user, @movie.id)
   end
 
-  it "displays default buttons" do
-    expect(page).to have_button("Discover Page")
-    expect(page).to have_button("Create Viewing Party for The Shawshank Redemption")
+  it "displays default buttons", :vcr do
+      visit user_movie_path(@user, @movie.id)
+
+      expect(page).to have_button("Discover Page")
+      expect(page).to have_button("Create Viewing Party for Porter")
   end
 
-  it "displays information about the Movie" do
+  it "displays information about the Movie", :vcr do
+    visit user_movie_path(@user, @movie.id)
     expect(page).to have_selector("h2", text: "Porter")
     expect(page).to have_content("Vote: 0")
     expect(page).to have_content("Runtime: 1 hour, 22 minutes")
