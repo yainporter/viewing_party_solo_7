@@ -10,7 +10,7 @@ RSpec.describe MovieFacade do
           "Authorization": ENV["TMDB_ACCESS_TOKEN_KEY"]
         }
       ).to_return(status: 200, body: json_response)
-    @movies = MovieFacade.new
+    @movies = MovieFacade.new(id: 1)
   end
 
   it "should exist" do
@@ -19,6 +19,10 @@ RSpec.describe MovieFacade do
 
   it "has movie_service" do
     expect(@movies.movie_service).to be_a(MovieService)
+  end
+
+  it "has params" do
+    expect(@movies.params).to be_a(Hash)
   end
 
   describe "#top_movies" do
@@ -32,17 +36,17 @@ RSpec.describe MovieFacade do
     end
   end
 
-  # describe "#make_top_movies" do
-  #   it "makes an array of movie poros" do
-  #     movies = @movies.make_movies(@movies.top_movies)
-  #     expect(movies).to be_an(Array)
-  #     movies.each do |movie|
-  #       expect(movie).to be_a(Movie)
-  #       expect(movie.title.present?).to eq(true)
-  #       expect(movie.vote_average.present?).to eq(true)
-  #     end
-  #   end
-  # end
+  describe "#make_top_movies" do
+    it "makes an array of movie poros" do
+      movies = @movies.make_movies(@movies.top_movies)
+      expect(movies).to be_an(Array)
+      movies.each do |movie|
+        expect(movie).to be_a(Movie)
+        expect(movie.title.present?).to eq(true)
+        expect(movie.vote_average.present?).to eq(true)
+      end
+    end
+  end
 
   describe "#search_movies" do
     it "returns the search results from MovieService" do
@@ -103,35 +107,36 @@ RSpec.describe MovieFacade do
         :vote_average,
         :vote_count
       ]
-
-      expect(@movies.get_movie_info(1090265)).to be_a(Hash)
-      expect(@movies.get_movie_info(1090265)[:data]).to eq(nil)
-      expect(@movies.get_movie_info(1090265).keys).to eq data_keys
+      facade = MovieFacade.new(id: 1090265)
+      expect(facade.get_movie_info).to be_a(Hash)
+      expect(facade.get_movie_info[:data]).to eq(nil)
+      expect(facade.get_movie_info.keys).to eq data_keys
     end
   end
 
   describe "#movie_info" do
     it "returns the data from #get_movie_info and sorts it", :vcr do
-      expect(@movies.movie_info(1090265)).to be_a(Hash)
-      expect(@movies.movie_info(1090265)[:id]).to be_a(Integer)
-      expect(@movies.movie_info(1090265)[:genres]).to be_a(Array)
+      facade = MovieFacade.new(id: 1090265)
+      expect(facade.movie_info).to be_a(Hash)
+      expect(facade.movie_info[:id]).to be_a(Integer)
+      expect(facade.movie_info[:genres]).to be_a(Array)
 
-      @movies.movie_info(1090265)[:genres].each do |genre|
+      facade.movie_info[:genres].each do |genre|
         expect(genre).to be_a(Hash)
       end
 
-      expect(@movies.movie_info(1090265)[:summary]).to be_a(String)
-      expect(@movies.movie_info(1090265)[:runtime]).to be_a(Integer)
-      expect(@movies.movie_info(1090265)[:vote_average]).to be_a(Float)
-      expect(@movies.movie_info(1090265)[:reviews]).to be_an(Array)
+      expect(facade.movie_info[:summary]).to be_a(String)
+      expect(facade.movie_info[:runtime]).to be_a(Integer)
+      expect(facade.movie_info[:vote_average]).to be_a(Float)
+      expect(facade.movie_info[:reviews]).to be_an(Array)
 
-      @movies.movie_info(1090265)[:reviews].each do |review|
+      facade.movie_info[:reviews].each do |review|
         expect(review).to be_a(Hash)
       end
 
-      expect(@movies.movie_info(1090265)[:cast]).to be_an(Array)
+      expect(facade.movie_info[:cast]).to be_an(Array)
 
-      @movies.movie_info(1090265)[:cast].each do |cast_member|
+      facade.movie_info[:cast].each do |cast_member|
         expect(cast_member).to be_a(Hash)
       end
     end
@@ -149,8 +154,8 @@ RSpec.describe MovieFacade do
         ).to_return(status: 200, body: json_response)
 
       review_keys = [:author, :author_details, :content, :created_at, :id, :updated_at, :url]
-
-      movie_reviews = @movies.get_movie_reviews(240)
+      facade = MovieFacade.new(id: 240)
+      movie_reviews = facade.get_movie_reviews
 
       expect(movie_reviews).to be_an(Array)
       movie_reviews.each do |review|
@@ -171,8 +176,8 @@ RSpec.describe MovieFacade do
         ).to_return(status: 200, body: json_response)
 
       cast_member_keys = [:adult, :gender, :id, :known_for_department, :name, :original_name, :popularity, :profile_path, :cast_id, :character, :credit_id, :order]
-
-      movie_cast = @movies.get_movie_cast(240)
+      facade = MovieFacade.new(id: 240)
+      movie_cast = facade.get_movie_cast
 
       expect(movie_cast).to be_an(Array)
       expect(movie_cast.size).to eq(10)
@@ -184,7 +189,8 @@ RSpec.describe MovieFacade do
 
   describe "#movie" do
     it "creates a new Movie instance", :vcr do
-      movie = @movies.movie(240)
+      facade = MovieFacade.new(id: 240)
+      movie = facade.movie
       expect(movie).to be_a Movie
     end
   end

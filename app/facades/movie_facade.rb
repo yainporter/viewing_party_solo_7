@@ -1,7 +1,8 @@
 class MovieFacade
-  attr_reader :movie_service
+  attr_reader :movie_service, :params
 
-  def initialize
+  def initialize(params)
+    @params = params
     @movie_service = MovieService.new
   end
 
@@ -21,40 +22,33 @@ class MovieFacade
     @movie_service.get_search_results_service(keyword)[:results]
   end
 
-  def get_movie_info(id)
-    movie_info_data = Hash.new
-    movie_info_data[:data] = @movie_service.get_movie_service(id)
-    movie_info_data[:data]
+  def get_movie_info
+    @movie_service.get_movie_service(@params[:id])
   end
 
-  def movie_info(id)
+  def movie_info
     movie_info = Hash.new
-    movie_info[:id] = get_movie_info(id)[:id]
-    movie_info[:genres] = get_movie_info(id)[:genres]
-    movie_info[:summary] = get_movie_info(id)[:overview]
-    movie_info[:runtime] = get_movie_info(id)[:runtime]
-    movie_info[:title] = get_movie_info(id)[:title]
-    movie_info[:vote_average] = get_movie_info(id)[:vote_average]
-    movie_info[:reviews] = get_movie_reviews(id)
-    movie_info[:cast] = get_movie_cast(id)
+    movie_info[:id] = get_movie_info[:id]
+    movie_info[:genres] = get_movie_info[:genres]
+    movie_info[:summary] = get_movie_info[:overview]
+    movie_info[:runtime] = get_movie_info[:runtime]
+    movie_info[:title] = get_movie_info[:title]
+    movie_info[:vote_average] = get_movie_info[:vote_average]
+    movie_info[:reviews] = get_movie_reviews
+    movie_info[:cast] = get_movie_cast
 
     movie_info
   end
 
-  def movie(id)
-    Movie.new(movie_info(id))
+  def movie
+    Movie.new(movie_info)
   end
 
-  def get_movie_reviews(id)
-    movie_reviews_data = Hash.new
-    movie_reviews_data[:data] = @movie_service.get_movie_reviews_service(id)[:results]
-
-    movie_reviews_data[:data]
+  def get_movie_reviews
+    @movie_service.get_movie_reviews_service(params[:id])[:results]
   end
 
-  def get_movie_cast(id)
-    movie_cast_data = Hash.new
-    movie_cast_data[:data] = @movie_service.get_movie_cast_service(id)[:cast].take(10)
-    movie_cast_data[:data]
+  def get_movie_cast
+    @movie_service.get_movie_cast_service(params[:id])[:cast].take(10)
   end
 end
