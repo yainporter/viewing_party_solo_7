@@ -7,7 +7,7 @@
 
 <div id="viewing-party-form">
   <h3>Viewing Party Details</h3>
-  <%= form_with model: @viewing_party, url: user_user_parties_path(params[:user_id])  do |f| %>
+  <%= form_with model: @viewing_party, url: user_movie_viewing_party_index_path(params[:user_id], params[:movie_id])  do |f| %>
     <table>
       <tr>
         <td>Movie Title</td>
@@ -27,8 +27,8 @@
       </tr>
     </table>
     <h4>Invite Other Users</h4>
-    <table>
-      <%= f.collection_check_boxes(:user_ids, User.all, :id, :name) do |b| %>
+    <table id="invitations">
+      <%= f.collection_check_boxes(:user_ids, @users, :id, :name) do |b| %>
         <tr>
           <td><%= b.label(class: "checkbox-inline") { b.check_box + b.text } %> (<%= b.object.email %>)</td>
         </tr>

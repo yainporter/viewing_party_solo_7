@@ -29,6 +29,7 @@ RSpec.describe 'Viewing Party New', type: :feature do
       expect(page).to have_field("Start Time", with: "19:00")
       expect(page).to have_content("Invite Other Users")
       #Is there a better way to check for checkboxes?
+      expect(page).to have_css("table", id: "invitations")
       checkbox_count = all('input[type="checkbox"]').count
       expect(checkbox_count).to eq(11)
       expect(page).to have_button("Create Party")
@@ -41,7 +42,6 @@ RSpec.describe 'Viewing Party New', type: :feature do
     expect(page).to have_no_css(".viewing_party")
 
     visit new_user_movie_viewing_party_path(@user, @movie.id)
-
     click_button("Create Party")
 
     expect(page.current_path).to eq(user_path(@user))
