@@ -1,0 +1,65 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/240?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 20 Mar 2024 18:09:22 GMT
+      Server:
+      - openresty
+      Cache-Control:
+      - public, max-age=24749
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - d9ce03bd0083ec19297d9245f0b8dfe6
+      X-Memc-Age:
+      - '81'
+      X-Memc-Expires:
+      - '24749'
+      Etag:
+      - W/"65e7f7941d83397ebca00a95436b1bbd"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 4892b1ac8a5bf76f6f3908b66c300c8c.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - 96qIyYKOYCAt1nD4XrOVtxRu-ygFlkltbrlytosG3oFIbAtUk_l2fg==
+      Age:
+      - '9775'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJhZHVsdCI6ZmFsc2UsImJhY2tkcm9wX3BhdGgiOiIva0d6RmJHaHA5OXp2YTZvWk9EVzVhdFV0bnFpLmpwZyIsImJlbG9uZ3NfdG9fY29sbGVjdGlvbiI6eyJpZCI6MjMwLCJuYW1lIjoiVGhlIEdvZGZhdGhlciBDb2xsZWN0aW9uIiwicG9zdGVyX3BhdGgiOiIvenFWOE1HWGZwTFppRlZPYkx4cEFJN3dXb25KLmpwZyIsImJhY2tkcm9wX3BhdGgiOiIvbURNQ0VUOUVuczVBTnZaQVdScGx1QnNNQXRTLmpwZyJ9LCJidWRnZXQiOjEzMDAwMDAwLCJnZW5yZXMiOlt7ImlkIjoxOCwibmFtZSI6IkRyYW1hIn0seyJpZCI6ODAsIm5hbWUiOiJDcmltZSJ9XSwiaG9tZXBhZ2UiOiIiLCJpZCI6MjQwLCJpbWRiX2lkIjoidHQwMDcxNTYyIiwib3JpZ2luYWxfbGFuZ3VhZ2UiOiJlbiIsIm9yaWdpbmFsX3RpdGxlIjoiVGhlIEdvZGZhdGhlciBQYXJ0IElJIiwib3ZlcnZpZXciOiJJbiB0aGUgY29udGludWluZyBzYWdhIG9mIHRoZSBDb3JsZW9uZSBjcmltZSBmYW1pbHksIGEgeW91bmcgVml0byBDb3JsZW9uZSBncm93cyB1cCBpbiBTaWNpbHkgYW5kIGluIDE5MTBzIE5ldyBZb3JrLiBJbiB0aGUgMTk1MHMsIE1pY2hhZWwgQ29ybGVvbmUgYXR0ZW1wdHMgdG8gZXhwYW5kIHRoZSBmYW1pbHkgYnVzaW5lc3MgaW50byBMYXMgVmVnYXMsIEhvbGx5d29vZCBhbmQgQ3ViYS4iLCJwb3B1bGFyaXR5Ijo3OS40ODcsInBvc3Rlcl9wYXRoIjoiL2hlazNrb0RVeVJRazdGSWhQWHNhNm1UMlpjMy5qcGciLCJwcm9kdWN0aW9uX2NvbXBhbmllcyI6W3siaWQiOjQsImxvZ29fcGF0aCI6Ii9nejY2RWZOb1lQcUhUWUk0cTlVRU40Q2JIUmMucG5nIiwibmFtZSI6IlBhcmFtb3VudCIsIm9yaWdpbl9jb3VudHJ5IjoiVVMifSx7ImlkIjo1MzYsImxvZ29fcGF0aCI6bnVsbCwibmFtZSI6IlRoZSBDb3Bwb2xhIENvbXBhbnkiLCJvcmlnaW5fY291bnRyeSI6IlVTIn1dLCJwcm9kdWN0aW9uX2NvdW50cmllcyI6W3siaXNvXzMxNjZfMSI6IlVTIiwibmFtZSI6IlVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSJ9XSwicmVsZWFzZV9kYXRlIjoiMTk3NC0xMi0yMCIsInJldmVudWUiOjEwMjYwMDAwMCwicnVudGltZSI6MjAyLCJzcG9rZW5fbGFuZ3VhZ2VzIjpbeyJlbmdsaXNoX25hbWUiOiJFbmdsaXNoIiwiaXNvXzYzOV8xIjoiZW4iLCJuYW1lIjoiRW5nbGlzaCJ9LHsiZW5nbGlzaF9uYW1lIjoiSXRhbGlhbiIsImlzb182MzlfMSI6Iml0IiwibmFtZSI6Ikl0YWxpYW5vIn0seyJlbmdsaXNoX25hbWUiOiJMYXRpbiIsImlzb182MzlfMSI6ImxhIiwibmFtZSI6IkxhdGluIn0seyJlbmdsaXNoX25hbWUiOiJTcGFuaXNoIiwiaXNvXzYzOV8xIjoiZXMiLCJuYW1lIjoiRXNwYcOxb2wifV0sInN0YXR1cyI6IlJlbGVhc2VkIiwidGFnbGluZSI6IlRoZSByaXNlIGFuZCBmYWxsIG9mIHRoZSBDb3JsZW9uZSBlbXBpcmUuIiwidGl0bGUiOiJUaGUgR29kZmF0aGVyIFBhcnQgSUkiLCJ2aWRlbyI6ZmFsc2UsInZvdGVfYXZlcmFnZSI6OC41NzYsInZvdGVfY291bnQiOjExODM3fQ==
+  recorded_at: Wed, 20 Mar 2024 20:52:17 GMT
+recorded_with: VCR 6.2.0

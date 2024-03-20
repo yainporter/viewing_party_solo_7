@@ -14,14 +14,6 @@ RSpec.describe ViewingParty, type: :model do
       it { should have_many(:users).through(:user_parties) }
   end
 
-  describe "class methods" do
-    describe ".create_user_parties" do
-      it "creates user_parties for Users invited" do
-        params = {}
-        expect(ViewingParty.create_user_parties).to eq()
-      end
-    end
-  end
   describe "instance methods" do
     it "returns user that is hosting the party" do
       expect(@party.find_host).to eq (@user_1)

@@ -1,8 +1,8 @@
 class MovieFacade
-  attr_reader :movie_service, :params
+  attr_reader :movie_service, :movie_id
 
-  def initialize(params)
-    @params = params
+  def initialize(movie_id)
+    @movie_id = movie_id
     @movie_service = MovieService.new
   end
 
@@ -19,14 +19,14 @@ class MovieFacade
   end
 
   def get_movie_info
-    @movie_service.get_movie_service(@params[:id])
+    @movie_service.get_movie_service(@movie_id)
   end
 
   def movie_data
     movie_data = Hash.new
     movie_data[:movie_info] = get_movie_info
-    movie_data[:movie_reviews] = get_movie_reviews
-    movie_data[:movie_cast] = get_movie_cast
+    movie_data[:movie_reviews] = movie_review_data
+    movie_data[:movie_cast] = movie_cast_data
     movie_data
   end
 
@@ -35,11 +35,28 @@ class MovieFacade
   end
 
   def get_movie_reviews
-    @movie_service.get_movie_reviews_service(params[:id])[:results]
+    @movie_service.get_movie_reviews_service(@movie_id)
   end
 
   def get_movie_cast
-    params[:id] = params[:movie_id] if params[:id] == nil
-    @movie_service.get_movie_cast_service(params[:id])[:cast].take(10)
+    @movie_service.get_movie_cast_service(@movie_id)
+  end
+
+  def movie_cast_data
+    movie_cast_data = []
+    data = get_movie_cast[:cast].take(10)
+    data.each do |cast_member_data|
+      movie_cast_data << { name: cast_member_data[:name], character: cast_member_data[:character]}
+    end
+    movie_cast_data
+  end
+
+  def movie_reviews_data
+    movie_reviews_data = []
+    data = get_movie_reviews[:results]
+    data.each do |result|
+      movie_reviews_data << { author: result[:author], content: result[:content]}
+    end
+    movie_reviews_data
   end
 end

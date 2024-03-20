@@ -1,6 +1,7 @@
 class ViewingPartyController < ApplicationController
   def new
-    @facade = MovieFacade.new(params)
+    # try passing only 1 param, not the full params
+    @facade = MovieFacade.new(params[:movie_id])
     @viewing_party = ViewingParty.new
     @users = User.all
   end
@@ -24,7 +25,7 @@ class ViewingPartyController < ApplicationController
   end
 
   def create_user_parties(viewing_party)
-    filter_user_party_ids.map{ |user_id| viewing_party.user_parties.create!(user_id:, host: false) }
+    filter_user_party_ids.map{ |user_id| viewing_party.user_parties.create(user_id:, host: false) }
     viewing_party.user_parties.create!(user_id: params[:user_id], host: true)
   end
 
