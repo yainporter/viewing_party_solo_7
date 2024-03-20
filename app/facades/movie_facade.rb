@@ -43,6 +43,7 @@ class MovieFacade
   end
 
   def get_movie_cast
+    params[:id] = params[:movie_id] if params[:id] == nil
     @movie_service.get_movie_cast_service(params[:id])[:cast].take(10)
   end
 end

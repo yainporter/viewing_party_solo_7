@@ -1,20 +1,35 @@
-<h3>Create a Movie Party for <%= @facade.movie.title %></h3>
+<h3>Create a Movie Party for <%= @facade.movie.title %> </h3>
 <%= button_to "Discover Page", user_discover_index_path, method: :get %>
 <br>
 <div id="form">
   <h3>Viewing Party Details</h3>
-  <table>
-    <tr>
-      <td>Movie Title</td>
-      <td><%= @facade.movie.title %></td>
-    </tr>
-    <%= form_with url: user_movie_viewing_party_index(params[:user_id], params[:id]), method: :post, data: { turbo: false } do |f| %> 
-    <tr>
-      <td><%= f.label :runtime, "Duration of Party" %></td>
-      <td><%= f.number_field :runtime %></td>
-    </tr>
-      <%= f.submit "Submit" %>
+  <%= form_with model: @viewing_party, url: user_movie_viewing_party_index_path(params[:user_id], params[:id])  do |f| %> 
+    <table>
+      <tr>
+        <td>Movie Title</td>
+        <td><%= @facade.movie.title %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :duration, "Duration of Party" %></td>
+        <td><%= f.number_field :duration, value: @facade.movie.runtime %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :date, "Day" %></td>
+        <td><%= f.date_field :date, value: Date.today %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :start_time, "Start Time" %></td>
+        <td><%= f.time_field :start_time, value: "19:00" %></td>
+      </tr>
+    </table>
+    <h4>Invite Other Users</h4>
+    <table>
+      <%= f.collection_check_boxes(:user_ids, User.all, :id, :name) do |b| %>
+        <tr>
+          <td><%= b.label(class: "checkbox-inline") { b.check_box + b.text } %> (<%= b.object.email %>)</td>
+        </tr>
+      <% end %>
+      </table>
+    <%= f.submit "Create Party" %>
     <% end %>
-  </table>
 </div>
-<%= f.number_field (:id_name, in: 1.0..20.0, step: 0.5) %>
