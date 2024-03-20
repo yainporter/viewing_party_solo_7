@@ -7,11 +7,12 @@ class ViewingPartyController < ApplicationController
   def create
     viewing_party = ViewingParty.new(viewing_party_params)
     if viewing_party.save
+      require 'pry'; binding.pry
+      redirect_to controller: :user_parties, action: :create
       UserParty.create!(user_id: params[:user_id], viewing_party_id: viewing_party.id, host: true)
       params[:viewing_party][:user_ids].each do |user_id|
         UserParty.create!(user_id: user_id, viewing_party_id: viewing_party.id, host: false) if user_id.to_i != 0
       end
-      redirect_to user_path(params[:user_id])
     else
       flash[:alert] = "There was an error, try again"
       render :new

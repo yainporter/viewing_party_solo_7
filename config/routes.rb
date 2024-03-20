@@ -12,5 +12,6 @@ Rails.application.routes.draw do
     resources :movies, only: [:index, :show] do
       resources :viewing_party, only: [:new, :create]
     end
+    resources :user_parties, only: [:create]
   end
 end
