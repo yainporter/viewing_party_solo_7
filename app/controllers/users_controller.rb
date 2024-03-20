@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       else
          flash[:error] = "#{error_message(user.errors)}"
          redirect_to register_user_path
-      end   
+      end
    end
 
 
