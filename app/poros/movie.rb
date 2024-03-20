@@ -22,12 +22,8 @@ class Movie
       @id = data[:id]
       @title = data[:title]
       @vote_average = data[:vote_average]
-      @genres = data[:genres]
-      @summary = data[:summary]
-      @runtime = data[:runtime]
-      @reviews = data[:reviews]
-      @cast = data[:cast]
     end
+    require 'pry'; binding.pry
   end
 
   def convert_runtime

@@ -69,7 +69,7 @@ RSpec.describe MovieFacade do
     end
   end
 
-  describe "#get_movie_info" do
+  describe "#get_movie" do
     it "returns the information for a movie" do
       json_response = File.read("spec/fixtures/movie_show_porter.json")
 
@@ -108,7 +108,7 @@ RSpec.describe MovieFacade do
         :vote_count
       ]
       facade = MovieFacade.new("1090265")
-      movie_info = facade.get_movie_info
+      movie_info = facade.get_movie
 
       expect(movie_info).to be_a(Hash)
       expect(movie_info.keys).to eq data_keys
@@ -116,7 +116,7 @@ RSpec.describe MovieFacade do
   end
 
   describe "#movie_info" do
-    it "returns the data from #get_movie_info and stores it", :vcr do
+    it "returns the data from #get_movie and stores it", :vcr do
       facade = MovieFacade.new("240")
       movie_info = facade.movie_info
       movie_info_keys = [:id, :genres, :overview, :runtime, :vote_average]
@@ -162,17 +162,17 @@ RSpec.describe MovieFacade do
     end
   end
 
-  describe "#movie_review_data" do
+  describe "#movie_reviews_info" do
     it "returns an array of necessary data from #get_movie_reviews", :vcr do
       facade = MovieFacade.new("240")
-      movie_reviews_data = facade.movie_reviews_data
+      movie_reviews_info = facade.movie_reviews_info
 
-      expect(movie_reviews_data).to be_an(Array)
-      movie_reviews_data.each do |review_data|
-        expect(review_data).to be_a(Hash)
-        expect(review_data.keys).to eq([:author, :content])
-        expect(review_data[:author]).to be_a(String)
-        expect(review_data[:content]).to be_a(String)
+      expect(movie_reviews_info).to be_an(Array)
+      movie_reviews_info.each do |review_info|
+        expect(review_info).to be_a(Hash)
+        expect(review_info.keys).to eq([:author, :content])
+        expect(review_info[:author]).to be_a(String)
+        expect(review_info[:content]).to be_a(String)
       end
     end
   end
@@ -196,14 +196,14 @@ RSpec.describe MovieFacade do
     end
   end
 
-  describe "#get_movie_cast_data" do
+  describe "#get_movie_cast_info" do
     it "organizes the data from #get_movie_cast into only wanted data", :vcr do
       facade = MovieFacade.new("240")
-      movie_cast_data = facade.movie_cast_data
+      movie_cast_info = facade.movie_cast_info
 
-      expect(movie_cast_data).to be_an (Array)
-      expect(movie_cast_data.size).to eq(10)
-      movie_cast_data.each do |cast_member_data|
+      expect(movie_cast_info).to be_an (Array)
+      expect(movie_cast_info.size).to eq(10)
+      movie_cast_info.each do |cast_member_data|
         expect(cast_member_data).to be_a(Hash)
         expect(cast_member_data.keys).to eq([:name, :character])
         expect(cast_member_data[:name]).to be_a(String)
