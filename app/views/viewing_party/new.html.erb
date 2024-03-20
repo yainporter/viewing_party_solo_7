@@ -1,9 +1,13 @@
-<h3>Create a Movie Party for <%= @facade.movie.title %> </h3>
+<%= @facade.movie.title %>
+
+<h3>Create a Movie Party for <%= @facade.movie.title %></h3>
 <%= button_to "Discover Page", user_discover_index_path, method: :get %>
+
 <br>
-<div id="form">
+
+<div id="viewing-party-form">
   <h3>Viewing Party Details</h3>
-  <%= form_with model: @viewing_party, url: user_movie_viewing_party_index_path(params[:user_id], params[:id])  do |f| %> 
+  <%= form_with model: @viewing_party, url: user_movie_viewing_party_index_path(params[:user_id], params[:movie_id])  do |f| %>
     <table>
       <tr>
         <td>Movie Title</td>
@@ -33,3 +37,4 @@
     <%= f.submit "Create Party" %>
     <% end %>
 </div>
+

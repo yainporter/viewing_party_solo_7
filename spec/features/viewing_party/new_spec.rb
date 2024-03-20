@@ -20,7 +20,8 @@ RSpec.describe 'Viewing Party New', type: :feature do
   end
 
   it "has a form to be filled out", :vcr do
-    within "#form" do
+    within "#viewing-party-form" do
+      save_and_open_page
       expect(page).to have_selector("h3", text: "Viewing Party Details")
 
       expect(page).to have_content("Duration of Party")
