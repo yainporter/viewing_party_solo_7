@@ -1,0 +1,20 @@
+<h3>Create a Movie Party for <%= @facade.movie.title %></h3>
+<%= button_to "Discover Page", user_discover_index_path, method: :get %>
+<br>
+<div id="form">
+  <h3>Viewing Party Details</h3>
+  <table>
+    <tr>
+      <td>Movie Title</td>
+      <td><%= @facade.movie.title %></td>
+    </tr>
+    <%= form_with url: user_movie_viewing_party_index(params[:user_id], params[:id]), method: :post, data: { turbo: false } do |f| %> 
+    <tr>
+      <td><%= f.label :runtime, "Duration of Party" %></td>
+      <td><%= f.number_field :runtime %></td>
+    </tr>
+      <%= f.submit "Submit" %>
+    <% end %>
+  </table>
+</div>
+<%= f.number_field (:id_name, in: 1.0..20.0, step: 0.5) %>

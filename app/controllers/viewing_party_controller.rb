@@ -1,5 +1,7 @@
 class ViewingPartyController < ApplicationController
-  def new;end
+  def new
+    @facade = MovieFacade.new(params)
+  end
 
   def create
 
