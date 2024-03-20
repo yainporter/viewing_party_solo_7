@@ -69,7 +69,7 @@ RSpec.describe MovieFacade do
     end
   end
 
-  describe "#get_movie_data" do
+  describe "#get_movie_info" do
     it "returns the information for a movie" do
       json_response = File.read("spec/fixtures/movie_show_porter.json")
 
@@ -109,9 +109,26 @@ RSpec.describe MovieFacade do
       ]
       facade = MovieFacade.new("1090265")
       movie_info = facade.get_movie_info
+
       expect(movie_info).to be_a(Hash)
-      expect(movie_info[:data]).to eq(nil)
       expect(movie_info.keys).to eq data_keys
+    end
+  end
+
+  describe "#movie_info" do
+    it "returns the data from #get_movie_info and stores it", :vcr do
+      facade = MovieFacade.new("240")
+      movie_info = facade.movie_info
+      movie_info_keys = [:id, :genres, :overview, :runtime, :vote_average]
+
+      expect(movie_info).to be_a(Hash)
+      expect(movie_info.keys.sort).to eq(movie_info_keys.sort)
+      expect(movie_info[:id]).to be_an(Integer)
+      expect(movie_info[:runtime]).to be_an(Integer)
+      expect(movie_info[:genres]).to be_an(Array)
+      expect(movie_info[:overview]).to be_a(String)
+      expect(movie_info[:vote_average]).to be_a(Float)
+
     end
   end
 
@@ -126,13 +143,22 @@ RSpec.describe MovieFacade do
           }
         ).to_return(status: 200, body: json_response)
 
-      review_keys = [:author, :author_details, :content, :created_at, :id, :updated_at, :url]
       facade = MovieFacade.new("240")
       movie_reviews = facade.get_movie_reviews
-      expect(movie_reviews).to be_an(Array)
-      movie_reviews.each do |review|
-        expect(review.keys).to eq(review_keys)
-      end
+
+      movie_reviews_keys = [:id, :page, :results, :total_pages, :total_results]
+
+      results_keys = [:author, :author_details, :content, :created_at, :id, :updated_at, :url]
+
+      expect(movie_reviews).to be_a(Hash)
+      expect(movie_reviews.keys.sort).to eq(movie_reviews_keys.sort)
+      expect(movie_reviews[:id]).to be_an(Integer)
+      expect(movie_reviews[:page]).to be_an(Integer)
+      expect(movie_reviews[:total_pages]).to be_an(Integer)
+      expect(movie_reviews[:total_results]).to be_an(Integer)
+      expect(movie_reviews[:results]).to be_an(Array)
+      expect(movie_reviews[:results].first).to be_a(Hash)
+      expect(movie_reviews[:results].first.keys.sort).to eq(results_keys.sort)
     end
   end
 
@@ -145,6 +171,8 @@ RSpec.describe MovieFacade do
       movie_reviews_data.each do |review_data|
         expect(review_data).to be_a(Hash)
         expect(review_data.keys).to eq([:author, :content])
+        expect(review_data[:author]).to be_a(String)
+        expect(review_data[:content]).to be_a(String)
       end
     end
   end
@@ -163,7 +191,6 @@ RSpec.describe MovieFacade do
       facade = MovieFacade.new("240")
       movie_cast = facade.get_movie_cast
       keys = [:id, :cast, :crew]
-
       expect(movie_cast).to be_a(Hash)
       expect(movie_cast.keys).to eq(keys)
     end
@@ -179,43 +206,23 @@ RSpec.describe MovieFacade do
       movie_cast_data.each do |cast_member_data|
         expect(cast_member_data).to be_a(Hash)
         expect(cast_member_data.keys).to eq([:name, :character])
+        expect(cast_member_data[:name]).to be_a(String)
+        expect(cast_member_data[:character]).to be_a(String)
       end
     end
   end
 
-  describe "#movie_data" do
-    it "returns the data from #get_movie_info and stores it", :vcr do
+  describe "movie_data" do
+    it "combines all the information from movie_info, movie_reviews, and movie_cast", :vcr do
       facade = MovieFacade.new("240")
       movie_data = facade.movie_data
       keys = [:movie_info, :movie_reviews, :movie_cast]
-      require 'pry'; binding.pry
+
       expect(movie_data.keys.sort).to eq(keys.sort)
       expect(movie_data).to be_a(Hash)
-      expect(movie_data[:movie_info]).to be_a(Hash)
-      expect(movie_data[:movie_reviews]).to be_an (Array)
+      expect(movie_data[:movie_reviews]).to be_an(Array)
       expect(movie_data[:movie_cast]).to be_an(Array)
-
-
-      expect(movie_data[:id]).to be_a(Integer)
-      expect(movie_data[:genres]).to be_a(Array)
-
-      movie_data[:genres].each do |genre|
-        expect(genre).to be_a(Hash)
-      end
-      expect(movie_data[:overview]).to be_a(String)
-      expect(movie_data[:runtime]).to be_a(Integer)
-      expect(movie_data[:vote_average]).to be_a(Float)
-      expect(movie_data[:reviews]).to be_an(Array)
-
-      movie_data[:reviews].each do |review|
-        expect(review).to be_a(Hash)
-      end
-
-      expect(movie_data[:cast]).to be_an(Array)
-
-      movie_data[:cast].each do |cast_member|
-        expect(cast_member).to be_a(Hash)
-      end
+      expect(movie_data[:movie_info]).to be_a(Hash)
     end
   end
 

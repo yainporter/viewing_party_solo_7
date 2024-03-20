@@ -24,8 +24,8 @@ class MovieFacade
 
   def movie_data
     movie_data = Hash.new
-    movie_data[:movie_info] = get_movie_info
-    movie_data[:movie_reviews] = movie_review_data
+    movie_data[:movie_info] = movie_info
+    movie_data[:movie_reviews] = movie_reviews_data
     movie_data[:movie_cast] = movie_cast_data
     movie_data
   end
@@ -42,9 +42,21 @@ class MovieFacade
     @movie_service.get_movie_cast_service(@movie_id)
   end
 
+  def movie_info
+    movie_info = Hash.new
+    data = get_movie_info
+
+    movie_info[:id] = data[:id]
+    movie_info[:genres] = data[:genres]
+    movie_info[:overview] = data[:overview]
+    movie_info[:runtime] = data[:runtime]
+    movie_info[:vote_average] = data[:vote_average]
+    movie_info
+  end
+
   def movie_cast_data
-    movie_cast_data = []
     data = get_movie_cast[:cast].take(10)
+    movie_cast_data = []
     data.each do |cast_member_data|
       movie_cast_data << { name: cast_member_data[:name], character: cast_member_data[:character]}
     end
@@ -52,8 +64,8 @@ class MovieFacade
   end
 
   def movie_reviews_data
-    movie_reviews_data = []
     data = get_movie_reviews[:results]
+    movie_reviews_data = []
     data.each do |result|
       movie_reviews_data << { author: result[:author], content: result[:content]}
     end
