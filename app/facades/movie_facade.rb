@@ -11,8 +11,7 @@ class MovieFacade
   end
 
   def make_movies(data)
-    movies_array = data.map{ |movie|movies_array << Movie.new(movie)}
-    movies_array.first.take(20)
+    movies_array = data.map{ |movie| Movie.new(movie) }
   end
 
   def search_movies(keyword)
