@@ -25,20 +25,38 @@ RSpec.describe MovieFacade do
     expect(@movies.movie_id).to be_a(String)
   end
 
-  describe "#top_movies" do
-    it "can get the top_movies" do
-      expect(@movies.top_movies).to be_an(Array)
-      expect(@movies.top_movies.size).to eq(20)
-      @movies.top_movies.each do |movie|
-        expect(movie[:title].present?).to eq true
-        expect(movie[:vote_average].present?).to eq true
-      end
+  describe "#get_top_movies" do
+    it "returns a hash of information from #get_top_movie_service", :vcr do
+      top_movies = @movies.get_top_movies
+      keys = [:page, :results, :total_pages, :total_results]
+      results_keys = [:adult, :backdrop_path, :genre_ids, :id, :original_language, :original_title, :overview, :popularity, :poster_path, :release_date, :title, :video, :vote_average, :vote_count]
+
+      expect(top_movies).to be_a(Hash)
+      expect(top_movies.keys.sort).to eq(keys.sort)
+      expect(top_movies[:page]).to be_an(Integer)
+      expect(top_movies[:page]).to eq(1)
+      expect(top_movies[:results]).to be_an(Array)
+      expect(top_movies[:results].first.keys).to eq(results_keys.sort)
+      expect(top_movies[:total_pages]).to be_an(Integer)
+      expect(top_movies[:total_results]).to be_an(Integer)
     end
   end
 
-  describe "#make_top_movies" do
+  describe "#top_movies_info" do
+    it "returns the information needed for top movies", :vcr do
+      top_movies_info = @movies.top_movies_info
+      top_movies_keys = [:id, :title, :vote_average]
+
+      expect(top_movies_info).to be_an(Array)
+      expect(top_movies_info.size).to eq(20)
+      expect(top_movies_info.first.keys).to be_an(Array)
+      expect(top_movies_info.first.keys.sort).to eq(top_movies_keys.sort)
+    end
+  end
+
+  describe "#make_top_movies_service" do
     it "makes an array of movie poros" do
-      movies = @movies.make_movies(@movies.top_movies)
+      movies = @movies.make_movies(@movies.get_top_movies)
       expect(movies).to be_an(Array)
       movies.each do |movie|
         expect(movie).to be_a(Movie)

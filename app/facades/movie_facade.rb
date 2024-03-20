@@ -6,12 +6,22 @@ class MovieFacade
     @movie_service = MovieService.new
   end
 
-  def top_movies
-    @movie_service.get_top_movies_service[:results]
+  def get_top_movies
+    @movie_service.get_top_movies_service
+  end
+
+  def top_movies_info
+    top_movies = []
+    data = get_top_movies[:results]
+    #Why does this method return more than 20? Why do I need .first?
+    data.map do |movie_info|
+      top_movies << { id: movie_info[:id],
+                      title: movie_info[:title],
+                      vote_average: movie_info[:vote_average] }
+    end.first
   end
 
   def make_movies(data)
-    require 'pry'; binding.pry
     movies_array = data.map{ |movie| Movie.new(movie) }
   end
 
