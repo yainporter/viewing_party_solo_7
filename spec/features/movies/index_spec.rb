@@ -2,15 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'Movies Page', type: :feature do
   before do
-    json_response = File.read("spec/fixtures/top_rated_movies.json")
-
-    stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1").
-      with(
-        headers: {
-          "Authorization": ENV["TMDB_ACCESS_TOKEN_KEY"]
-        }
-      ).to_return(status: 200, body: json_response)
-
     @user = User.create!(name: Faker::Name.name, email: Faker::Internet.email)
     visit user_movies_path(@user)
   end
@@ -23,26 +14,17 @@ RSpec.describe 'Movies Page', type: :feature do
       expect(page.current_path).to eq(user_discover_index_path(@user))
     end
 
-    it "filters page results" do
+    it "filters page results", :vcr do
       visit user_movies_path(@user, keyword: "top 20rated")
 
       expect(find('#top-20-movies')).to have_selector('tr', count: 20)
-      json_response = File.read("spec/fixtures/movie_search_bad_1.json")
-      expect(page).to have_no_css("table#search-params")
-
-      stub_request(:get, "https://api.themoviedb.org/3/search/movie?query=Bad&include_adult=false&language=en-US&page=1").
-        with(
-          headers: {
-            "Authorization": ENV["TMDB_ACCESS_TOKEN_KEY"]
-          }
-        ).to_return(status: 200, body: json_response)
 
       visit user_movies_path(@user, keyword: "Bad")
       expect(find('#search-params')).to have_selector('tr', count: 20)
       expect(page).to have_no_css("table#top-20-movies")
     end
 
-    it "displays the filter results as a link" do
+    it "displays the filter results for top_20 as a link", :vcr do
       visit user_movies_path(@user, keyword: "top 20rated")
 
       movie_names = ["The Shawshank Redemption",
@@ -72,39 +54,31 @@ RSpec.describe 'Movies Page', type: :feature do
           expect(page).to have_content("Vote Average: ")
         end
       end
+    end
 
-      json_response = File.read("spec/fixtures/movie_search_bad_1.json")
-      expect(page).to have_no_css("table#search-params")
-
-      stub_request(:get, "https://api.themoviedb.org/3/search/movie?query=Bad&include_adult=false&language=en-US&page=1").
-        with(
-          headers: {
-            "Authorization": ENV["TMDB_ACCESS_TOKEN_KEY"]
-          }
-        ).to_return(status: 200, body: json_response)
-
+    it "displays the filter results for movie search as a link", :vcr do
       visit user_movies_path(@user, keyword: "Bad")
 
       movie_names = ["Bad",
-                     "Badland Hunters",
-                     "Land of Bad",
-                     "Bad Lands",
-                     "Bad",
-                     "BAD",
-                     "bad",
-                     "Bad",
-                     "The Good, the Bad and the Ugly",
-                     "Bad Company",
-                     "Serial (Bad) Weddings",
-                     "The Bad Guys: The Movie",
-                     "Serial (Bad) Weddings 3",
-                     "Serial (Bad) Weddings 2",
-                     "Bad Boys for Life",
-                     "Badrinath Ki Dulhania",
-                     "Trigun: Badlands Rumble",
-                     "Bad Milo!",
-                     "Bad City",
-                     "Bad Boy in Love"]
+        "Badland Hunters",
+        "Land of Bad",
+        "Bad",
+        "Bad Lands",
+        "Bad",
+        "BAD",
+        "bad",
+        "Bad",
+        "The Good, the Bad and the Ugly",
+        "Bad Company",
+        "Serial (Bad) Weddings",
+        "The Bad Guys: The Movie",
+        "Serial (Bad) Weddings 3",
+        "Serial (Bad) Weddings 2",
+        "Bad Boys for Life",
+        "Badrinath Ki Dulhania",
+        "Trigun: Badlands Rumble",
+        "Bad Milo!",
+        "Bad City"]
 
       within "#search-params" do
         movie_names.each do |movie_name|

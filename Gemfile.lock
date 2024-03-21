@@ -119,8 +119,6 @@ GEM
     faraday-net_http (3.1.0)
       net-http
     ffi (1.16.3)
-    figaro (1.2.0)
-      thor (>= 0.14.0, < 2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     hashdiff (1.1.0)
@@ -336,7 +334,6 @@ DEPENDENCIES
   capybara
   faker
   faraday
-  figaro
   importmap-rails
   jbuilder
   launchy

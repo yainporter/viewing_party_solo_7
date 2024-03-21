@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.desribe "Viewing Party Show Page" do
+RSpec.describe "Viewing Party Show Page" do
   before do
     movie_data = {
       movie_info: {

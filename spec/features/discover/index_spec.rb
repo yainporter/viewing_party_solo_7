@@ -23,28 +23,7 @@ RSpec.describe 'Discover Page', type: :feature do
   end
 
   describe "User Story 2 - Movie Results Page" do
-    it "has working links for the buttons" do
-      json_response = File.read("spec/fixtures/top_rated_movies.json")
-
-      stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1").
-        with(
-          headers: {
-            "Authorization": ENV["TMDB_ACCESS_TOKEN_KEY"]
-          }
-        ).to_return(status: 200, body: json_response)
-
-      click_button("Find Top Rated Movies")
-      expect(page.current_path).to eq(user_movies_path(@user))
-
-      json_response = File.read("spec/fixtures/movie_search_bad_1.json")
-
-      stub_request(:get, "https://api.themoviedb.org/3/search/movie?query=Bad&include_adult=false&language=en-US&page=1").
-        with(
-          headers: {
-            "Authorization": ENV["TMDB_ACCESS_TOKEN_KEY"]
-          }
-        ).to_return(status: 200, body: json_response)
-
+    it "has working links for the buttons", :vcr do
       visit user_discover_index_path(@user)
       fill_in(:keyword, with: "Bad")
       click_button("Find Movies")

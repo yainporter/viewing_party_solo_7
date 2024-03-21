@@ -84,16 +84,7 @@ RSpec.describe MovieFacade do
   end
 
   describe "#get_movie_search" do
-    it "returns the search results from MovieService" do
-      json_response = File.read("spec/fixtures/movie_search_bad_1.json")
-
-      stub_request(:get, "https://api.themoviedb.org/3/search/movie?query=Bad&include_adult=false&language=en-US&page=1").
-        with(
-          headers: {
-            "Authorization": ENV["TMDB_ACCESS_TOKEN_KEY"]
-          }
-        ).to_return(status: 200, body: json_response)
-
+    it "returns the search results from MovieService", :vcr do
       keys = [:page,
               :results,
               :total_pages,
@@ -127,16 +118,7 @@ RSpec.describe MovieFacade do
   end
 
   describe "#get_movie" do
-    it "returns the information for a movie" do
-      json_response = File.read("spec/fixtures/movie_show_porter.json")
-
-      stub_request(:get, "https://api.themoviedb.org/3/movie/1090265?language=en-US").
-        with(
-          headers: {
-            "Authorization": ENV["TMDB_ACCESS_TOKEN_KEY"]
-          }
-        ).to_return(status: 200, body: json_response)
-
+    it "returns the information for a movie", :vcr do
       data_keys = [
         :adult,
         :backdrop_path,
@@ -173,16 +155,7 @@ RSpec.describe MovieFacade do
   end
 
   describe "#get_movie_reviews" do
-    it "returns the results of movie reviews" do
-      json_response = File.read("spec/fixtures/movie_reviews.json")
-
-      stub_request(:get, "https://api.themoviedb.org/3/movie/240/reviews?language=en-US&page=1").
-        with(
-          headers: {
-            "Authorization": ENV["TMDB_ACCESS_TOKEN_KEY"]
-          }
-        ).to_return(status: 200, body: json_response)
-
+    it "returns the results of movie reviews", :vcr do
       facade = MovieFacade.new("240")
       movie_reviews = facade.get_movie_reviews
 
@@ -203,16 +176,7 @@ RSpec.describe MovieFacade do
   end
 
   describe "#get_movie_cast" do
-    it "returns the results of a Movie's cast" do
-      json_response = File.read("spec/fixtures/movie_cast.json")
-
-      stub_request(:get, "https://api.themoviedb.org/3/movie/240/credits?language=en-US").
-        with(
-          headers: {
-            "Authorization": ENV["TMDB_ACCESS_TOKEN_KEY"]
-          }
-        ).to_return(status: 200, body: json_response)
-
+    it "returns the results of a Movie's cast", :vcr do
       facade = MovieFacade.new("240")
       movie_cast = facade.get_movie_cast
       keys = [:id, :cast, :crew]
@@ -302,16 +266,7 @@ RSpec.describe MovieFacade do
   end
 
   describe "#make_movies" do
-    it "makes an array of movie poros" do
-      json_response = File.read("spec/fixtures/top_rated_movies.json")
-
-      stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1").
-        with(
-          headers: {
-            "Authorization": ENV["TMDB_ACCESS_TOKEN_KEY"]
-          }
-        ).to_return(status: 200, body: json_response)
-
+    it "makes an array of movie poros", :vcr do
       movies = @movies.make_movies(@movies.movies_array(@movies.get_top_movies))
       expect(movies).to be_an(Array)
       movies.each do |movie|
