@@ -5,7 +5,7 @@
 
 <div id="viewing-party-form">
   <h3>Viewing Party Details</h3>
-  <%= form_with model: @viewing_party, url: user_movie_viewing_party_index_path(params[:user_id], params[:movie_id])  do |f| %>
+  <%= form_with model: @viewing_party, url: user_movie_viewing_party_index_path  do |f| %>
     <table>
       <tr>
         <td>Movie Title</td>

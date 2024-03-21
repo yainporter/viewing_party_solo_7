@@ -3,7 +3,7 @@ class ViewingPartyController < ApplicationController
     # try passing only 1 param, not the full params
     @facade = MovieFacade.new(params[:movie_id])
     @viewing_party = ViewingParty.new
-    @users = User.all
+    @users = User.all_but(params[:user_id])
   end
 
   def create

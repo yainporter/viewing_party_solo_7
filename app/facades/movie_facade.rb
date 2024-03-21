@@ -1,11 +1,10 @@
 class MovieFacade
-  attr_reader :movie_service, :movie_id
+  attr_reader :movie_service, :movie_id, :user_id
 
-  def initialize(movie_id)
+  def initialize(movie_id, user_id = nil)
     @movie_service = MovieService.new
-    return unless valid_id?(movie_id)
-
-    @movie_id = movie_id
+    @user_id = user_id if valid_id?(user_id)
+    @movie_id = movie_id if valid_id?(movie_id)
   end
 
   def get_top_movies

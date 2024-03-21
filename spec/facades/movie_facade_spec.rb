@@ -25,9 +25,27 @@ RSpec.describe MovieFacade do
 
     expect(movie.movie_id).to eq(nil)
 
-    movie_2 = MovieFacade.new(0)
+    movie2 = MovieFacade.new(0)
 
-    expect(movie_2.movie_id).to eq(nil)
+    expect(movie2.movie_id).to eq(nil)
+  end
+
+  it "has a user_id that is a number String or Integer" do
+    movie1 = MovieFacade.new(1, "1")
+    expect(movie1.user_id).to be_a(String)
+
+    movie2 = MovieFacade.new(1, 1)
+    expect(movie2.user_id).to eq(1)
+  end
+
+  it "does not have user_id if user_id is NOT a number String or Integer" do
+    movie = MovieFacade.new(2, "abc")
+
+    expect(movie.user_id).to eq(nil)
+
+    movie2 = MovieFacade.new(3, 0)
+
+    expect(movie2.user_id).to eq(nil)
   end
 
   describe "#get_top_movies" do

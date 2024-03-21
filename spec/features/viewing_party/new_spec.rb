@@ -33,9 +33,13 @@ RSpec.describe 'Viewing Party New', type: :feature do
       #Is there a better way to check for checkboxes?
       expect(page).to have_css("table", id: "invitations")
       checkbox_count = all('input[type="checkbox"]').count
-      expect(checkbox_count).to eq(11)
+      expect(checkbox_count).to eq(10)
       expect(page).to have_button("Create Party")
     end
+  end
+
+  it "does not have the User's name anywhere on the page", :vcr do
+    expect(page).to have_no_content(@user.name)
   end
 
   describe "a Viewing Party form is submitted" do
@@ -48,7 +52,7 @@ RSpec.describe 'Viewing Party New', type: :feature do
       click_button("Create Party")
 
       expect(page.current_path).to eq(user_path(@user))
-      expect(page).to have_css(".viewing_party")
+      expect(page).to have_css(".viewing_party", count: 1)
 
       within ".viewing_party" do
         expect(page).to have_content("Party Time")
@@ -56,6 +60,7 @@ RSpec.describe 'Viewing Party New', type: :feature do
         expect(page).to have_content("Who's Coming?")
         expect(page).to have_css("ol")
         expect(page).to have_css("li", text: "#{@user.name}")
+        expect(page).to have_css("li", count: 1)
       end
     end
   end
