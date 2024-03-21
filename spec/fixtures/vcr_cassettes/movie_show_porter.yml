@@ -33,35 +33,35 @@ http_interactions:
       X-Memc-Key:
       - c19c21c4899cc4badf7add13266575f7
       X-Memc-Age:
-      - '19858'
+      - '6086'
       X-Memc-Expires:
-      - '4827'
+      - '16207'
       Date:
-      - Tue, 19 Mar 2024 19:41:34 GMT
+      - Thu, 21 Mar 2024 04:54:53 GMT
       Cache-Control:
-      - public, max-age=27157
+      - public, max-age=12934
       Etag:
-      - W/"48da4ef798b19b2400acdae8b310fe64"
+      - W/"6ea8cda535a2228aedfd0002c5c5de33"
       Vary:
       - Accept-Encoding
       - Origin
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 9c625a1ab662710c3b6d251a0b27b20e.cloudfront.net (CloudFront)
+      - 1.1 123e69ce4c4641277ec2a7cbf9f44f26.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - PHX50-P1
       Alt-Svc:
       - h3=":443"; ma=86400
       X-Amz-Cf-Id:
-      - RHGHGPFBVbIn_G7YdoSw6fMRcbELmzIUF6KpYSi_PKMcuNSkAUqq8A==
+      - MX8Fp7cLS81_JfBHbnU0btLXJAznATLZhAQuM8qxWOiMcG8KFw_npg==
       Age:
-      - '25533'
+      - '15'
     body:
       encoding: ASCII-8BIT
       string: '{"adult":false,"backdrop_path":null,"belongs_to_collection":null,"budget":0,"genres":[{"id":80,"name":"Crime"}],"homepage":"","id":1090265,"imdb_id":"tt12793888","original_language":"en","original_title":"Porter","overview":"An
-        aging and mute rodeo clown struggles between macabre dreams and reality.","popularity":1.837,"poster_path":"/nUv3wjneRP6Eu6jQNjpZzPZAow0.jpg","production_companies":[{"id":194091,"logo_path":null,"name":"Pristine
+        aging and mute rodeo clown struggles between macabre dreams and reality.","popularity":1.776,"poster_path":"/nUv3wjneRP6Eu6jQNjpZzPZAow0.jpg","production_companies":[{"id":194091,"logo_path":null,"name":"Pristine
         Entertainment Ltd.","origin_country":""}],"production_countries":[{"iso_3166_1":"CA","name":"Canada"}],"release_date":"","revenue":0,"runtime":82,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"Good
         clowns, Bad clowns","title":"Porter","video":false,"vote_average":0.0,"vote_count":0}'
-  recorded_at: Wed, 20 Mar 2024 02:47:08 GMT
+  recorded_at: Thu, 21 Mar 2024 04:55:08 GMT
 recorded_with: VCR 6.2.0

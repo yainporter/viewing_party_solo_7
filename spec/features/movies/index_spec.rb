@@ -24,7 +24,7 @@ RSpec.describe 'Movies Page', type: :feature do
     end
 
     it "filters page results" do
-      visit user_movies_path(@user, q: "top 20rated")
+      visit user_movies_path(@user, keyword: "top 20rated")
 
       expect(find('#top-20-movies')).to have_selector('tr', count: 20)
       json_response = File.read("spec/fixtures/movie_search_bad_1.json")
@@ -43,7 +43,7 @@ RSpec.describe 'Movies Page', type: :feature do
     end
 
     it "displays the filter results as a link" do
-      visit user_movies_path(@user, q: "top 20rated")
+      visit user_movies_path(@user, keyword: "top 20rated")
 
       movie_names = ["The Shawshank Redemption",
                      "The Godfather",
@@ -115,7 +115,7 @@ RSpec.describe 'Movies Page', type: :feature do
     end
 
     it "takes you to the show page when you click on a link with a movie name", :vcr do
-      visit user_movies_path(@user, q: "top 20rated")
+      visit user_movies_path(@user, keyword: "top 20rated")
 
       click_link("The Godfather")
       expect(page.current_path).to eq("/users/#{@user.id}/movies/238")

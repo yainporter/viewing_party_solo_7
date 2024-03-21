@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
   def index
-    @facade = MovieFacade.new(params[:id])
+    @facade = MovieFacade.new(params[:id], params[:user_id])
+    @keyword = params[:keyword]
   end
 
   def show
