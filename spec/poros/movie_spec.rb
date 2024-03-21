@@ -19,7 +19,7 @@ RSpec.describe Movie do
 
   it "has attributes from Facade's #movie_data", :vcr do
     facade = MovieFacade.new(240)
-    movie = Movie.new(facade.movie_data)
+    movie = Movie.new(facade.full_movie_data)
 
     expect(movie.cast).to be_an Array
     expect(movie.genres).to be_an Array

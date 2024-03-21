@@ -10,39 +10,12 @@ class MovieFacade
     @movie_service.get_top_movies_service
   end
 
-  def top_movies_info
-    top_movies = []
-    hash_for_movie_info = Hash.new
-    data = get_top_movies[:results]
-    data.each do |movie_data|
-      movie_data_hash = Hash.new
-      movie_data_hash[:id] = movie_data[:id]
-      movie_data_hash[:title] = movie_data[:title]
-      movie_data_hash[:vote_average] = movie_data[:vote_average]
-      hash_for_movie_info[:movie_info] = movie_data_hash
-      top_movies << hash_for_movie_info
-    end
-    top_movies
-  end
-
-  def make_movies(data)
-    data.map{ |movie| Movie.new(movie) }
-  end
-
-  def search_movies(keyword)
+  def get_movie_search(keyword)
     @movie_service.get_search_results_service(keyword)[:results]
   end
 
   def get_movie
     @movie_service.get_movie_service(@movie_id)
-  end
-
-  def movie_data
-    movie_data = Hash.new
-    movie_data[:movie_info] = movie_info
-    movie_data[:movie_reviews] = movie_reviews_info
-    movie_data[:movie_cast] = movie_cast_info
-    movie_data
   end
 
   def get_movie_reviews
@@ -51,6 +24,23 @@ class MovieFacade
 
   def get_movie_cast
     @movie_service.get_movie_cast_service(@movie_id)
+  end
+
+  def top_movies_info
+    # Must be in an array in order to use .map to create
+    # Must be a Hash, within a Hash in order to use data[:movie_info] for the Poro creation
+    top_movies = []
+    data = get_top_movies[:results]
+    data.each do |movie_data|
+      hash_for_movie_info = Hash.new
+      movie_data_hash = Hash.new
+      movie_data_hash[:id] = movie_data[:id]
+      movie_data_hash[:title] = movie_data[:title]
+      movie_data_hash[:vote_average] = movie_data[:vote_average]
+      hash_for_movie_info[:movie_info] = movie_data_hash
+      top_movies << hash_for_movie_info
+    end
+    top_movies
   end
 
   def movie_info
@@ -84,7 +74,19 @@ class MovieFacade
     movie_reviews_info
   end
 
+  def full_movie_data
+    movie_data = Hash.new
+    movie_data[:movie_info] = movie_info
+    movie_data[:movie_reviews] = movie_reviews_info
+    movie_data[:movie_cast] = movie_cast_info
+    movie_data
+  end
+
+  def make_movies(data)
+    data.map{ |movie| Movie.new(movie) }
+  end
+
   def movie
-    Movie.new(movie_data)
+    Movie.new(full_movie_data)
   end
 end

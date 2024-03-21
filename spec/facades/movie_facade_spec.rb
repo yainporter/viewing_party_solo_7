@@ -28,8 +28,26 @@ RSpec.describe MovieFacade do
   describe "#get_top_movies" do
     it "returns a hash of information from #get_top_movie_service", :vcr do
       top_movies = @movies.get_top_movies
-      keys = [:page, :results, :total_pages, :total_results]
-      results_keys = [:adult, :backdrop_path, :genre_ids, :id, :original_language, :original_title, :overview, :popularity, :poster_path, :release_date, :title, :video, :vote_average, :vote_count]
+
+      keys = [:page,
+              :results,
+              :total_pages,
+              :total_results]
+
+      results_keys = [:adult,
+                      :backdrop_path,
+                      :genre_ids,
+                      :id,
+                      :original_language,
+                      :original_title,
+                      :overview,
+                      :popularity,
+                      :poster_path,
+                      :release_date,
+                      :title,
+                      :video,
+                      :vote_average,
+                      :vote_count]
 
       expect(top_movies).to be_a(Hash)
       expect(top_movies.keys.sort).to eq(keys.sort)
@@ -58,9 +76,9 @@ RSpec.describe MovieFacade do
     end
   end
 
-  describe "#make_top_movies_service" do
+  describe "#make_movies" do
     it "makes an array of movie poros" do
-      movies = @movies.make_movies(@movies.get_top_movies)
+      movies = @movies.make_movies(@movies.top_movies_info)
       expect(movies).to be_an(Array)
       movies.each do |movie|
         expect(movie).to be_a(Movie)
@@ -70,7 +88,7 @@ RSpec.describe MovieFacade do
     end
   end
 
-  describe "#search_movies" do
+  describe "#get_movie_search" do
     it "returns the search results from MovieService" do
       json_response = File.read("spec/fixtures/movie_search_bad_1.json")
 
@@ -81,7 +99,7 @@ RSpec.describe MovieFacade do
           }
         ).to_return(status: 200, body: json_response)
 
-      movie_results = @movies.search_movies("Bad")
+      movie_results = @movies.get_movie_search("Bad")
       expect(movie_results).to be_an(Array)
       expect(movie_results.size).to eq(20)
       movie_results.each do |movie|
@@ -141,7 +159,7 @@ RSpec.describe MovieFacade do
     it "returns the data from #get_movie and stores it", :vcr do
       facade = MovieFacade.new("240")
       movie_info = facade.movie_info
-      movie_info_keys = [:id, :genres, :overview, :runtime, :vote_average]
+      movie_info_keys = [:id, :genres, :overview, :runtime, :vote_average, :title]
 
       expect(movie_info).to be_a(Hash)
       expect(movie_info.keys.sort).to eq(movie_info_keys.sort)
@@ -149,8 +167,8 @@ RSpec.describe MovieFacade do
       expect(movie_info[:runtime]).to be_an(Integer)
       expect(movie_info[:genres]).to be_an(Array)
       expect(movie_info[:overview]).to be_a(String)
+      expect(movie_info[:title]).to be_a(String)
       expect(movie_info[:vote_average]).to be_a(Float)
-
     end
   end
 
@@ -237,7 +255,7 @@ RSpec.describe MovieFacade do
   describe "movie_data" do
     it "combines all the information from movie_info, movie_reviews, and movie_cast", :vcr do
       facade = MovieFacade.new("240")
-      movie_data = facade.movie_data
+      movie_data = facade.full_movie_data
       keys = [:movie_info, :movie_reviews, :movie_cast]
 
       expect(movie_data).to be_a(Hash)

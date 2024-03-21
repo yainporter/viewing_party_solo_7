@@ -4,6 +4,7 @@ RSpec.describe 'Movie Service' do
   before do
     @service = MovieService.new
   end
+
   describe "get_top_movies_service" do
     it 'searches The MovieDB APi for top 20 movies ' do
       VCR.use_cassette("/spec/fixtures/top_rated_movies") do

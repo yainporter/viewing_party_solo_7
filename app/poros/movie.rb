@@ -9,7 +9,6 @@ class Movie
               :cast
 
   def initialize(data)
-    if data.keys.include?(:movie_info)
       @id = data[:movie_info][:id]
       @title = data[:movie_info][:title]
       @vote_average = data[:movie_info][:vote_average]
@@ -18,11 +17,6 @@ class Movie
       @runtime = data[:movie_info][:runtime]
       @reviews = data[:movie_reviews]
       @cast = data[:movie_cast]
-    else
-      @id = data[:id]
-      @title = data[:title]
-      @vote_average = data[:vote_average]
-    end
   end
 
   def convert_runtime
