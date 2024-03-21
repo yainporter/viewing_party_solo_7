@@ -55,7 +55,7 @@ RSpec.describe "Viewing Party Show Page" do
 
     it "displays logos of where to buy", :vcr do
       buy_ids = []
-      @facade.watch_providers("rent").each do |provider|
+      @facade.watch_providers("buy").each do |provider|
         buy_ids << provider[:provider_id]
       end
 

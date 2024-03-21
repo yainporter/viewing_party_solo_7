@@ -38,6 +38,6 @@ class ViewingPartyController < ApplicationController
   end
 
   def filter_user_party_ids
-    user_party_ids[:user_ids].reject{|id| id == ""}
+    user_party_ids[:user_ids].reject { |id| id == "" }
   end
 end
