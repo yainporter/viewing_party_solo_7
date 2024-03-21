@@ -267,4 +267,10 @@ RSpec.describe MovieFacade do
       end
     end
   end
+
+  describe "similar_movies_info" do
+    it "returns the necessary data for similar movies" do
+
+    end
+  end
 end

@@ -50,4 +50,34 @@ RSpec.describe 'Movie Details Page', type: :feature do
     click_button("Create Viewing Party for The Godfather Part II Page")
     expect(page.current_path).to eq(new_user_movie_viewing_party_path(@user.id, 240))
   end
+
+  describe "User Story 6 - Similar Movies" do
+    it "has a link to display similar movies", :vcr do
+      expect(page).to have_link("Get Similar Movies")
+      expect(page).to have_no_css("#similar-movies")
+
+      click_link("Get Similar Movies")
+
+      expect(page).to have_css("#similar-movies")
+    end
+
+    it "displays similar movies", :vcr do
+      facade = MovieFacade.new(@movie.id)
+      similar_movies = facade.similar_movies
+
+      click_link("Get Similar Movies")
+      similar_movies.each do |movie|
+        within "#similar-movies" do
+          expect(page).to have_css("similiar-movie-#{movie.id}")
+          within "#similar-movie-id" do
+            expect(page).to have_text("Title:")
+            expect(page).to have_text("Overview:")
+            expect(page).to have_text("Release Date:")
+            expect(page).to have_text("Vote Average:")
+            expect(page).to have_css("img[src]")
+          end
+        end
+      end
+    end
+  end
 end
