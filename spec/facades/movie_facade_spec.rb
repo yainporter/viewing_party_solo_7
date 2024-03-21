@@ -335,4 +335,20 @@ RSpec.describe MovieFacade do
       end
     end
   end
+
+  describe "#watch_providers_info" do
+    it "sorts through the #get_watch_providers_service for relevant data" do
+      watch_providers_info = @movies.watch_providers_info(240)
+      watch_method_keys = [:buy, :rent, :flatrate]
+      provider_keys = [:logo_path, :provider_name]
+      expect(watch_providers_info).to be_a(Hash)
+      expect(watch_providers_info[:keys].sort).to eq(watch_method_keys.sort)
+      expect(watch_providers_info[:buy]).to be_an(Array)
+      expect(watch_providers_info[:flatrate]).to be_an(Array)
+      expect(watch_providers_info[:rent]).to be_an(Array)
+      expect(watch_providers_info[:buy].keys.sort).to eq(provider_keys.sort)
+      expect(watch_providers_info[:flatrate].keys.sort).to eq(provider_keys.sort)
+      expect(watch_providers_info[:rent].keys.sort).to eq(provider_keys.sort)
+    end
+  end
 end
