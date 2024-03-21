@@ -23,7 +23,6 @@ class Movie
       @title = data[:title]
       @vote_average = data[:vote_average]
     end
-    require 'pry'; binding.pry
   end
 
   def convert_runtime

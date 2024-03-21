@@ -45,12 +45,16 @@ RSpec.describe MovieFacade do
   describe "#top_movies_info" do
     it "returns the information needed for top movies", :vcr do
       top_movies_info = @movies.top_movies_info
-      top_movies_keys = [:id, :title, :vote_average]
+      movies_keys = [:id, :title, :vote_average]
 
       expect(top_movies_info).to be_an(Array)
       expect(top_movies_info.size).to eq(20)
-      expect(top_movies_info.first.keys).to be_an(Array)
-      expect(top_movies_info.first.keys.sort).to eq(top_movies_keys.sort)
+      top_movies_info.each do |movie_data|
+        expect(movie_data).to be_a(Hash)
+        expect(movie_data.keys).to eq([:movie_info])
+        expect(movie_data[:movie_info]).to be_a(Hash)
+        expect(movie_data[:movie_info].keys.sort).to eq(movies_keys.sort)
+      end
     end
   end
 
@@ -236,8 +240,8 @@ RSpec.describe MovieFacade do
       movie_data = facade.movie_data
       keys = [:movie_info, :movie_reviews, :movie_cast]
 
-      expect(movie_data.keys.sort).to eq(keys.sort)
       expect(movie_data).to be_a(Hash)
+      expect(movie_data.keys.sort).to eq(keys.sort)
       expect(movie_data[:movie_reviews]).to be_an(Array)
       expect(movie_data[:movie_cast]).to be_an(Array)
       expect(movie_data[:movie_info]).to be_a(Hash)

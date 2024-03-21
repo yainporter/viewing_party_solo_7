@@ -12,17 +12,21 @@ class MovieFacade
 
   def top_movies_info
     top_movies = []
+    hash_for_movie_info = Hash.new
     data = get_top_movies[:results]
-    #Why does this method return more than 20? Why do I need .first?
-    data.map do |movie_info|
-      top_movies << { id: movie_info[:id],
-                      title: movie_info[:title],
-                      vote_average: movie_info[:vote_average] }
-    end.first
+    data.each do |movie_data|
+      movie_data_hash = Hash.new
+      movie_data_hash[:id] = movie_data[:id]
+      movie_data_hash[:title] = movie_data[:title]
+      movie_data_hash[:vote_average] = movie_data[:vote_average]
+      hash_for_movie_info[:movie_info] = movie_data_hash
+      top_movies << hash_for_movie_info
+    end
+    top_movies
   end
 
   def make_movies(data)
-    movies_array = data.map{ |movie| Movie.new(movie) }
+    data.map{ |movie| Movie.new(movie) }
   end
 
   def search_movies(keyword)
