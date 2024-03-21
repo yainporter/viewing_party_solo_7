@@ -48,146 +48,146 @@ RSpec.describe MovieFacade do
     expect(movie2.user_id).to eq(nil)
   end
 
-  describe "#get_top_movies" do
-    it "returns a hash of information from #get_top_movie_service", :vcr do
-      top_movies = @movies.get_top_movies
+  # describe "#get_top_movies" do
+  #   it "returns a hash of information from #get_top_movie_service", :vcr do
+  #     top_movies = @movies.get_top_movies
 
-      keys = [:page,
-              :results,
-              :total_pages,
-              :total_results]
+  #     keys = [:page,
+  #             :results,
+  #             :total_pages,
+  #             :total_results]
 
-      results_keys = [:adult,
-                      :backdrop_path,
-                      :genre_ids,
-                      :id,
-                      :original_language,
-                      :original_title,
-                      :overview,
-                      :popularity,
-                      :poster_path,
-                      :release_date,
-                      :title,
-                      :video,
-                      :vote_average,
-                      :vote_count]
+  #     results_keys = [:adult,
+  #                     :backdrop_path,
+  #                     :genre_ids,
+  #                     :id,
+  #                     :original_language,
+  #                     :original_title,
+  #                     :overview,
+  #                     :popularity,
+  #                     :poster_path,
+  #                     :release_date,
+  #                     :title,
+  #                     :video,
+  #                     :vote_average,
+  #                     :vote_count]
 
-      expect(top_movies).to be_a(Hash)
-      expect(top_movies.keys.sort).to eq(keys.sort)
-      expect(top_movies[:page]).to be_an(Integer)
-      expect(top_movies[:page]).to eq(1)
-      expect(top_movies[:results]).to be_an(Array)
-      expect(top_movies[:results].first.keys).to eq(results_keys.sort)
-      expect(top_movies[:total_pages]).to be_an(Integer)
-      expect(top_movies[:total_results]).to be_an(Integer)
-    end
-  end
+  #     expect(top_movies).to be_a(Hash)
+  #     expect(top_movies.keys.sort).to eq(keys.sort)
+  #     expect(top_movies[:page]).to be_an(Integer)
+  #     expect(top_movies[:page]).to eq(1)
+  #     expect(top_movies[:results]).to be_an(Array)
+  #     expect(top_movies[:results].first.keys).to eq(results_keys.sort)
+  #     expect(top_movies[:total_pages]).to be_an(Integer)
+  #     expect(top_movies[:total_results]).to be_an(Integer)
+  #   end
+  # end
 
-  describe "#get_movie_search" do
-    it "returns the search results from MovieService", :vcr do
-      keys = [:page,
-              :results,
-              :total_pages,
-              :total_results]
+  # describe "#get_movie_search" do
+  #   it "returns the search results from MovieService", :vcr do
+  #     keys = [:page,
+  #             :results,
+  #             :total_pages,
+  #             :total_results]
 
-      results_keys = [:adult,
-                      :backdrop_path,
-                      :genre_ids,
-                      :id,
-                      :original_language,
-                      :original_title,
-                      :overview,
-                      :popularity,
-                      :poster_path,
-                      :release_date,
-                      :title,
-                      :video,
-                      :vote_average,
-                      :vote_count]
+  #     results_keys = [:adult,
+  #                     :backdrop_path,
+  #                     :genre_ids,
+  #                     :id,
+  #                     :original_language,
+  #                     :original_title,
+  #                     :overview,
+  #                     :popularity,
+  #                     :poster_path,
+  #                     :release_date,
+  #                     :title,
+  #                     :video,
+  #                     :vote_average,
+  #                     :vote_count]
 
-      movie_results = @movies.get_movie_search("Bad")
-      expect(movie_results).to be_a(Hash)
-      expect(movie_results.keys.sort).to eq(keys.sort)
-      expect(movie_results[:page]).to be_an(Integer)
-      expect(movie_results[:page]).to eq(1)
-      expect(movie_results[:results]).to be_an(Array)
-      expect(movie_results[:results].first.keys).to eq(results_keys.sort)
-      expect(movie_results[:total_pages]).to be_an(Integer)
-      expect(movie_results[:total_results]).to be_an(Integer)
-    end
-  end
+  #     movie_results = @movies.get_movie_search("Bad")
+  #     expect(movie_results).to be_a(Hash)
+  #     expect(movie_results.keys.sort).to eq(keys.sort)
+  #     expect(movie_results[:page]).to be_an(Integer)
+  #     expect(movie_results[:page]).to eq(1)
+  #     expect(movie_results[:results]).to be_an(Array)
+  #     expect(movie_results[:results].first.keys).to eq(results_keys.sort)
+  #     expect(movie_results[:total_pages]).to be_an(Integer)
+  #     expect(movie_results[:total_results]).to be_an(Integer)
+  #   end
+  # end
 
-  describe "#get_movie" do
-    it "returns the information for a movie", :vcr do
-      data_keys = [
-        :adult,
-        :backdrop_path,
-        :belongs_to_collection,
-        :budget,
-        :genres,
-        :homepage,
-        :id,
-        :imdb_id,
-        :original_language,
-        :original_title,
-        :overview,
-        :popularity,
-        :poster_path,
-        :production_companies,
-        :production_countries,
-        :release_date,
-        :revenue,
-        :runtime,
-        :spoken_languages,
-        :status,
-        :tagline,
-        :title,
-        :video,
-        :vote_average,
-        :vote_count
-      ]
-      facade = MovieFacade.new("1090265")
-      movie_info = facade.get_movie
+  # describe "#get_movie" do
+  #   it "returns the information for a movie", :vcr do
+  #     data_keys = [
+  #       :adult,
+  #       :backdrop_path,
+  #       :belongs_to_collection,
+  #       :budget,
+  #       :genres,
+  #       :homepage,
+  #       :id,
+  #       :imdb_id,
+  #       :original_language,
+  #       :original_title,
+  #       :overview,
+  #       :popularity,
+  #       :poster_path,
+  #       :production_companies,
+  #       :production_countries,
+  #       :release_date,
+  #       :revenue,
+  #       :runtime,
+  #       :spoken_languages,
+  #       :status,
+  #       :tagline,
+  #       :title,
+  #       :video,
+  #       :vote_average,
+  #       :vote_count
+  #     ]
+  #     facade = MovieFacade.new("1090265")
+  #     movie_info = facade.get_movie
 
-      expect(movie_info).to be_a(Hash)
-      expect(movie_info.keys).to eq data_keys
-    end
-  end
+  #     expect(movie_info).to be_a(Hash)
+  #     expect(movie_info.keys).to eq data_keys
+  #   end
+  # end
 
-  describe "#get_movie_reviews" do
-    it "returns the results of movie reviews", :vcr do
-      facade = MovieFacade.new("240")
-      movie_reviews = facade.get_movie_reviews
+  # describe "#get_movie_reviews" do
+  #   it "returns the results of movie reviews", :vcr do
+  #     facade = MovieFacade.new("240")
+  #     movie_reviews = facade.get_movie_reviews
 
-      movie_reviews_keys = [:id, :page, :results, :total_pages, :total_results]
+  #     movie_reviews_keys = [:id, :page, :results, :total_pages, :total_results]
 
-      results_keys = [:author, :author_details, :content, :created_at, :id, :updated_at, :url]
+  #     results_keys = [:author, :author_details, :content, :created_at, :id, :updated_at, :url]
 
-      expect(movie_reviews).to be_a(Hash)
-      expect(movie_reviews.keys.sort).to eq(movie_reviews_keys.sort)
-      expect(movie_reviews[:id]).to be_an(Integer)
-      expect(movie_reviews[:page]).to be_an(Integer)
-      expect(movie_reviews[:total_pages]).to be_an(Integer)
-      expect(movie_reviews[:total_results]).to be_an(Integer)
-      expect(movie_reviews[:results]).to be_an(Array)
-      expect(movie_reviews[:results].first).to be_a(Hash)
-      expect(movie_reviews[:results].first.keys.sort).to eq(results_keys.sort)
-    end
-  end
+  #     expect(movie_reviews).to be_a(Hash)
+  #     expect(movie_reviews.keys.sort).to eq(movie_reviews_keys.sort)
+  #     expect(movie_reviews[:id]).to be_an(Integer)
+  #     expect(movie_reviews[:page]).to be_an(Integer)
+  #     expect(movie_reviews[:total_pages]).to be_an(Integer)
+  #     expect(movie_reviews[:total_results]).to be_an(Integer)
+  #     expect(movie_reviews[:results]).to be_an(Array)
+  #     expect(movie_reviews[:results].first).to be_a(Hash)
+  #     expect(movie_reviews[:results].first.keys.sort).to eq(results_keys.sort)
+  #   end
+  # end
 
-  describe "#get_movie_cast" do
-    it "returns the results of a Movie's cast", :vcr do
-      facade = MovieFacade.new("240")
-      movie_cast = facade.get_movie_cast
-      keys = [:id, :cast, :crew]
-      expect(movie_cast).to be_a(Hash)
-      expect(movie_cast.keys).to eq(keys)
-    end
-  end
+  # describe "#get_movie_cast" do
+  #   it "returns the results of a Movie's cast", :vcr do
+  #     facade = MovieFacade.new("240")
+  #     movie_cast = facade.get_movie_cast
+  #     keys = [:id, :cast, :crew]
+  #     expect(movie_cast).to be_a(Hash)
+  #     expect(movie_cast.keys).to eq(keys)
+  #   end
+  # end
 
   describe "#movies_array" do
-    it "returns an array of movies from a search result", :vcr do
-      top_movies_info = @movies.movies_array(@movies.get_top_movies)
+    it "returns an array of movies from top movies", :vcr do
+      top_movies_info = @movies.movies_array(@movies.movie_service.get_top_movies_service)
       movies_keys = [:id, :title, :vote_average]
 
       expect(top_movies_info).to be_an(Array)
@@ -198,8 +198,21 @@ RSpec.describe MovieFacade do
         expect(movie_data[:movie_info]).to be_a(Hash)
         expect(movie_data[:movie_info].keys.sort).to eq(movies_keys.sort)
       end
+    end
 
-      search_movies_info = @movies.movies_array(@movies.get_movie_search("Bad"))
+    it "returns an array of movies from search results", :vcr do
+      search_movies_info = @movies.movies_array(@movies.movie_service.get_search_results_service("Bad"))
+
+      movies_keys = [:id, :title, :vote_average]
+
+      expect(search_movies_info).to be_an(Array)
+      expect(search_movies_info.size).to eq(20)
+      search_movies_info.each do |movie_data|
+        expect(movie_data).to be_a(Hash)
+        expect(movie_data.keys).to eq([:movie_info])
+        expect(movie_data[:movie_info]).to be_a(Hash)
+        expect(movie_data[:movie_info].keys.sort).to eq(movies_keys.sort)
+      end
     end
   end
 
@@ -267,7 +280,7 @@ RSpec.describe MovieFacade do
 
   describe "#make_movies" do
     it "makes an array of movie poros", :vcr do
-      movies = @movies.make_movies(@movies.movies_array(@movies.get_top_movies))
+      movies = @movies.make_movies(@movies.movies_array(@movies.movie_service.get_top_movies_service))
       expect(movies).to be_an(Array)
       movies.each do |movie|
         expect(movie).to be_a(Movie)
@@ -337,18 +350,55 @@ RSpec.describe MovieFacade do
   end
 
   describe "#watch_providers_info" do
-    it "sorts through the #get_watch_providers_service for relevant data" do
+    it "sorts through the #get_watch_providers_service for relevant data", :vcr do
       watch_providers_info = @movies.watch_providers_info(240)
       watch_method_keys = [:buy, :rent, :flatrate]
-      provider_keys = [:logo_path, :provider_name]
+      provider_keys = [:logo_path, :provider_name, :provider_id, :display_priority]
       expect(watch_providers_info).to be_a(Hash)
-      expect(watch_providers_info[:keys].sort).to eq(watch_method_keys.sort)
+      expect(watch_providers_info.keys.sort).to eq(watch_method_keys.sort)
       expect(watch_providers_info[:buy]).to be_an(Array)
       expect(watch_providers_info[:flatrate]).to be_an(Array)
       expect(watch_providers_info[:rent]).to be_an(Array)
-      expect(watch_providers_info[:buy].keys.sort).to eq(provider_keys.sort)
-      expect(watch_providers_info[:flatrate].keys.sort).to eq(provider_keys.sort)
-      expect(watch_providers_info[:rent].keys.sort).to eq(provider_keys.sort)
+      expect(watch_providers_info[:buy].first.keys.sort).to eq(provider_keys.sort)
+      expect(watch_providers_info[:flatrate].first.keys.sort).to eq(provider_keys.sort)
+      expect(watch_providers_info[:rent].first.keys.sort).to eq(provider_keys.sort)
+    end
+  end
+
+  describe "#watch_providers" do
+    it "returns an Array of the information needed for different watch_providers_info", :vcr do
+      watch_providers_buy = @movies.watch_providers("buy", 240)
+      watch_providers_rent = @movies.watch_providers("rent", 240)
+      watch_providers_flatrate = @movies.watch_providers("flatrate", 240)
+
+      expect(watch_providers_buy).to be_an(Array)
+      expect(watch_providers_rent).to be_an(Array)
+      expect(watch_providers_flatrate).to be_an(Array)
+
+      buy_keys = [:logo_path, :provider_name]
+      rent_keys = [:logo_path, :provider_name]
+      flatrate_keys = [:logo_path, :provider_name]
+
+      watch_providers_buy.each do |provider|
+        expect(provider).to be_a(Hash)
+        expect(provider.keys).to eq(buy_keys)
+        expect(provider[:logo_path]).to be_a(String)
+        expect(provider[:provider_name]).to be_a(String)
+      end
+
+      watch_providers_rent.each do |provider|
+        expect(provider).to be_a(Hash)
+        expect(provider.keys).to eq(rent_keys)
+        expect(provider[:logo_path]).to be_a(String)
+        expect(provider[:provider_name]).to be_a(String)
+      end
+
+      watch_providers_flatrate.each do |provider|
+        expect(provider).to be_a(Hash)
+        expect(provider.keys).to eq(flatrate_keys)
+        expect(provider[:logo_path]).to be_a(String)
+        expect(provider[:provider_name]).to be_a(String)
+      end
     end
   end
 end

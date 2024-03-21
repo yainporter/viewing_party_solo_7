@@ -8,23 +8,21 @@ class MovieFacade
   end
 
   def get_top_movies
-    @movie_service.get_top_movies_service
+
   end
 
   def get_movie_search(keyword)
-    @movie_service.get_search_results_service(keyword)
+
   end
 
   def get_movie
-    @movie_service.get_movie_service(@movie_id)
+
   end
 
   def get_movie_reviews
-    @movie_service.get_movie_reviews_service(@movie_id)
   end
 
   def get_movie_cast
-    @movie_service.get_movie_cast_service(@movie_id)
   end
 
   def movies_array(service)
@@ -46,7 +44,7 @@ class MovieFacade
 
   def movie_info
     movie_info = Hash.new
-    data = get_movie
+    data = @movie_service.get_movie_service(@movie_id)
 
     movie_info[:id] = data[:id]
     movie_info[:title] = data[:title]
@@ -58,7 +56,7 @@ class MovieFacade
   end
 
   def movie_cast_info
-    data = get_movie_cast[:cast].take(10)
+    data = @movie_service.get_movie_cast_service(@movie_id)[:cast].take(10)
     movie_cast_info = []
     data.each do |cast_member_data|
       movie_cast_info << { name: cast_member_data[:name], character: cast_member_data[:character]}
@@ -67,7 +65,7 @@ class MovieFacade
   end
 
   def movie_reviews_info
-    data = get_movie_reviews[:results]
+    data = @movie_service.get_movie_reviews_service(@movie_id)[:results]
     movie_reviews_info = []
     data.each do |result|
       movie_reviews_info << { author: result[:author], content: result[:content]}
@@ -83,6 +81,27 @@ class MovieFacade
     movie_data
   end
 
+  def watch_providers_info(id)
+    provider_info = Hash.new
+    data = @movie_service.get_watch_providers_service(id)[:results][:US]
+    provider_info[:buy] = data[:buy]
+    provider_info[:flatrate] = data[:flatrate]
+    provider_info[:rent] = data[:rent]
+    provider_info
+  end
+
+  def watch_providers(type, id)
+    watch_providers_array = []
+    watch_providers_hash = Hash.new
+    type = type.to_sym
+    watch_providers_info(id)[type].each do |type|
+      watch_providers_hash[:logo_path] = type[:logo_path]
+      watch_providers_hash[:provider_name] = type[:provider_name]
+      watch_providers_array << watch_providers_hash
+    end
+    watch_providers_array
+  end
+
   def make_movies(movies_array)
     movies_array.map{ |movie| Movie.new(movie) }
   end
@@ -92,11 +111,11 @@ class MovieFacade
   end
 
   def top_20_movies
-    make_movies(movies_array(get_top_movies))
+    make_movies(movies_array(@movie_service.get_top_movies_service))
   end
 
   def movie_search_results(keyword)
-    make_movies(movies_array(get_movie_search(keyword)))
+    make_movies(movies_array(@movie_service.get_search_results_service(keyword)))
   end
 
   def valid_id?(movie_id)
