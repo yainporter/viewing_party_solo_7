@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.themoviedb.org/movie/240/watch/providers
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - text/html
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 21 Mar 2024 15:14:28 GMT
+      Server:
+      - openresty
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 e0a0043c26183d67f99a46bb7af410e2.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - ekj11ixzPdCYcx8eX5xcNEnZ6wjbn0bL1NTBUxnMo2WXbMlaOTwKpg==
+    body:
+      encoding: ASCII-8BIT
+      string: "<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404
+        Not Found</h1></center>\r\n<hr><center>openresty</center>\r\n</body>\r\n</html>\r\n"
+  recorded_at: Thu, 21 Mar 2024 15:14:28 GMT
+recorded_with: VCR 6.2.0

@@ -72,4 +72,18 @@ RSpec.describe 'Movie Service' do
       end
     end
   end
+
+  describe "#get_watch_providers_service" do
+    it "returns the data for a Movie's watch providers", :vcr do
+      watch_list_data = @service.get_watch_providers_service(240)
+      data_keys = [:id, :results]
+      require 'pry'; binding.pry
+      id_keys =
+
+      expect(watch_list_data).to be_a(Hash)
+      expect(watch_list_data.keys.sort).to eq(data_keys.sort)
+      expect(watch_list_data[:id]).to be_a(Hash)
+      expect(watch_list_data[:id].keys.sort).to eq()
+    end
+  end
 end
