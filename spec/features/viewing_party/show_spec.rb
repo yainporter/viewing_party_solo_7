@@ -27,5 +27,9 @@ RSpec.describe "Viewing Party Show Page" do
     it "displays logos of where to buy and rent", :vcr do
       expect(page.find(".buy")["src"]).should have_content("")
     end
+
+    it "has a data attribution for the JustWatch platform", :vcr do
+      expect(page).to have_content("Buy/Rent data provided by JustWatch")
+    end
   end
 end

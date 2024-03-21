@@ -81,20 +81,20 @@ class MovieFacade
     movie_data
   end
 
-  def watch_providers_info(id)
+  def watch_providers_info
     provider_info = Hash.new
-    data = @movie_service.get_watch_providers_service(id)[:results][:US]
+    data = @movie_service.get_watch_providers_service(@movie_id)[:results][:US]
     provider_info[:buy] = data[:buy]
     provider_info[:flatrate] = data[:flatrate]
     provider_info[:rent] = data[:rent]
     provider_info
   end
 
-  def watch_providers(type, id)
+  def watch_providers(type)
     watch_providers_array = []
     watch_providers_hash = Hash.new
     type = type.to_sym
-    watch_providers_info(id)[type].each do |type|
+    watch_providers_info[type].each do |type|
       watch_providers_hash[:logo_path] = type[:logo_path]
       watch_providers_hash[:provider_name] = type[:provider_name]
       watch_providers_array << watch_providers_hash
