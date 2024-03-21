@@ -3,9 +3,11 @@ require "rails_helper"
 RSpec.describe Movie do
   it "is a Movie" do
     data = {
-      id: 10,
-      title: "Happy",
-      vote_average: 8.7
+      movie_info: {
+        id: 10,
+        title: "Happy",
+        vote_average: 8.7
+      }
     }
     movie = Movie.new(data)
     expect(movie).to be_a(Movie)
@@ -82,6 +84,7 @@ RSpec.describe Movie do
 
       it "counts the number of movie_reviews" do
         data_2 = {
+          movie_info: {},
           movie_reviews: [{id: 1, genre: "Action"}, {id: 2, genre: "Romance"}]
         }
         movie_2 = Movie.new(data_2)
