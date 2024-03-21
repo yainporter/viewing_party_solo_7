@@ -2,7 +2,7 @@ class MovieFacade
   attr_reader :movie_service, :movie_id
 
   def initialize(movie_id)
-    @movie_id = movie_id
+    @movie_id = movie_id if valid_id?(movie_id)
     @movie_service = MovieService.new
   end
 
@@ -82,11 +82,21 @@ class MovieFacade
     movie_data
   end
 
-  def make_movies(data)
-    data.map{ |movie| Movie.new(movie) }
+  def make_movies(movies_array)
+    movies_array.map{ |movie| Movie.new(movie) }
   end
 
   def movie
     Movie.new(full_movie_data)
+  end
+
+  def valid_id?(movie_id)
+    return unless movie_id.is_a?(Integer) || valid_number_string?(movie_id)
+
+    movie_id.to_i.positive?
+  end
+
+  def valid_number_string?(string)
+    string.to_i.to_s == string
   end
 end

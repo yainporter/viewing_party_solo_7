@@ -21,8 +21,9 @@ RSpec.describe MovieFacade do
     expect(@movies.movie_service).to be_a(MovieService)
   end
 
-  it "has a movie_id" do
+  it "has a movie_id that is a String or Integer" do
     expect(@movies.movie_id).to be_a(String)
+
   end
 
   describe "#get_top_movies" do
@@ -273,4 +274,19 @@ RSpec.describe MovieFacade do
       expect(movie).to be_a Movie
     end
   end
+
+  describe "#valid_number_string?" do
+    it "checks the string to make sure that it is an Integer" do
+      expect(@movies.valid_number_string?("123as")).to eq(false)
+      expect(@movies.valid_number_string?("123")).to eq(true)
+    end
+  end
+
+  describe "#valid_id?" do
+    it "checks to make sure that the id passed to create MovieFacade is a number > 0" do
+      expect(@movies.valid_id?("0")).to eq(false)
+      expect(@movies.valid_id?("1")).to eq(true)
+    end
+  end
+
 end
