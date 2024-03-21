@@ -21,9 +21,18 @@ RSpec.describe MovieFacade do
     expect(@movies.movie_service).to be_a(MovieService)
   end
 
-  it "has a movie_id that is a String or Integer" do
+  it "has a movie_id that is a number String or Integer" do
     expect(@movies.movie_id).to be_a(String)
 
+    movie = MovieFacade.new(1)
+    expect(movie.movie_id).to eq(1)
+  end
+
+  it "does not have movie_id or movie_service attributes if movie_id is NOT a number String or Integer" do
+    movie = MovieFacade.new("abc")
+
+    expect(movie.movie_id).to eq(nil)
+    expect(movie.movie_service).to eq(nil)
   end
 
   describe "#get_top_movies" do

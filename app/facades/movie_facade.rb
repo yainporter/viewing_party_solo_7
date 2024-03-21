@@ -2,7 +2,9 @@ class MovieFacade
   attr_reader :movie_service, :movie_id
 
   def initialize(movie_id)
-    @movie_id = movie_id if valid_id?(movie_id)
+    return unless valid_id?(movie_id)
+
+    @movie_id = movie_id
     @movie_service = MovieService.new
   end
 
