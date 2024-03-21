@@ -24,12 +24,12 @@ class Movie
   end
 
   def genres_to_string
-    genres = @genres.map{|genre| genre[:name]}
+    genres = @genres.map { |genre| genre[:name] }
     genres.join(", ")
   end
 
   def num_of_reviews
-    if @reviews == nil
+    if @reviews.nil?
       0
     else
       @reviews.size

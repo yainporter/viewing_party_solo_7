@@ -2,10 +2,10 @@ class MovieFacade
   attr_reader :movie_service, :movie_id
 
   def initialize(movie_id)
+    @movie_service = MovieService.new
     return unless valid_id?(movie_id)
 
     @movie_id = movie_id
-    @movie_service = MovieService.new
   end
 
   def get_top_movies
@@ -13,7 +13,7 @@ class MovieFacade
   end
 
   def get_movie_search(keyword)
-    @movie_service.get_search_results_service(keyword)[:results]
+    @movie_service.get_search_results_service(keyword)
   end
 
   def get_movie
@@ -28,11 +28,11 @@ class MovieFacade
     @movie_service.get_movie_cast_service(@movie_id)
   end
 
-  def top_movies_info
+  def movies_array(service)
     # Must be in an array in order to use .map to create
     # Must be a Hash, within a Hash in order to use data[:movie_info] for the Poro creation
-    top_movies = []
-    data = get_top_movies[:results]
+    movies = []
+    data = service[:results]
     data.each do |movie_data|
       hash_for_movie_info = Hash.new
       movie_data_hash = Hash.new
@@ -40,9 +40,9 @@ class MovieFacade
       movie_data_hash[:title] = movie_data[:title]
       movie_data_hash[:vote_average] = movie_data[:vote_average]
       hash_for_movie_info[:movie_info] = movie_data_hash
-      top_movies << hash_for_movie_info
+      movies << hash_for_movie_info
     end
-    top_movies
+    movies
   end
 
   def movie_info
@@ -90,6 +90,14 @@ class MovieFacade
 
   def movie
     Movie.new(full_movie_data)
+  end
+
+  def top_20_movies
+    make_movies(movies_array(get_top_movies))
+  end
+
+  def movie_search_results(keyword)
+    make_movies(movies_array(get_movie_search(keyword)))
   end
 
   def valid_id?(movie_id)

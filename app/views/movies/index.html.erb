@@ -3,7 +3,7 @@
 <% if params[:q] == "top 20rated" %>
   <div>
     <table id="top-20-movies">
-      <% @facade.make_movies(@facade.top_movies_info).each do |movie| %>
+      <% @facade.top_20_movies.each do |movie| %>
         <tr>
           <td><%= link_to movie.title, user_movie_path(params[:user_id], movie.id), data: { turbo_method: :get } %></td>
           <td>Vote Average: <%= movie.vote_average %></td>
@@ -14,7 +14,7 @@
 <% elsif params[:keyword].present? %>
   <div>
     <table id="search-params">
-      <% @facade.make_movies(@facade.get_movie_search(params[:keyword])).each do |movie| %>
+      <% @facade.movie_search_results(params[:keyword]).each do |movie| %>
         <tr>
           <td><%= link_to movie.title, user_movie_path(params[:user_id], movie.id), data: { turbo_method: :get } %></td>
           <td>Vote Average: <%= movie.vote_average %></td>

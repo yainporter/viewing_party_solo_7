@@ -20,11 +20,14 @@ RSpec.describe MovieFacade do
     expect(movie.movie_id).to eq(1)
   end
 
-  it "does not have movie_id or movie_service attributes if movie_id is NOT a number String or Integer" do
+  it "does not have movie_id if movie_id is NOT a number String or Integer" do
     movie = MovieFacade.new("abc")
 
     expect(movie.movie_id).to eq(nil)
-    expect(movie.movie_service).to eq(nil)
+
+    movie_2 = MovieFacade.new(0)
+
+    expect(movie_2.movie_id).to eq(nil)
   end
 
   describe "#get_top_movies" do
@@ -73,13 +76,35 @@ RSpec.describe MovieFacade do
           }
         ).to_return(status: 200, body: json_response)
 
+      keys = [:page,
+              :results,
+              :total_pages,
+              :total_results]
+
+      results_keys = [:adult,
+                      :backdrop_path,
+                      :genre_ids,
+                      :id,
+                      :original_language,
+                      :original_title,
+                      :overview,
+                      :popularity,
+                      :poster_path,
+                      :release_date,
+                      :title,
+                      :video,
+                      :vote_average,
+                      :vote_count]
+
       movie_results = @movies.get_movie_search("Bad")
-      expect(movie_results).to be_an(Array)
-      expect(movie_results.size).to eq(20)
-      movie_results.each do |movie|
-        expect(movie[:title].present?).to eq(true)
-        expect(movie[:vote_average].present?).to eq(true)
-      end
+      expect(movie_results).to be_a(Hash)
+      expect(movie_results.keys.sort).to eq(keys.sort)
+      expect(movie_results[:page]).to be_an(Integer)
+      expect(movie_results[:page]).to eq(1)
+      expect(movie_results[:results]).to be_an(Array)
+      expect(movie_results[:results].first.keys).to eq(results_keys.sort)
+      expect(movie_results[:total_pages]).to be_an(Integer)
+      expect(movie_results[:total_results]).to be_an(Integer)
     end
   end
 
@@ -178,9 +203,9 @@ RSpec.describe MovieFacade do
     end
   end
 
-  describe "#top_movies_info" do
-    it "returns the information needed for top movies", :vcr do
-      top_movies_info = @movies.top_movies_info
+  describe "#movies_array" do
+    it "returns an array of movies from a search result", :vcr do
+      top_movies_info = @movies.movies_array(@movies.get_top_movies)
       movies_keys = [:id, :title, :vote_average]
 
       expect(top_movies_info).to be_an(Array)
@@ -191,6 +216,8 @@ RSpec.describe MovieFacade do
         expect(movie_data[:movie_info]).to be_a(Hash)
         expect(movie_data[:movie_info].keys.sort).to eq(movies_keys.sort)
       end
+
+      search_movies_info = @movies.movies_array(@movies.get_movie_search("Bad"))
     end
   end
 
@@ -267,7 +294,7 @@ RSpec.describe MovieFacade do
           }
         ).to_return(status: 200, body: json_response)
 
-      movies = @movies.make_movies(@movies.top_movies_info)
+      movies = @movies.make_movies(@movies.movies_array(@movies.get_top_movies))
       expect(movies).to be_an(Array)
       movies.each do |movie|
         expect(movie).to be_a(Movie)
@@ -313,4 +340,26 @@ RSpec.describe MovieFacade do
     end
   end
 
+  describe "#top_20_movies" do
+    it "returns 20 Movie Objects of the top 20 movies", :vcr do
+      top_20_movies = @movies.top_20_movies
+
+      expect(top_20_movies).to be_an(Array)
+      top_20_movies.each do |movie|
+        expect(movie).to be_a(Movie)
+      end
+    end
+  end
+
+  describe "#movie_search_results" do
+    it "returns 20 Movie Objects of a keyword search", :vcr do
+      search_results = @movies.movie_search_results("Bad")
+
+      expect(search_results).to be_an(Array)
+      search_results.each do |movie|
+        expect(movie).to be_a(Movie)
+        expect(movie.title.downcase.include?("bad")).to eq(true)
+      end
+    end
+  end
 end
