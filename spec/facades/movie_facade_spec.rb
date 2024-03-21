@@ -2,14 +2,6 @@ require "rails_helper"
 
 RSpec.describe MovieFacade do
   before do
-    json_response = File.read("spec/fixtures/top_rated_movies.json")
-
-    stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1").
-      with(
-        headers: {
-          "Authorization": ENV["TMDB_ACCESS_TOKEN_KEY"]
-        }
-      ).to_return(status: 200, body: json_response)
     @movies = MovieFacade.new("1")
   end
 
@@ -67,34 +59,6 @@ RSpec.describe MovieFacade do
       expect(top_movies[:results].first.keys).to eq(results_keys.sort)
       expect(top_movies[:total_pages]).to be_an(Integer)
       expect(top_movies[:total_results]).to be_an(Integer)
-    end
-  end
-
-  describe "#top_movies_info" do
-    it "returns the information needed for top movies", :vcr do
-      top_movies_info = @movies.top_movies_info
-      movies_keys = [:id, :title, :vote_average]
-
-      expect(top_movies_info).to be_an(Array)
-      expect(top_movies_info.size).to eq(20)
-      top_movies_info.each do |movie_data|
-        expect(movie_data).to be_a(Hash)
-        expect(movie_data.keys).to eq([:movie_info])
-        expect(movie_data[:movie_info]).to be_a(Hash)
-        expect(movie_data[:movie_info].keys.sort).to eq(movies_keys.sort)
-      end
-    end
-  end
-
-  describe "#make_movies" do
-    it "makes an array of movie poros" do
-      movies = @movies.make_movies(@movies.top_movies_info)
-      expect(movies).to be_an(Array)
-      movies.each do |movie|
-        expect(movie).to be_a(Movie)
-        expect(movie.title.present?).to eq(true)
-        expect(movie.vote_average.present?).to eq(true)
-      end
     end
   end
 
@@ -165,23 +129,6 @@ RSpec.describe MovieFacade do
     end
   end
 
-  describe "#movie_info" do
-    it "returns the data from #get_movie and stores it", :vcr do
-      facade = MovieFacade.new("240")
-      movie_info = facade.movie_info
-      movie_info_keys = [:id, :genres, :overview, :runtime, :vote_average, :title]
-
-      expect(movie_info).to be_a(Hash)
-      expect(movie_info.keys.sort).to eq(movie_info_keys.sort)
-      expect(movie_info[:id]).to be_an(Integer)
-      expect(movie_info[:runtime]).to be_an(Integer)
-      expect(movie_info[:genres]).to be_an(Array)
-      expect(movie_info[:overview]).to be_a(String)
-      expect(movie_info[:title]).to be_a(String)
-      expect(movie_info[:vote_average]).to be_a(Float)
-    end
-  end
-
   describe "#get_movie_reviews" do
     it "returns the results of movie reviews" do
       json_response = File.read("spec/fixtures/movie_reviews.json")
@@ -212,21 +159,6 @@ RSpec.describe MovieFacade do
     end
   end
 
-  describe "#movie_reviews_info" do
-    it "returns an array of necessary data from #get_movie_reviews", :vcr do
-      facade = MovieFacade.new("240")
-      movie_reviews_info = facade.movie_reviews_info
-
-      expect(movie_reviews_info).to be_an(Array)
-      movie_reviews_info.each do |review_info|
-        expect(review_info).to be_a(Hash)
-        expect(review_info.keys).to eq([:author, :content])
-        expect(review_info[:author]).to be_a(String)
-        expect(review_info[:content]).to be_a(String)
-      end
-    end
-  end
-
   describe "#get_movie_cast" do
     it "returns the results of a Movie's cast" do
       json_response = File.read("spec/fixtures/movie_cast.json")
@@ -246,7 +178,55 @@ RSpec.describe MovieFacade do
     end
   end
 
-  describe "#get_movie_cast_info" do
+  describe "#top_movies_info" do
+    it "returns the information needed for top movies", :vcr do
+      top_movies_info = @movies.top_movies_info
+      movies_keys = [:id, :title, :vote_average]
+
+      expect(top_movies_info).to be_an(Array)
+      expect(top_movies_info.size).to eq(20)
+      top_movies_info.each do |movie_data|
+        expect(movie_data).to be_a(Hash)
+        expect(movie_data.keys).to eq([:movie_info])
+        expect(movie_data[:movie_info]).to be_a(Hash)
+        expect(movie_data[:movie_info].keys.sort).to eq(movies_keys.sort)
+      end
+    end
+  end
+
+  describe "#movie_info" do
+    it "returns the data from #get_movie and stores it", :vcr do
+      facade = MovieFacade.new("240")
+      movie_info = facade.movie_info
+      movie_info_keys = [:id, :genres, :overview, :runtime, :vote_average, :title]
+
+      expect(movie_info).to be_a(Hash)
+      expect(movie_info.keys.sort).to eq(movie_info_keys.sort)
+      expect(movie_info[:id]).to be_an(Integer)
+      expect(movie_info[:runtime]).to be_an(Integer)
+      expect(movie_info[:genres]).to be_an(Array)
+      expect(movie_info[:overview]).to be_a(String)
+      expect(movie_info[:title]).to be_a(String)
+      expect(movie_info[:vote_average]).to be_a(Float)
+    end
+  end
+
+  describe "#movie_reviews_info" do
+    it "returns an array of necessary data from #get_movie_reviews", :vcr do
+      facade = MovieFacade.new("240")
+      movie_reviews_info = facade.movie_reviews_info
+
+      expect(movie_reviews_info).to be_an(Array)
+      movie_reviews_info.each do |review_info|
+        expect(review_info).to be_a(Hash)
+        expect(review_info.keys).to eq([:author, :content])
+        expect(review_info[:author]).to be_a(String)
+        expect(review_info[:content]).to be_a(String)
+      end
+    end
+  end
+
+  describe "#movie_cast_info" do
     it "organizes the data from #get_movie_cast into only wanted data", :vcr do
       facade = MovieFacade.new("240")
       movie_cast_info = facade.movie_cast_info
@@ -262,8 +242,8 @@ RSpec.describe MovieFacade do
     end
   end
 
-  describe "movie_data" do
-    it "combines all the information from movie_info, movie_reviews, and movie_cast", :vcr do
+  describe "full_movie_data" do
+    it "combines all the information from #movie_info, #movie_reviews_info, and #movie_cast_info", :vcr do
       facade = MovieFacade.new("240")
       movie_data = facade.full_movie_data
       keys = [:movie_info, :movie_reviews, :movie_cast]
@@ -276,11 +256,46 @@ RSpec.describe MovieFacade do
     end
   end
 
+  describe "#make_movies" do
+    it "makes an array of movie poros" do
+      json_response = File.read("spec/fixtures/top_rated_movies.json")
+
+      stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1").
+        with(
+          headers: {
+            "Authorization": ENV["TMDB_ACCESS_TOKEN_KEY"]
+          }
+        ).to_return(status: 200, body: json_response)
+
+      movies = @movies.make_movies(@movies.top_movies_info)
+      expect(movies).to be_an(Array)
+      movies.each do |movie|
+        expect(movie).to be_a(Movie)
+        expect(movie.title.present?).to eq(true)
+        expect(movie.vote_average.present?).to eq(true)
+      end
+    end
+  end
+
   describe "#movie" do
+    before do
+      @facade = MovieFacade.new("240")
+      @movie = @facade.movie
+    end
+
     it "creates a new Movie instance", :vcr do
-      facade = MovieFacade.new("240")
-      movie = facade.movie
-      expect(movie).to be_a Movie
+      expect(@movie).to be_a Movie
+    end
+
+    it "has all Movie attributes", :vcr do
+      expect(@movie.id.present?).to eq(true)
+      expect(@movie.title.present?).to eq(true)
+      expect(@movie.vote_average.present?).to eq(true)
+      expect(@movie.genres.present?).to eq(true)
+      expect(@movie.summary.present?).to eq(true)
+      expect(@movie.runtime.present?).to eq(true)
+      expect(@movie.reviews.present?).to eq(true)
+      expect(@movie.cast.present?).to eq(true)
     end
   end
 
