@@ -25,7 +25,6 @@ RSpec.describe "Viewing Party Show Page" do
 
   describe "User Story 5 - Where to Watch" do
     it "displays logos of where to stream", :vcr do
-      save_and_open_page
       stream_ids = []
       @facade.watch_providers("flatrate").each do |provider|
         stream_ids << provider[:provider_id]

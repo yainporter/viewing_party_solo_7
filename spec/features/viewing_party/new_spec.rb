@@ -49,6 +49,9 @@ RSpec.describe 'Viewing Party New', type: :feature do
       expect(page).to have_no_css(".viewing_party")
 
       visit new_user_movie_viewing_party_path(@user, @movie.id)
+
+      page.find(:css, "#viewing_party_user_ids_#{User.last.id}").set(true)
+      save_and_open_page
       click_button("Create Party")
 
       expect(page.current_path).to eq(user_path(@user))
@@ -60,8 +63,21 @@ RSpec.describe 'Viewing Party New', type: :feature do
         expect(page).to have_content("Who's Coming?")
         expect(page).to have_css("ol")
         expect(page).to have_css("li", text: "#{@user.name}")
-        expect(page).to have_css("li", count: 1)
+        expect(page).to have_css("li", text: "#{User.last.name}")
+        expect(page).to have_css("li", count: 2)
       end
+    end
+
+    it "displays an error when no users are invited", :vcr do
+      visit user_path(@user)
+
+      expect(page).to have_no_css(".viewing_party")
+
+      visit new_user_movie_viewing_party_path(@user, @movie.id)
+      click_button("Create Party")
+
+      expect(page.current_path).to eq(new_user_movie_viewing_party_path(@user, @movie.id))
+      expect(page).to have_content("You need to invite other users, try again")
     end
   end
 end

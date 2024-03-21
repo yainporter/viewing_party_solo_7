@@ -1,20 +1,22 @@
 class ViewingPartyController < ApplicationController
   def new
     # try passing only 1 param, not the full params
-    @facade = MovieFacade.new(params[:movie_id])
+    @facade = MovieFacade.new(params[:movie_id], params[:user_id])
     @viewing_party = ViewingParty.new
     @users = User.all_but(params[:user_id])
   end
 
   def create
     viewing_party = ViewingParty.new(viewing_party_params)
-    if viewing_party.save
-      create_user_parties(viewing_party)
+
+    if viewing_party.save && !user_party_ids[:user_ids].nil?
+      new_user_parties(viewing_party)
 
       redirect_to user_path(params[:user_id])
     else
-      flash[:alert] = "There was an error, try again"
-      render :new
+      flash[:alert] = "You need to invite other users, try again"
+
+      redirect_to  new_user_movie_viewing_party_path
     end
   end
 
@@ -28,9 +30,9 @@ class ViewingPartyController < ApplicationController
     params.require(:viewing_party).permit(:duration, :date, :start_time)
   end
 
-  def create_user_parties(viewing_party)
-    viewing_party.user_parties.map{ |user_id| viewing_party.user_parties.create(user_id:, host: false) }
-    viewing_party.user_parties.create!(user_id: params[:user_id], host: true)
+  def new_user_parties(viewing_party)
+    user_party_ids[:user_ids].map { |user_id| viewing_party.user_parties.create(user_id:, host: false) }
+    viewing_party.user_parties.create(user_id: params[:user_id], host: true)
   end
 
   def user_party_ids
