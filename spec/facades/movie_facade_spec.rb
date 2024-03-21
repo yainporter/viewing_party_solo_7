@@ -378,29 +378,29 @@ RSpec.describe MovieFacade do
       expect(watch_providers_rent).to be_an(Array)
       expect(watch_providers_flatrate).to be_an(Array)
 
-      buy_keys = [:logo_path, :provider_name]
-      rent_keys = [:logo_path, :provider_name]
-      flatrate_keys = [:logo_path, :provider_name]
+      buy_keys = [:logo_path, :provider_id]
+      rent_keys = [:logo_path, :provider_id]
+      flatrate_keys = [:logo_path, :provider_id]
 
       watch_providers_buy.each do |provider|
         expect(provider).to be_a(Hash)
         expect(provider.keys).to eq(buy_keys)
         expect(provider[:logo_path]).to be_a(String)
-        expect(provider[:provider_name]).to be_a(String)
+        expect(provider[:provider_id]).to be_an(Integer)
       end
 
       watch_providers_rent.each do |provider|
         expect(provider).to be_a(Hash)
         expect(provider.keys).to eq(rent_keys)
         expect(provider[:logo_path]).to be_a(String)
-        expect(provider[:provider_name]).to be_a(String)
+        expect(provider[:provider_id]).to be_an(Integer)
       end
 
       watch_providers_flatrate.each do |provider|
         expect(provider).to be_a(Hash)
         expect(provider.keys).to eq(flatrate_keys)
         expect(provider[:logo_path]).to be_a(String)
-        expect(provider[:provider_name]).to be_a(String)
+        expect(provider[:provider_id]).to be_an(Integer)
       end
     end
   end

@@ -13,5 +13,5 @@ Rails.application.routes.draw do
     end
   end
 
-  # How do I go about the
+  # How do I go about the routing?
 end

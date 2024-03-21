@@ -7,24 +7,6 @@ class MovieFacade
     @movie_id = movie_id if valid_id?(movie_id)
   end
 
-  def get_top_movies
-
-  end
-
-  def get_movie_search(keyword)
-
-  end
-
-  def get_movie
-
-  end
-
-  def get_movie_reviews
-  end
-
-  def get_movie_cast
-  end
-
   def movies_array(service)
     # Must be in an array in order to use .map to create
     # Must be a Hash, within a Hash in order to use data[:movie_info] for the Poro creation
@@ -92,14 +74,16 @@ class MovieFacade
 
   def watch_providers(type)
     watch_providers_array = []
-    watch_providers_hash = Hash.new
     type = type.to_sym
-    watch_providers_info[type].each do |type|
-      watch_providers_hash[:logo_path] = type[:logo_path]
-      watch_providers_hash[:provider_name] = type[:provider_name]
-      watch_providers_array << watch_providers_hash
+    data = watch_providers_info[type]
+    data.each do |type|
+      watch_providers_array << { logo_path: img_path(type[:logo_path]), provider_id: type[:provider_id] }
     end
     watch_providers_array
+  end
+
+  def img_path(logo_path)
+    "https://media.themoviedb.org/t/p/original#{logo_path}"
   end
 
   def make_movies(movies_array)

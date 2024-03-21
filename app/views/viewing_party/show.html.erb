@@ -1,13 +1,37 @@
 <h2><%= @facade.movie.title %></h2>
 <%= button_to "Discover Page", user_discover_index_path, method: :get %>
 <br>
-<h3>Where to watch:</h3>
+<h3>Where to watch</h3>
 <table>
   <tr>
     <td>Stream</td>
   </tr>
+  <tr id='stream-logos'>
+    <% @facade.watch_providers("flatrate").each do |provider| %>
+      <td>
+        <%= image_tag provider[:logo_path], id: "stream-#{provider[:provider_id]}" %>
+      </td>
+    <% end %>
+  </tr>
   <tr>
-    
+    <td>Rent</td>
+  </tr>
+  <tr id='rent-logos'>
+    <% @facade.watch_providers("rent").each do |provider| %>
+      <td>
+        <%= image_tag provider[:logo_path], id: "rent-#{provider[:provider_id]}" %>
+      </td>
+    <% end %>
+  </tr>
+  <tr>
+    <td>Buy</td>
+  </tr>
+  <tr id="buy-logos">
+    <% @facade.watch_providers("buy").each do |provider| %>
+      <td>
+        <%= image_tag provider[:logo_path], id: "buy-#{provider[:provider_id]}" %>
+      </td>
+    <% end %>
   </tr>
 </table>
-  <%= image_tag 'http://power.itp.ac.cn/~jmyang/funny/fun4.jpg' %>
+<p>Buy/Rent data provided by JustWatch</p>
