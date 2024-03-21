@@ -16,5 +16,23 @@ RSpec.describe User, type: :model do
     it { should have_many :user_parties }
     it { should have_many(:viewing_parties).through(:user_parties) }
   end
-  
+
+  describe "class methods" do
+    describe ".all_but" do
+      it "returns all users but the one with the ID passed through" do
+        10.times do
+          User.create!(name: Faker::Name.name, email: Faker::Internet.email)
+        end
+
+        user_1 = User.create!(name: "Jan", email: "tester@test.com")
+        users = User.all_but(user_1.id)
+
+        users.each do |user|
+          expect(user.id).not_to eq(user_1.id)
+        end
+      end
+    end
+  end
+
+
 end

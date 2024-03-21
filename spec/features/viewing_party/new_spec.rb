@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe 'Viewing Party New', type: :feature do
   before do
     movie_data = {
-      id: 240
+      movie_info: {
+        id: 240
+      }
     }
 
     @user = User.create!(name: Faker::Name.name, email: Faker::Internet.email)
@@ -36,8 +38,8 @@ RSpec.describe 'Viewing Party New', type: :feature do
     end
   end
 
-  scenario "a Viewing Party form is submitted" do
-    context "creates a new Viewing Party when the form is submitted", :vcr do
+  describe "a Viewing Party form is submitted" do
+    it "creates a new Viewing Party when the form is submitted", :vcr do
       visit user_path(@user)
 
       expect(page).to have_no_css(".viewing_party")

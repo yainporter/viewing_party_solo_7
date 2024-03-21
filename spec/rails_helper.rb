@@ -77,6 +77,5 @@ Shoulda::Matchers.configure do |config|
     config.filter_sensitive_data('<TMDB_AUTHENTICATION_TOKEN>') { Rails.application.credentials.tmdb[:token] }
     config.configure_rspec_metadata!
     # This checks the URI for the service call, and if it matches, it doesn't make a new cassette
-    config.default_cassette_options = { match_requests_on: [:method, :path] }
   end
 end

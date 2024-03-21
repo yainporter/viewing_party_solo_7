@@ -12,10 +12,12 @@ RSpec.describe 'Movie Details Page', type: :feature do
     #   ).to_return(status: 200, body: json_response)
 
     movie_data = {
+      movie_info: {
         id: 1090265,
         title: "Porter",
         vote_average: 8.7
       }
+    }
     @user = User.create!(name: Faker::Name.name, email: Faker::Internet.email)
     @movie = Movie.new(movie_data)
     visit user_movie_path(@user, @movie.id)
