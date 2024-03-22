@@ -7,6 +7,7 @@ class ViewingPartyController < ApplicationController
   end
 
   def create
+    require 'pry'; binding.pry
     viewing_party = ViewingParty.new(viewing_party_params)
     viewing_party.update(movie_id: params[:movie_id])
     if valid_creation?(viewing_party)
@@ -39,12 +40,12 @@ class ViewingPartyController < ApplicationController
   def user_party_ids
     params.require(:viewing_party).permit(user_ids: [])
   end
-
+  #move to ViewingParty
   def valid_duration?
     facade = MovieFacade.new(params[:movie_id])
     facade.movie.runtime.to_i >= params[:viewing_party][:duration].to_i
   end
-
+  #move to ViewingParty
   def valid_users?
     if user_party_ids[:user_ids].nil?
       false
@@ -52,7 +53,7 @@ class ViewingPartyController < ApplicationController
       true
     end
   end
-
+  #move to ViewingParty
   def valid_creation?(viewing_party)
     if viewing_party.save &&
        valid_users? &&

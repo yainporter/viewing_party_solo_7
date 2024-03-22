@@ -13,5 +13,5 @@ Rails.application.routes.draw do
     end
   end
   get "/users/:user_id/movies/:movie_id/similar", to: "similar#index", as: :similar_movies
-  # How do I go about the routing?
+  # How do I go about the routing? It seems to be too deeply routed
 end

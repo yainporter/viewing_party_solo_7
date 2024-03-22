@@ -7,6 +7,7 @@ class MovieFacade
     @movie_id = movie_id if valid_id?(movie_id)
   end
 
+  ## User Poro to do the filtering
   def movies_array(service)
     # Must be in an array in order to use .map to create
     # Must be a Hash, within a Hash in order to use data[:movie_info] for the Poro creation
@@ -27,6 +28,7 @@ class MovieFacade
     movies
   end
 
+  ## User Poro to do the filtering
   def movie_info
     movie_info = Hash.new
     data = @movie_service.get_movie_service(@movie_id)
@@ -40,6 +42,7 @@ class MovieFacade
     movie_info
   end
 
+  ## User Poro to do the filtering
   def movie_cast_info
     data = @movie_service.get_movie_cast_service(@movie_id)[:cast].take(10)
     movie_cast_info = []
@@ -49,6 +52,7 @@ class MovieFacade
     movie_cast_info
   end
 
+  ## User Poro to do the filtering
   def movie_reviews_info
     data = @movie_service.get_movie_reviews_service(@movie_id)[:results]
     movie_reviews_info = []

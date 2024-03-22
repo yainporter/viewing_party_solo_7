@@ -10,6 +10,7 @@ class Movie
               :release_date,
               :poster_path
 
+
   def initialize(data)
       @id = data[:movie_info][:id]
       @title = data[:movie_info][:title]
