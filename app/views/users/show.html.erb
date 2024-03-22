@@ -17,40 +17,32 @@
   box-sizing: border-box;
 }
 </style>
+
 <section class="viewing_parties">
   <div class="row">
-    <% @user.viewing_parties.each do |party| %>
-      <div class="viewing_party">
-        <div id="<%= party.id %>" class="column">
-          <p><%= img_tag  "#{@facade.movie.poster_path}"%></p>
-          Movie Title: <%= @facade.movie.title %>
+    <% @movies.each do |movie| %>
+      <% @user.viewing_parties.each do |party| %>
+        <div id="movie-<%= movie.id %>-party-<%= party.id %>" class="column viewing_party">
+          <% if movie.id == party.movie_id %>
+            <p><%= image_tag  "#{movie.poster_path}", size: "300x400" %></p>
+            <%= link_to movie.title, user_movie_path(@user.id, movie.id), data: { turbo_method: :get } %>
+          <% end %>
+          <br>
           Party Time: <%= party.date %> at <%= party.start_time %><br>
           Host: <%= party.find_host.name %><br>
           Who's Coming? <br/>
           <ol>
             <% party.users.each do |attendee| %>
-              <li><%= attendee.name %> </li>
+              <% if attendee.name == @user.name %>
+                <li><strong><%= attendee.name %></strong></li>
+              <% else %>
+                <li><%= attendee.name %></li>
+              <% end %>
             <% end %>
           </ol>
         </div>
-      </div><br>
+      <% end %>
     <% end %>
+    <br>
   </div
 </section>
-  <div class="column" style="background-color:#aaa;">
-    <h2>Column 1</h2>
-    <p>Some text..</p>
-  </div>
-  <div class="column" style="background-color:#bbb;">
-    <h2>Column 2</h2>
-    <p>Some text..</p>
-  </div>
-  <div class="column" style="background-color:#ccc;">
-    <h2>Column 3</h2>
-    <p>Some text..</p>
-  </div>
-  <div class="column" style="background-color:#ddd;">
-    <h2>Column 4</h2>
-    <p>Some text..</p>
-  </div>
-</div>

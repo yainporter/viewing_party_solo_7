@@ -103,6 +103,7 @@ class MovieFacade
     movie_info = Hash.new
 
     data = @movie_service.get_movie_service(id)
+    movie_info[:id] = id
     movie_info[:title] = data[:title]
     movie_info[:poster_path] = http_path(data[:poster_path])
 
@@ -110,7 +111,7 @@ class MovieFacade
   end
 
   def incomplete_movies(ids)
-    ids.each do |id|
+    ids.map do |id|
       Movie.new(title_and_poster_info(id))
     end
   end

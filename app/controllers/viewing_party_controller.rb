@@ -8,6 +8,7 @@ class ViewingPartyController < ApplicationController
 
   def create
     viewing_party = ViewingParty.new(viewing_party_params)
+    viewing_party.update(movie_id: params[:movie_id])
 
     if viewing_party.save && !user_party_ids[:user_ids].nil?
       new_user_parties(viewing_party)
