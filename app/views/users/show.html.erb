@@ -1,45 +1,34 @@
 <h1><%= "#{@user.name}'s Dashboard" %></h1><br>
-<style>
-  .row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 
-.column {
-  float: left;
-  width: 25%;
-  padding: 10px;
-  height: 500px;
-}
-
-* {
-  box-sizing: border-box;
-}
-</style>
-
-<section class="viewing_parties">
-  <div class="row">
+<section class="container">
+  <div class="row row-cols-2">
     <% @movies.each do |movie| %>
       <% @user.viewing_parties.each do |party| %>
-        <div id="movie-<%= movie.id %>-party-<%= party.id %>" class="column viewing_party">
+        <div class="col viewing_party movie-<%= movie.id %>-party-<%= party.id %> container">
           <% if movie.id == party.movie_id %>
-            <p><%= image_tag  "#{movie.poster_path}", size: "300x400" %></p>
-            <%= link_to movie.title, user_movie_path(@user.id, movie.id), data: { turbo_method: :get } %>
+          <div class="text-center">
+            <h3><%= link_to movie.title, user_movie_path(@user.id, movie.id), data: { turbo_method: :get } %></h3><br>
+            <%= image_tag  "#{movie.poster_path}", size: "200x300" %>
+          </div>
           <% end %>
           <br>
-          Party Time: <%= party.date %> at <%= party.start_time %><br>
-          Host: <%= party.find_host.name %><br>
-          Who's Coming? <br/>
-          <ol>
-            <% party.users.each do |attendee| %>
-              <% if attendee.name == @user.name %>
-                <li><strong><%= attendee.name %></strong></li>
-              <% else %>
-                <li><%= attendee.name %></li>
-              <% end %>
-            <% end %>
-          </ol>
+          <div class="center text-center">
+            <h4>Host: <%= party.find_host.name %></h4>
+            <div class="container center">
+              Party Date: <%= party.date %><br>
+              Party Time: <%= party.start_time %><br><br>
+              <p>Who's Coming?</p>
+              <ol class="list-group list-group-numbered container center">
+                <% party.users.each do |attendee| %>
+                  <% if attendee.name == @user.name %>
+                    <li class="list-group-item"><strong><%= attendee.name %></strong></li>
+                  <% else %>
+                    <li class="list-group-item"><%= attendee.name %></li>
+                  <% end %>
+                <% end %>
+              </ol>
+            </div>
+          </div>
         </div>
       <% end %>
     <% end %>

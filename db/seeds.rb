@@ -7,16 +7,15 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # create Users
-10.times do 
+10.times do
    User.create!(name: Faker::Name.name, email: Faker::Internet.email)
 end
-
-# create Parties
-5.times do 
-   ViewingParty.create!(duration: rand(0..240), date: Faker::Date.forward(days: rand(1..14)), start_time: Time.new.strftime("%H:%M"))
+movie_ids = [14919, 14938, 240, 390051, 389955]
+movie_ids.each do |movie_id|
+   ViewingParty.create!(duration: rand(0..240), date: Faker::Date.forward(days: rand(1..14)), start_time: Time.new.strftime("%H:%M"), movie_id: movie_id)
 end
 
-# set Hosts 
+# set Hosts
 UserParty.create!(viewing_party: ViewingParty.first, user: User.first, host: true)
 UserParty.create!(viewing_party: ViewingParty.second, user: User.second, host: true)
 UserParty.create!(viewing_party: ViewingParty.third, user: User.third, host: true)

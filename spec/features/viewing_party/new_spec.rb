@@ -50,7 +50,8 @@ RSpec.describe 'Viewing Party New', type: :feature do
 
       visit new_user_movie_viewing_party_path(@user, @movie.id)
 
-      page.find(:css, "#viewing_party_user_ids_#{User.last.id}").set(true)
+      save_and_open_page
+      page.find(:css, "#viewing_party_user_ids_#{User.second.id}").set(true)
       click_button("Create Party")
 
       expect(page.current_path).to eq(user_path(@user))
@@ -62,21 +63,30 @@ RSpec.describe 'Viewing Party New', type: :feature do
         expect(page).to have_content("Who's Coming?")
         expect(page).to have_css("ol")
         expect(page).to have_css("li", text: "#{@user.name}")
-        expect(page).to have_css("li", text: "#{User.last.name}")
+        expect(page).to have_css("li", text: "#{User.second.name}")
         expect(page).to have_css("li", count: 2)
       end
     end
 
     it "displays an error when no users are invited", :vcr do
-      visit user_path(@user)
+      click_button("Create Party")
 
-      expect(page).to have_no_css(".viewing_party")
+      expect(page.current_path).to eq(new_user_movie_viewing_party_path(@user, @movie.id))
+      expect(page).to have_content("You must invite someone, try again")
+    end
+
+    xit "displays an error when duration is less than the Movie runtime", :vcr do
+      # How do I do this? Because of my model method, it will not let duration be lower than the default amount
+      fill_in "Duration", with: 100
+
+      page.find(:css, "#viewing_party_user_ids_#{User.second.id}").set(true)
 
       visit new_user_movie_viewing_party_path(@user, @movie.id)
       click_button("Create Party")
 
       expect(page.current_path).to eq(new_user_movie_viewing_party_path(@user, @movie.id))
-      expect(page).to have_content("You need to invite other users, try again")
+
+      expect(page).to have_content("Party duration must be longer than the movie runtime, try again")
     end
   end
 end
