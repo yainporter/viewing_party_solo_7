@@ -278,4 +278,34 @@ RSpec.describe MovieFacade do
       end
     end
   end
+
+  describe "#title_and_poster_info" do
+    it "returns a Movie's title and poster_path", :vcr do
+      facade = MovieFacade.new
+      keys = [:title, :poster_path]
+      expect(facade.title_and_poster_info(240)).to be_a(Hash)
+      expect(facade.title_and_poster_info(240).keys).to eq([:movie_info])
+      expect(facade.title_and_poster_info(240)[:movie_info].keys.sort).to eq(keys.sort)
+      expect(facade.title_and_poster_info(240)[:movie_info][:title]).to be_a(String)
+      expect(facade.title_and_poster_info(240)[:movie_info][:poster_path]).to be_a(String)
+    end
+  end
+
+  describe "#incomplete_movie" do
+    it "creates a Movie object with only title and poster_path", :vcr do
+      facade = MovieFacade.new
+      movie = facade.incomplete_movie(240)
+      expect(movie).to be_a(Movie)
+      expect(movie.title).to eq("The Godfather Part II")
+      expect(movie.poster_path).to eq("https://media.themoviedb.org/t/p/original/hek3koDUyRQk7FIhPXsa6mT2Zc3.jpg")
+      expect(movie.id).to eq(nil)
+      expect(movie.vote_average).to eq(nil)
+      expect(movie.genres).to eq(nil)
+      expect(movie.summary).to eq(nil)
+      expect(movie.runtime).to eq(nil)
+      expect(movie.reviews).to eq(nil)
+      expect(movie.cast).to eq(nil)
+      expect(movie.release_date).to eq(nil)
+    end
+  end
 end

@@ -1,18 +1,56 @@
 <h1><%= "#{@user.name}'s Dashboard" %></h1><br>
+<style>
+  .row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+  height: 500px;
+}
+
+* {
+  box-sizing: border-box;
+}
+</style>
 <section class="viewing_parties">
-  <% @user.viewing_parties.each do |party| %>
-    <div class="viewing_party">
-      <div id="<%= party.id %>">
-        Party Time: <%= party.date %> at <%= party.start_time %><br>
-        Host: <%= party.find_host.name %><br>
-        Who's Coming? <br/>
-        <ol>
-          <% party.users.each do |attendee| %>
-            <li><%= attendee.name %> </li>
-          <% end %>
-        </ol>
-      </div>
-    </div><br>
-  <% end %>
+  <div class="row">
+    <% @user.viewing_parties.each do |party| %>
+      <div class="viewing_party">
+        <div id="<%= party.id %>" class="column">
+          <p><%= img_tag  "#{@facade.movie.poster_path}"%></p>
+          Movie Title: <%= @facade.movie.title %>
+          Party Time: <%= party.date %> at <%= party.start_time %><br>
+          Host: <%= party.find_host.name %><br>
+          Who's Coming? <br/>
+          <ol>
+            <% party.users.each do |attendee| %>
+              <li><%= attendee.name %> </li>
+            <% end %>
+          </ol>
+        </div>
+      </div><br>
+    <% end %>
+  </div
 </section>
+  <div class="column" style="background-color:#aaa;">
+    <h2>Column 1</h2>
+    <p>Some text..</p>
+  </div>
+  <div class="column" style="background-color:#bbb;">
+    <h2>Column 2</h2>
+    <p>Some text..</p>
+  </div>
+  <div class="column" style="background-color:#ccc;">
+    <h2>Column 3</h2>
+    <p>Some text..</p>
+  </div>
+  <div class="column" style="background-color:#ddd;">
+    <h2>Column 4</h2>
+    <p>Some text..</p>
+  </div>
+</div>

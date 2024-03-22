@@ -1,7 +1,7 @@
 class MovieFacade
   attr_reader :movie_service, :movie_id, :user_id
 
-  def initialize(movie_id, user_id = nil)
+  def initialize(movie_id = nil, user_id = nil)
     @movie_service = MovieService.new
     @user_id = user_id if valid_id?(user_id)
     @movie_id = movie_id if valid_id?(movie_id)
@@ -95,6 +95,22 @@ class MovieFacade
 
   def make_movies(movies_array)
     movies_array.map{ |movie| Movie.new(movie) }
+  end
+
+  def title_and_poster_info(id)
+    movie_data = Hash.new
+
+    movie_info = Hash.new
+
+    data = @movie_service.get_movie_service(id)
+    movie_info[:title] = data[:title]
+    movie_info[:poster_path] = http_path(data[:poster_path])
+
+    movie_data = {movie_info: movie_info}
+  end
+
+  def incomplete_movie(id)
+    Movie.new(title_and_poster_info(id))
   end
 
   def movie

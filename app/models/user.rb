@@ -8,4 +8,7 @@ class User < ApplicationRecord
    def self.all_but(id)
       User.where.not("users.id = ?", id)
    end
+
+   def host?
+   end
 end
