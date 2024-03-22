@@ -31,11 +31,11 @@ RSpec.describe "User Dashboard" do
 
   describe "User Story 7 - Add Movie Info" do
     it "displays movie details for Viewing Parties a User has been invited to", :vcr do
-      save_and_open_page
-      within "#movie-#{@movie.id}-party-#{@viewing_party2.id}" do
+      within ".movie-#{@movie.id}-party-#{@viewing_party2.id}" do
         expect(page).to have_css("img[src]")
         expect(page).to have_link("The Godfather Part II")
-        expect(page).to have_content("Party Time: 2024-03-22 at 14:15")
+        expect(page).to have_content("Party Time: 14:15")
+        expect(page).to have_content("Party Date: 2024-03-22")
         expect(page).to have_content("Host: #{User.second.name}")
         expect(page).to have_css("li", text: "#{User.second.name}")
         expect(page).to have_css("li", text: "#{User.first.name}")
@@ -46,10 +46,11 @@ RSpec.describe "User Dashboard" do
     end
 
     it "displays movie details for Viewing Parties a User is hosting", :vcr do
-      within "#movie-#{@movie.id}-party-#{@viewing_party1.id}" do
+      within ".movie-#{@movie.id}-party-#{@viewing_party1.id}" do
         expect(page).to have_css("img[src]")
         expect(page).to have_link("The Godfather Part II")
-        expect(page).to have_content("Party Time: 2024-03-30 at 20:35")
+        expect(page).to have_content("Party Time: 20:35")
+        expect(page).to have_content("Party Date: 2024-03-30")
         expect(page).to have_content("Host: #{@user.name}")
         expect(page).to have_css("li", text: "#{User.second.name}")
         expect(page).to have_css("li", text: "#{User.first.name}")

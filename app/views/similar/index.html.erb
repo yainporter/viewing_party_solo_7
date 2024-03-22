@@ -1,29 +1,12 @@
 <h2>Movies similar to <%= @facade.movie.title %></h2>
-<style>
-  .row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 
-.column {
-  float: left;
-  width: 25%;
-  padding: 10px;
-  height: 500px;
-}
-
-* {
-  box-sizing: border-box;
-}
-</style>
-<div class="row" id="similar-movies">
+<div class="row row-cols-4" id="similar-movies">
   <% @facade.similar_movies.each do |movie| %>
     <div class="column" id="img-<%= movie.id %>">
       <p><%= image_tag "#{movie.poster_path}", size: "300x400" %></p>
     </div>
     <div class="column" id="similar-movie-<%= movie.id %>">
-      <p>Title: <%= movie.title %></p>
+      <p>Title: <%= link_to movie.title, user_movie_path(@facade.user_id, movie.id), data: { turbo_method: :get } %>
       <p>Overview: <%= movie.summary %></p>
       <p>Release Date: <%= movie.release_date %></p>
       <p>Vote Average: <%= movie.vote_average %></p>
