@@ -51,7 +51,6 @@ RSpec.describe 'Viewing Party New', type: :feature do
       visit new_user_movie_viewing_party_path(@user, @movie.id)
 
       page.find(:css, "#viewing_party_user_ids_#{User.last.id}").set(true)
-      save_and_open_page
       click_button("Create Party")
 
       expect(page.current_path).to eq(user_path(@user))

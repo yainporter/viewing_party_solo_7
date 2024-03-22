@@ -18,6 +18,9 @@ class MovieFacade
       movie_data_hash[:id] = movie_data[:id]
       movie_data_hash[:title] = movie_data[:title]
       movie_data_hash[:vote_average] = movie_data[:vote_average]
+      movie_data_hash[:overview] = movie_data[:overview]
+      movie_data_hash[:release_date] = movie_data[:release_date]
+      movie_data_hash[:poster_path] = http_path(movie_data[:poster_path])
       hash_for_movie_info[:movie_info] = movie_data_hash
       movies << hash_for_movie_info
     end
@@ -77,12 +80,16 @@ class MovieFacade
     type = type.to_sym
     data = watch_providers_info[type]
     data.each do |type|
-      watch_providers_array << { logo_path: img_path(type[:logo_path]), provider_id: type[:provider_id] }
+      watch_providers_array << { logo_path: http_path(type[:logo_path]), provider_id: type[:provider_id] }
     end
     watch_providers_array
   end
 
-  def img_path(logo_path)
+  def similar_movies
+    make_movies(movies_array(@movie_service.get_similar_movies_service(@movie_id)))
+  end
+
+  def http_path(logo_path)
     "https://media.themoviedb.org/t/p/original#{logo_path}"
   end
 

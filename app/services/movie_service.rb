@@ -35,6 +35,6 @@ class MovieService
   end
 
   def get_similar_movies_service(id)
-    get_url("https://api.themoviedb.org/3/movie/#{id}/similar")
+    get_url("/3/movie/#{id}/similar")
   end
 end

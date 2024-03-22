@@ -1,0 +1,1813 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - c19c21c4899cc4badf7add13266575f7
+      X-Memc-Age:
+      - '24885'
+      X-Memc-Expires:
+      - '1626'
+      Date:
+      - Thu, 21 Mar 2024 21:19:34 GMT
+      Cache-Control:
+      - public, max-age=11960
+      Etag:
+      - W/"f742d083f264ba1cae1658ffa2e5d278"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 f61ee12013c56c45395fe8472eda08bc.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - lmzbaOL-utNVoWUGtPRmV7m_CP24iU32kEAQNwIDU80vhkmeROh24A==
+      Age:
+      - '9032'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"adult":false,"backdrop_path":null,"belongs_to_collection":null,"budget":0,"genres":[{"id":80,"name":"Crime"}],"homepage":"","id":1090265,"imdb_id":"tt12793888","original_language":"en","original_title":"Porter","overview":"An
+        aging and mute rodeo clown struggles between macabre dreams and reality.","popularity":2.016,"poster_path":"/nUv3wjneRP6Eu6jQNjpZzPZAow0.jpg","production_companies":[{"id":194091,"logo_path":null,"name":"Pristine
+        Entertainment Ltd.","origin_country":""}],"production_countries":[{"iso_3166_1":"CA","name":"Canada"}],"release_date":"","revenue":0,"runtime":82,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"Good
+        clowns, Bad clowns","title":"Porter","video":false,"vote_average":0.0,"vote_count":0}'
+  recorded_at: Thu, 21 Mar 2024 23:50:06 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265/reviews?language=en-US&page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 64fa654978739ba90c2caf639e234fda
+      X-Memc-Age:
+      - '5851'
+      X-Memc-Expires:
+      - '21984'
+      Date:
+      - Thu, 21 Mar 2024 23:50:07 GMT
+      Cache-Control:
+      - public, max-age=24932
+      Etag:
+      - W/"d25a96f6a5be9d7fc601dc403ca0b909"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - RefreshHit from cloudfront
+      Via:
+      - 1.1 3c72e95d5654421751ecbf6b86c8740a.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - KtXuO3F5On5TgMvQT5f5e-d6iU8Ce77Jtpntft2xrulkC5hbvweH9Q==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":1090265,"page":1,"results":[],"total_pages":0,"total_results":0}'
+  recorded_at: Thu, 21 Mar 2024 23:50:07 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265/credits?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - ba82768956ad4b0f4c0fbe3aa04be82d
+      X-Memc-Age:
+      - '5851'
+      X-Memc-Expires:
+      - '19072'
+      Date:
+      - Thu, 21 Mar 2024 21:19:34 GMT
+      Cache-Control:
+      - public, max-age=23199
+      Etag:
+      - W/"f458bd466aa69a33110684db413196d8"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 6f9d1169f2bd8d5941d08b66c4e041a6.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - waL3hLQ2cQc3hZC5NBlVHx1G2m24ZkfeLrfp-krqBNDEXvAQa4-H0g==
+      Age:
+      - '9033'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":1090265,"cast":[{"adult":false,"gender":2,"id":1761051,"known_for_department":"Acting","name":"Moishe
+        Teichman","original_name":"Moishe Teichman","popularity":3.912,"profile_path":"/1KH5RBAgUkNmVVNL0Wp9pflSYKk.jpg","cast_id":1,"character":"Old
+        Clown","credit_id":"63f6557d9661fc00b6e4d65f","order":0},{"adult":false,"gender":2,"id":1376355,"known_for_department":"Acting","name":"Dayleigh
+        Nelson","original_name":"Dayleigh Nelson","popularity":7.923,"profile_path":"/q4kzO4l09yPiRDHsRGhgcLx9vgW.jpg","cast_id":2,"character":"Renter/
+        Psychopomp","credit_id":"63f6558853f83300c5e482f3","order":1},{"adult":false,"gender":2,"id":1327457,"known_for_department":"Acting","name":"Arpad
+        Balogh","original_name":"Arpad Balogh","popularity":15.427,"profile_path":"/qa8lXjPftAtgYg6kxsXDjtJcEC8.jpg","cast_id":3,"character":"Porter","credit_id":"63f65591b2681f00d416da43","order":2},{"adult":false,"gender":0,"id":1706924,"known_for_department":"Directing","name":"Tyrone
+        Martin Polanski","original_name":"Tyrone Martin Polanski","popularity":0.6,"profile_path":null,"cast_id":4,"character":"Citizen","credit_id":"63f6559b2f791500cdec5330","order":3},{"adult":false,"gender":0,"id":3731873,"known_for_department":"Acting","name":"Dick
+        Pugh","original_name":"Dick Pugh","popularity":0.6,"profile_path":null,"cast_id":5,"character":"","credit_id":"63f655a29661fc008a698556","order":4},{"adult":false,"gender":1,"id":3105797,"known_for_department":"Acting","name":"Madeline
+        Wahl","original_name":"Madeline Wahl","popularity":0.98,"profile_path":null,"cast_id":6,"character":"","credit_id":"63f655a853f83300ddc46159","order":5},{"adult":false,"gender":0,"id":3934011,"known_for_department":"Acting","name":"Braleigh
+        James","original_name":"Braleigh James","popularity":1.38,"profile_path":null,"cast_id":7,"character":"Silver","credit_id":"63f655ae2f791500f0e6411b","order":6},{"adult":false,"gender":2,"id":1245541,"known_for_department":"Acting","name":"Kerry
+        James","original_name":"Kerry James","popularity":18.386,"profile_path":"/cOSqTUcSjlJj8OSgigIk3RjWma3.jpg","cast_id":8,"character":"Angel","credit_id":"63f655c19661fc007c8df0a8","order":7},{"adult":false,"gender":0,"id":3934012,"known_for_department":"Acting","name":"Jason
+        Mireau","original_name":"Jason Mireau","popularity":0.6,"profile_path":null,"cast_id":9,"character":"","credit_id":"63f655ca9661fc00b6e4d688","order":8},{"adult":false,"gender":0,"id":2987467,"known_for_department":"Acting","name":"Delia
+        Tatiana","original_name":"Delia Tatiana","popularity":0.6,"profile_path":null,"cast_id":10,"character":"","credit_id":"63f655cf53f83300c5e4830b","order":9},{"adult":false,"gender":2,"id":3189773,"known_for_department":"Acting","name":"Austin
+        Trapp","original_name":"Austin Trapp","popularity":3.056,"profile_path":"/e4ef25z7AhUimXFsigiMGWmiVdZ.jpg","cast_id":11,"character":"","credit_id":"63f655d4b2681f00d416da5d","order":10}],"crew":[{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655f453f83300ddc46171","department":"Directing","job":"Director"},{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655ec2f791500f0e6412b","department":"Production","job":"Producer"},{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655e453f833007bb63d1a","department":"Writing","job":"Writer"}]}'
+  recorded_at: Thu, 21 Mar 2024 23:50:07 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - c19c21c4899cc4badf7add13266575f7
+      X-Memc-Age:
+      - '24885'
+      X-Memc-Expires:
+      - '1626'
+      Date:
+      - Thu, 21 Mar 2024 21:19:34 GMT
+      Cache-Control:
+      - public, max-age=11960
+      Etag:
+      - W/"f742d083f264ba1cae1658ffa2e5d278"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 25ad32b45015b92d33a50547ecf52758.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - i5K3DsBPvEeB9FMAY3mKHWzS7Iby_M2BmJN9a_A6ADViEx8arhA49w==
+      Age:
+      - '9033'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"adult":false,"backdrop_path":null,"belongs_to_collection":null,"budget":0,"genres":[{"id":80,"name":"Crime"}],"homepage":"","id":1090265,"imdb_id":"tt12793888","original_language":"en","original_title":"Porter","overview":"An
+        aging and mute rodeo clown struggles between macabre dreams and reality.","popularity":2.016,"poster_path":"/nUv3wjneRP6Eu6jQNjpZzPZAow0.jpg","production_companies":[{"id":194091,"logo_path":null,"name":"Pristine
+        Entertainment Ltd.","origin_country":""}],"production_countries":[{"iso_3166_1":"CA","name":"Canada"}],"release_date":"","revenue":0,"runtime":82,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"Good
+        clowns, Bad clowns","title":"Porter","video":false,"vote_average":0.0,"vote_count":0}'
+  recorded_at: Thu, 21 Mar 2024 23:50:07 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265/reviews?language=en-US&page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 64fa654978739ba90c2caf639e234fda
+      X-Memc-Age:
+      - '5851'
+      X-Memc-Expires:
+      - '21984'
+      Date:
+      - Thu, 21 Mar 2024 23:50:07 GMT
+      Cache-Control:
+      - public, max-age=24932
+      Etag:
+      - W/"d25a96f6a5be9d7fc601dc403ca0b909"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 123e69ce4c4641277ec2a7cbf9f44f26.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - e7Xa88bTpHLhpZHySCkRcvOt_TMfUHlmcyWBbmPSmF6XDMWDi88xKw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":1090265,"page":1,"results":[],"total_pages":0,"total_results":0}'
+  recorded_at: Thu, 21 Mar 2024 23:50:07 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265/credits?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - ba82768956ad4b0f4c0fbe3aa04be82d
+      X-Memc-Age:
+      - '5851'
+      X-Memc-Expires:
+      - '19072'
+      Date:
+      - Thu, 21 Mar 2024 21:19:34 GMT
+      Cache-Control:
+      - public, max-age=23199
+      Etag:
+      - W/"f458bd466aa69a33110684db413196d8"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 084b168868a62755fef681094cd20582.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - "-IkZrnEgViFpT8KC9Yvna3hGjY_Axf4mRzuPaTdZoA1RLXr072xa2g=="
+      Age:
+      - '9033'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":1090265,"cast":[{"adult":false,"gender":2,"id":1761051,"known_for_department":"Acting","name":"Moishe
+        Teichman","original_name":"Moishe Teichman","popularity":3.912,"profile_path":"/1KH5RBAgUkNmVVNL0Wp9pflSYKk.jpg","cast_id":1,"character":"Old
+        Clown","credit_id":"63f6557d9661fc00b6e4d65f","order":0},{"adult":false,"gender":2,"id":1376355,"known_for_department":"Acting","name":"Dayleigh
+        Nelson","original_name":"Dayleigh Nelson","popularity":7.923,"profile_path":"/q4kzO4l09yPiRDHsRGhgcLx9vgW.jpg","cast_id":2,"character":"Renter/
+        Psychopomp","credit_id":"63f6558853f83300c5e482f3","order":1},{"adult":false,"gender":2,"id":1327457,"known_for_department":"Acting","name":"Arpad
+        Balogh","original_name":"Arpad Balogh","popularity":15.427,"profile_path":"/qa8lXjPftAtgYg6kxsXDjtJcEC8.jpg","cast_id":3,"character":"Porter","credit_id":"63f65591b2681f00d416da43","order":2},{"adult":false,"gender":0,"id":1706924,"known_for_department":"Directing","name":"Tyrone
+        Martin Polanski","original_name":"Tyrone Martin Polanski","popularity":0.6,"profile_path":null,"cast_id":4,"character":"Citizen","credit_id":"63f6559b2f791500cdec5330","order":3},{"adult":false,"gender":0,"id":3731873,"known_for_department":"Acting","name":"Dick
+        Pugh","original_name":"Dick Pugh","popularity":0.6,"profile_path":null,"cast_id":5,"character":"","credit_id":"63f655a29661fc008a698556","order":4},{"adult":false,"gender":1,"id":3105797,"known_for_department":"Acting","name":"Madeline
+        Wahl","original_name":"Madeline Wahl","popularity":0.98,"profile_path":null,"cast_id":6,"character":"","credit_id":"63f655a853f83300ddc46159","order":5},{"adult":false,"gender":0,"id":3934011,"known_for_department":"Acting","name":"Braleigh
+        James","original_name":"Braleigh James","popularity":1.38,"profile_path":null,"cast_id":7,"character":"Silver","credit_id":"63f655ae2f791500f0e6411b","order":6},{"adult":false,"gender":2,"id":1245541,"known_for_department":"Acting","name":"Kerry
+        James","original_name":"Kerry James","popularity":18.386,"profile_path":"/cOSqTUcSjlJj8OSgigIk3RjWma3.jpg","cast_id":8,"character":"Angel","credit_id":"63f655c19661fc007c8df0a8","order":7},{"adult":false,"gender":0,"id":3934012,"known_for_department":"Acting","name":"Jason
+        Mireau","original_name":"Jason Mireau","popularity":0.6,"profile_path":null,"cast_id":9,"character":"","credit_id":"63f655ca9661fc00b6e4d688","order":8},{"adult":false,"gender":0,"id":2987467,"known_for_department":"Acting","name":"Delia
+        Tatiana","original_name":"Delia Tatiana","popularity":0.6,"profile_path":null,"cast_id":10,"character":"","credit_id":"63f655cf53f83300c5e4830b","order":9},{"adult":false,"gender":2,"id":3189773,"known_for_department":"Acting","name":"Austin
+        Trapp","original_name":"Austin Trapp","popularity":3.056,"profile_path":"/e4ef25z7AhUimXFsigiMGWmiVdZ.jpg","cast_id":11,"character":"","credit_id":"63f655d4b2681f00d416da5d","order":10}],"crew":[{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655f453f83300ddc46171","department":"Directing","job":"Director"},{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655ec2f791500f0e6412b","department":"Production","job":"Producer"},{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655e453f833007bb63d1a","department":"Writing","job":"Writer"}]}'
+  recorded_at: Thu, 21 Mar 2024 23:50:07 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - c19c21c4899cc4badf7add13266575f7
+      X-Memc-Age:
+      - '24885'
+      X-Memc-Expires:
+      - '1626'
+      Date:
+      - Thu, 21 Mar 2024 21:19:34 GMT
+      Cache-Control:
+      - public, max-age=11960
+      Etag:
+      - W/"f742d083f264ba1cae1658ffa2e5d278"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 fe7a664e98e1fa233d473b9022e08898.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - WHZ2Ww26hz9H-8bwTiW3arP1rypI-DRwf18c_CgNnXxjE_CW5QmIIg==
+      Age:
+      - '9033'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"adult":false,"backdrop_path":null,"belongs_to_collection":null,"budget":0,"genres":[{"id":80,"name":"Crime"}],"homepage":"","id":1090265,"imdb_id":"tt12793888","original_language":"en","original_title":"Porter","overview":"An
+        aging and mute rodeo clown struggles between macabre dreams and reality.","popularity":2.016,"poster_path":"/nUv3wjneRP6Eu6jQNjpZzPZAow0.jpg","production_companies":[{"id":194091,"logo_path":null,"name":"Pristine
+        Entertainment Ltd.","origin_country":""}],"production_countries":[{"iso_3166_1":"CA","name":"Canada"}],"release_date":"","revenue":0,"runtime":82,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"Good
+        clowns, Bad clowns","title":"Porter","video":false,"vote_average":0.0,"vote_count":0}'
+  recorded_at: Thu, 21 Mar 2024 23:50:07 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265/reviews?language=en-US&page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 64fa654978739ba90c2caf639e234fda
+      X-Memc-Age:
+      - '5851'
+      X-Memc-Expires:
+      - '21984'
+      Date:
+      - Thu, 21 Mar 2024 23:50:07 GMT
+      Cache-Control:
+      - public, max-age=24932
+      Etag:
+      - W/"d25a96f6a5be9d7fc601dc403ca0b909"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 de04a7f45d43d28125c2a98cf02d48f2.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - "-whFQ8oUW60ib1oFksINKb4rb1X2gUTLK-dKiwA_m9llNKXozIOuiA=="
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":1090265,"page":1,"results":[],"total_pages":0,"total_results":0}'
+  recorded_at: Thu, 21 Mar 2024 23:50:07 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265/credits?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - ba82768956ad4b0f4c0fbe3aa04be82d
+      X-Memc-Age:
+      - '5851'
+      X-Memc-Expires:
+      - '19072'
+      Date:
+      - Thu, 21 Mar 2024 21:19:34 GMT
+      Cache-Control:
+      - public, max-age=23199
+      Etag:
+      - W/"f458bd466aa69a33110684db413196d8"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 4892b1ac8a5bf76f6f3908b66c300c8c.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - g_B_sBXBkYrZqJumk9_nMaWLDSLd5I_We5-Sg6h8OHwBoDVt7RTx2A==
+      Age:
+      - '9033'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":1090265,"cast":[{"adult":false,"gender":2,"id":1761051,"known_for_department":"Acting","name":"Moishe
+        Teichman","original_name":"Moishe Teichman","popularity":3.912,"profile_path":"/1KH5RBAgUkNmVVNL0Wp9pflSYKk.jpg","cast_id":1,"character":"Old
+        Clown","credit_id":"63f6557d9661fc00b6e4d65f","order":0},{"adult":false,"gender":2,"id":1376355,"known_for_department":"Acting","name":"Dayleigh
+        Nelson","original_name":"Dayleigh Nelson","popularity":7.923,"profile_path":"/q4kzO4l09yPiRDHsRGhgcLx9vgW.jpg","cast_id":2,"character":"Renter/
+        Psychopomp","credit_id":"63f6558853f83300c5e482f3","order":1},{"adult":false,"gender":2,"id":1327457,"known_for_department":"Acting","name":"Arpad
+        Balogh","original_name":"Arpad Balogh","popularity":15.427,"profile_path":"/qa8lXjPftAtgYg6kxsXDjtJcEC8.jpg","cast_id":3,"character":"Porter","credit_id":"63f65591b2681f00d416da43","order":2},{"adult":false,"gender":0,"id":1706924,"known_for_department":"Directing","name":"Tyrone
+        Martin Polanski","original_name":"Tyrone Martin Polanski","popularity":0.6,"profile_path":null,"cast_id":4,"character":"Citizen","credit_id":"63f6559b2f791500cdec5330","order":3},{"adult":false,"gender":0,"id":3731873,"known_for_department":"Acting","name":"Dick
+        Pugh","original_name":"Dick Pugh","popularity":0.6,"profile_path":null,"cast_id":5,"character":"","credit_id":"63f655a29661fc008a698556","order":4},{"adult":false,"gender":1,"id":3105797,"known_for_department":"Acting","name":"Madeline
+        Wahl","original_name":"Madeline Wahl","popularity":0.98,"profile_path":null,"cast_id":6,"character":"","credit_id":"63f655a853f83300ddc46159","order":5},{"adult":false,"gender":0,"id":3934011,"known_for_department":"Acting","name":"Braleigh
+        James","original_name":"Braleigh James","popularity":1.38,"profile_path":null,"cast_id":7,"character":"Silver","credit_id":"63f655ae2f791500f0e6411b","order":6},{"adult":false,"gender":2,"id":1245541,"known_for_department":"Acting","name":"Kerry
+        James","original_name":"Kerry James","popularity":18.386,"profile_path":"/cOSqTUcSjlJj8OSgigIk3RjWma3.jpg","cast_id":8,"character":"Angel","credit_id":"63f655c19661fc007c8df0a8","order":7},{"adult":false,"gender":0,"id":3934012,"known_for_department":"Acting","name":"Jason
+        Mireau","original_name":"Jason Mireau","popularity":0.6,"profile_path":null,"cast_id":9,"character":"","credit_id":"63f655ca9661fc00b6e4d688","order":8},{"adult":false,"gender":0,"id":2987467,"known_for_department":"Acting","name":"Delia
+        Tatiana","original_name":"Delia Tatiana","popularity":0.6,"profile_path":null,"cast_id":10,"character":"","credit_id":"63f655cf53f83300c5e4830b","order":9},{"adult":false,"gender":2,"id":3189773,"known_for_department":"Acting","name":"Austin
+        Trapp","original_name":"Austin Trapp","popularity":3.056,"profile_path":"/e4ef25z7AhUimXFsigiMGWmiVdZ.jpg","cast_id":11,"character":"","credit_id":"63f655d4b2681f00d416da5d","order":10}],"crew":[{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655f453f83300ddc46171","department":"Directing","job":"Director"},{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655ec2f791500f0e6412b","department":"Production","job":"Producer"},{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655e453f833007bb63d1a","department":"Writing","job":"Writer"}]}'
+  recorded_at: Thu, 21 Mar 2024 23:50:07 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - c19c21c4899cc4badf7add13266575f7
+      X-Memc-Age:
+      - '24885'
+      X-Memc-Expires:
+      - '1626'
+      Date:
+      - Thu, 21 Mar 2024 21:19:34 GMT
+      Cache-Control:
+      - public, max-age=11960
+      Etag:
+      - W/"f742d083f264ba1cae1658ffa2e5d278"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 9c625a1ab662710c3b6d251a0b27b20e.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - Zws5UCS55HAXL982y64voYg4E-hxX1hEk8wBVqRvNu_5ChAZY94dtw==
+      Age:
+      - '9033'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"adult":false,"backdrop_path":null,"belongs_to_collection":null,"budget":0,"genres":[{"id":80,"name":"Crime"}],"homepage":"","id":1090265,"imdb_id":"tt12793888","original_language":"en","original_title":"Porter","overview":"An
+        aging and mute rodeo clown struggles between macabre dreams and reality.","popularity":2.016,"poster_path":"/nUv3wjneRP6Eu6jQNjpZzPZAow0.jpg","production_companies":[{"id":194091,"logo_path":null,"name":"Pristine
+        Entertainment Ltd.","origin_country":""}],"production_countries":[{"iso_3166_1":"CA","name":"Canada"}],"release_date":"","revenue":0,"runtime":82,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"Good
+        clowns, Bad clowns","title":"Porter","video":false,"vote_average":0.0,"vote_count":0}'
+  recorded_at: Thu, 21 Mar 2024 23:50:07 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265/reviews?language=en-US&page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 64fa654978739ba90c2caf639e234fda
+      X-Memc-Age:
+      - '5851'
+      X-Memc-Expires:
+      - '21984'
+      Date:
+      - Thu, 21 Mar 2024 23:50:07 GMT
+      Cache-Control:
+      - public, max-age=24932
+      Etag:
+      - W/"d25a96f6a5be9d7fc601dc403ca0b909"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 81750baaeda3b00efa861517fed1eb6c.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - NU8m_WF5ghf-U496p6zPpJz5dECHeZQxX-DA8K02UaCVabFCJ9jF0w==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":1090265,"page":1,"results":[],"total_pages":0,"total_results":0}'
+  recorded_at: Thu, 21 Mar 2024 23:50:07 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265/credits?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - ba82768956ad4b0f4c0fbe3aa04be82d
+      X-Memc-Age:
+      - '5851'
+      X-Memc-Expires:
+      - '19072'
+      Date:
+      - Thu, 21 Mar 2024 21:19:34 GMT
+      Cache-Control:
+      - public, max-age=23199
+      Etag:
+      - W/"f458bd466aa69a33110684db413196d8"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 fe7a664e98e1fa233d473b9022e08898.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - lWnSNhtpj-WoFZYwlEmOFA6IeLkjmgt5TR5w-tJj5CVvIV3_Ja9mOw==
+      Age:
+      - '9033'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":1090265,"cast":[{"adult":false,"gender":2,"id":1761051,"known_for_department":"Acting","name":"Moishe
+        Teichman","original_name":"Moishe Teichman","popularity":3.912,"profile_path":"/1KH5RBAgUkNmVVNL0Wp9pflSYKk.jpg","cast_id":1,"character":"Old
+        Clown","credit_id":"63f6557d9661fc00b6e4d65f","order":0},{"adult":false,"gender":2,"id":1376355,"known_for_department":"Acting","name":"Dayleigh
+        Nelson","original_name":"Dayleigh Nelson","popularity":7.923,"profile_path":"/q4kzO4l09yPiRDHsRGhgcLx9vgW.jpg","cast_id":2,"character":"Renter/
+        Psychopomp","credit_id":"63f6558853f83300c5e482f3","order":1},{"adult":false,"gender":2,"id":1327457,"known_for_department":"Acting","name":"Arpad
+        Balogh","original_name":"Arpad Balogh","popularity":15.427,"profile_path":"/qa8lXjPftAtgYg6kxsXDjtJcEC8.jpg","cast_id":3,"character":"Porter","credit_id":"63f65591b2681f00d416da43","order":2},{"adult":false,"gender":0,"id":1706924,"known_for_department":"Directing","name":"Tyrone
+        Martin Polanski","original_name":"Tyrone Martin Polanski","popularity":0.6,"profile_path":null,"cast_id":4,"character":"Citizen","credit_id":"63f6559b2f791500cdec5330","order":3},{"adult":false,"gender":0,"id":3731873,"known_for_department":"Acting","name":"Dick
+        Pugh","original_name":"Dick Pugh","popularity":0.6,"profile_path":null,"cast_id":5,"character":"","credit_id":"63f655a29661fc008a698556","order":4},{"adult":false,"gender":1,"id":3105797,"known_for_department":"Acting","name":"Madeline
+        Wahl","original_name":"Madeline Wahl","popularity":0.98,"profile_path":null,"cast_id":6,"character":"","credit_id":"63f655a853f83300ddc46159","order":5},{"adult":false,"gender":0,"id":3934011,"known_for_department":"Acting","name":"Braleigh
+        James","original_name":"Braleigh James","popularity":1.38,"profile_path":null,"cast_id":7,"character":"Silver","credit_id":"63f655ae2f791500f0e6411b","order":6},{"adult":false,"gender":2,"id":1245541,"known_for_department":"Acting","name":"Kerry
+        James","original_name":"Kerry James","popularity":18.386,"profile_path":"/cOSqTUcSjlJj8OSgigIk3RjWma3.jpg","cast_id":8,"character":"Angel","credit_id":"63f655c19661fc007c8df0a8","order":7},{"adult":false,"gender":0,"id":3934012,"known_for_department":"Acting","name":"Jason
+        Mireau","original_name":"Jason Mireau","popularity":0.6,"profile_path":null,"cast_id":9,"character":"","credit_id":"63f655ca9661fc00b6e4d688","order":8},{"adult":false,"gender":0,"id":2987467,"known_for_department":"Acting","name":"Delia
+        Tatiana","original_name":"Delia Tatiana","popularity":0.6,"profile_path":null,"cast_id":10,"character":"","credit_id":"63f655cf53f83300c5e4830b","order":9},{"adult":false,"gender":2,"id":3189773,"known_for_department":"Acting","name":"Austin
+        Trapp","original_name":"Austin Trapp","popularity":3.056,"profile_path":"/e4ef25z7AhUimXFsigiMGWmiVdZ.jpg","cast_id":11,"character":"","credit_id":"63f655d4b2681f00d416da5d","order":10}],"crew":[{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655f453f83300ddc46171","department":"Directing","job":"Director"},{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655ec2f791500f0e6412b","department":"Production","job":"Producer"},{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655e453f833007bb63d1a","department":"Writing","job":"Writer"}]}'
+  recorded_at: Thu, 21 Mar 2024 23:50:07 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - c19c21c4899cc4badf7add13266575f7
+      X-Memc-Age:
+      - '24885'
+      X-Memc-Expires:
+      - '1626'
+      Date:
+      - Thu, 21 Mar 2024 21:19:34 GMT
+      Cache-Control:
+      - public, max-age=11960
+      Etag:
+      - W/"f742d083f264ba1cae1658ffa2e5d278"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 206f3b6a8991f0da5725b300de19e25e.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - RQqPiReO5nFwzZ0861N6MrBMeFnYCmLcgu-HD-rQahOWw3TFF5sWRA==
+      Age:
+      - '9034'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"adult":false,"backdrop_path":null,"belongs_to_collection":null,"budget":0,"genres":[{"id":80,"name":"Crime"}],"homepage":"","id":1090265,"imdb_id":"tt12793888","original_language":"en","original_title":"Porter","overview":"An
+        aging and mute rodeo clown struggles between macabre dreams and reality.","popularity":2.016,"poster_path":"/nUv3wjneRP6Eu6jQNjpZzPZAow0.jpg","production_companies":[{"id":194091,"logo_path":null,"name":"Pristine
+        Entertainment Ltd.","origin_country":""}],"production_countries":[{"iso_3166_1":"CA","name":"Canada"}],"release_date":"","revenue":0,"runtime":82,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"Good
+        clowns, Bad clowns","title":"Porter","video":false,"vote_average":0.0,"vote_count":0}'
+  recorded_at: Thu, 21 Mar 2024 23:50:08 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265/reviews?language=en-US&page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 64fa654978739ba90c2caf639e234fda
+      X-Memc-Age:
+      - '5851'
+      X-Memc-Expires:
+      - '21984'
+      Date:
+      - Thu, 21 Mar 2024 23:50:07 GMT
+      Cache-Control:
+      - public, max-age=24932
+      Etag:
+      - W/"d25a96f6a5be9d7fc601dc403ca0b909"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 fe7a664e98e1fa233d473b9022e08898.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - a2UOvtTiHdTei-2VuCwgdaFnx3kRdu22na_ZvksWCG4GerBdvQcf0g==
+      Age:
+      - '1'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":1090265,"page":1,"results":[],"total_pages":0,"total_results":0}'
+  recorded_at: Thu, 21 Mar 2024 23:50:08 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265/credits?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - ba82768956ad4b0f4c0fbe3aa04be82d
+      X-Memc-Age:
+      - '5851'
+      X-Memc-Expires:
+      - '19072'
+      Date:
+      - Thu, 21 Mar 2024 21:19:34 GMT
+      Cache-Control:
+      - public, max-age=23199
+      Etag:
+      - W/"f458bd466aa69a33110684db413196d8"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 c919eabe071323f9a1b4ff171a300ae6.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - "-Giem4rWq1vzAFyNgMmbOnHGC7RtXY30el6f82xMmU17qAEeAyzqwA=="
+      Age:
+      - '9034'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":1090265,"cast":[{"adult":false,"gender":2,"id":1761051,"known_for_department":"Acting","name":"Moishe
+        Teichman","original_name":"Moishe Teichman","popularity":3.912,"profile_path":"/1KH5RBAgUkNmVVNL0Wp9pflSYKk.jpg","cast_id":1,"character":"Old
+        Clown","credit_id":"63f6557d9661fc00b6e4d65f","order":0},{"adult":false,"gender":2,"id":1376355,"known_for_department":"Acting","name":"Dayleigh
+        Nelson","original_name":"Dayleigh Nelson","popularity":7.923,"profile_path":"/q4kzO4l09yPiRDHsRGhgcLx9vgW.jpg","cast_id":2,"character":"Renter/
+        Psychopomp","credit_id":"63f6558853f83300c5e482f3","order":1},{"adult":false,"gender":2,"id":1327457,"known_for_department":"Acting","name":"Arpad
+        Balogh","original_name":"Arpad Balogh","popularity":15.427,"profile_path":"/qa8lXjPftAtgYg6kxsXDjtJcEC8.jpg","cast_id":3,"character":"Porter","credit_id":"63f65591b2681f00d416da43","order":2},{"adult":false,"gender":0,"id":1706924,"known_for_department":"Directing","name":"Tyrone
+        Martin Polanski","original_name":"Tyrone Martin Polanski","popularity":0.6,"profile_path":null,"cast_id":4,"character":"Citizen","credit_id":"63f6559b2f791500cdec5330","order":3},{"adult":false,"gender":0,"id":3731873,"known_for_department":"Acting","name":"Dick
+        Pugh","original_name":"Dick Pugh","popularity":0.6,"profile_path":null,"cast_id":5,"character":"","credit_id":"63f655a29661fc008a698556","order":4},{"adult":false,"gender":1,"id":3105797,"known_for_department":"Acting","name":"Madeline
+        Wahl","original_name":"Madeline Wahl","popularity":0.98,"profile_path":null,"cast_id":6,"character":"","credit_id":"63f655a853f83300ddc46159","order":5},{"adult":false,"gender":0,"id":3934011,"known_for_department":"Acting","name":"Braleigh
+        James","original_name":"Braleigh James","popularity":1.38,"profile_path":null,"cast_id":7,"character":"Silver","credit_id":"63f655ae2f791500f0e6411b","order":6},{"adult":false,"gender":2,"id":1245541,"known_for_department":"Acting","name":"Kerry
+        James","original_name":"Kerry James","popularity":18.386,"profile_path":"/cOSqTUcSjlJj8OSgigIk3RjWma3.jpg","cast_id":8,"character":"Angel","credit_id":"63f655c19661fc007c8df0a8","order":7},{"adult":false,"gender":0,"id":3934012,"known_for_department":"Acting","name":"Jason
+        Mireau","original_name":"Jason Mireau","popularity":0.6,"profile_path":null,"cast_id":9,"character":"","credit_id":"63f655ca9661fc00b6e4d688","order":8},{"adult":false,"gender":0,"id":2987467,"known_for_department":"Acting","name":"Delia
+        Tatiana","original_name":"Delia Tatiana","popularity":0.6,"profile_path":null,"cast_id":10,"character":"","credit_id":"63f655cf53f83300c5e4830b","order":9},{"adult":false,"gender":2,"id":3189773,"known_for_department":"Acting","name":"Austin
+        Trapp","original_name":"Austin Trapp","popularity":3.056,"profile_path":"/e4ef25z7AhUimXFsigiMGWmiVdZ.jpg","cast_id":11,"character":"","credit_id":"63f655d4b2681f00d416da5d","order":10}],"crew":[{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655f453f83300ddc46171","department":"Directing","job":"Director"},{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655ec2f791500f0e6412b","department":"Production","job":"Producer"},{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655e453f833007bb63d1a","department":"Writing","job":"Writer"}]}'
+  recorded_at: Thu, 21 Mar 2024 23:50:08 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - c19c21c4899cc4badf7add13266575f7
+      X-Memc-Age:
+      - '24885'
+      X-Memc-Expires:
+      - '1626'
+      Date:
+      - Thu, 21 Mar 2024 21:19:34 GMT
+      Cache-Control:
+      - public, max-age=11960
+      Etag:
+      - W/"f742d083f264ba1cae1658ffa2e5d278"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 1ddc3975edd4576d8608680e72a306ca.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - lo_iPrWuOSFxinI4V688wbwOVmEA4_4a-Zy5mB46lqkzK4hs9POeAg==
+      Age:
+      - '9034'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"adult":false,"backdrop_path":null,"belongs_to_collection":null,"budget":0,"genres":[{"id":80,"name":"Crime"}],"homepage":"","id":1090265,"imdb_id":"tt12793888","original_language":"en","original_title":"Porter","overview":"An
+        aging and mute rodeo clown struggles between macabre dreams and reality.","popularity":2.016,"poster_path":"/nUv3wjneRP6Eu6jQNjpZzPZAow0.jpg","production_companies":[{"id":194091,"logo_path":null,"name":"Pristine
+        Entertainment Ltd.","origin_country":""}],"production_countries":[{"iso_3166_1":"CA","name":"Canada"}],"release_date":"","revenue":0,"runtime":82,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"Good
+        clowns, Bad clowns","title":"Porter","video":false,"vote_average":0.0,"vote_count":0}'
+  recorded_at: Thu, 21 Mar 2024 23:50:08 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265/reviews?language=en-US&page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 64fa654978739ba90c2caf639e234fda
+      X-Memc-Age:
+      - '5851'
+      X-Memc-Expires:
+      - '21984'
+      Date:
+      - Thu, 21 Mar 2024 23:50:07 GMT
+      Cache-Control:
+      - public, max-age=24932
+      Etag:
+      - W/"d25a96f6a5be9d7fc601dc403ca0b909"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 e2e05b1ebac9d176f82bde2c066c5fa8.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - ePf87pxis_aN0GhqmTOoLsLtc_Zwlmn3FGn85XCKnnuEsdRwTavvLQ==
+      Age:
+      - '1'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":1090265,"page":1,"results":[],"total_pages":0,"total_results":0}'
+  recorded_at: Thu, 21 Mar 2024 23:50:08 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265/credits?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - ba82768956ad4b0f4c0fbe3aa04be82d
+      X-Memc-Age:
+      - '5851'
+      X-Memc-Expires:
+      - '19072'
+      Date:
+      - Thu, 21 Mar 2024 21:19:34 GMT
+      Cache-Control:
+      - public, max-age=23199
+      Etag:
+      - W/"f458bd466aa69a33110684db413196d8"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 de04a7f45d43d28125c2a98cf02d48f2.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - S4cqpqZi6G5o-eFJCboW-2N7KSv96re9PBRKKbqMkz48x5houdOW-Q==
+      Age:
+      - '9034'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":1090265,"cast":[{"adult":false,"gender":2,"id":1761051,"known_for_department":"Acting","name":"Moishe
+        Teichman","original_name":"Moishe Teichman","popularity":3.912,"profile_path":"/1KH5RBAgUkNmVVNL0Wp9pflSYKk.jpg","cast_id":1,"character":"Old
+        Clown","credit_id":"63f6557d9661fc00b6e4d65f","order":0},{"adult":false,"gender":2,"id":1376355,"known_for_department":"Acting","name":"Dayleigh
+        Nelson","original_name":"Dayleigh Nelson","popularity":7.923,"profile_path":"/q4kzO4l09yPiRDHsRGhgcLx9vgW.jpg","cast_id":2,"character":"Renter/
+        Psychopomp","credit_id":"63f6558853f83300c5e482f3","order":1},{"adult":false,"gender":2,"id":1327457,"known_for_department":"Acting","name":"Arpad
+        Balogh","original_name":"Arpad Balogh","popularity":15.427,"profile_path":"/qa8lXjPftAtgYg6kxsXDjtJcEC8.jpg","cast_id":3,"character":"Porter","credit_id":"63f65591b2681f00d416da43","order":2},{"adult":false,"gender":0,"id":1706924,"known_for_department":"Directing","name":"Tyrone
+        Martin Polanski","original_name":"Tyrone Martin Polanski","popularity":0.6,"profile_path":null,"cast_id":4,"character":"Citizen","credit_id":"63f6559b2f791500cdec5330","order":3},{"adult":false,"gender":0,"id":3731873,"known_for_department":"Acting","name":"Dick
+        Pugh","original_name":"Dick Pugh","popularity":0.6,"profile_path":null,"cast_id":5,"character":"","credit_id":"63f655a29661fc008a698556","order":4},{"adult":false,"gender":1,"id":3105797,"known_for_department":"Acting","name":"Madeline
+        Wahl","original_name":"Madeline Wahl","popularity":0.98,"profile_path":null,"cast_id":6,"character":"","credit_id":"63f655a853f83300ddc46159","order":5},{"adult":false,"gender":0,"id":3934011,"known_for_department":"Acting","name":"Braleigh
+        James","original_name":"Braleigh James","popularity":1.38,"profile_path":null,"cast_id":7,"character":"Silver","credit_id":"63f655ae2f791500f0e6411b","order":6},{"adult":false,"gender":2,"id":1245541,"known_for_department":"Acting","name":"Kerry
+        James","original_name":"Kerry James","popularity":18.386,"profile_path":"/cOSqTUcSjlJj8OSgigIk3RjWma3.jpg","cast_id":8,"character":"Angel","credit_id":"63f655c19661fc007c8df0a8","order":7},{"adult":false,"gender":0,"id":3934012,"known_for_department":"Acting","name":"Jason
+        Mireau","original_name":"Jason Mireau","popularity":0.6,"profile_path":null,"cast_id":9,"character":"","credit_id":"63f655ca9661fc00b6e4d688","order":8},{"adult":false,"gender":0,"id":2987467,"known_for_department":"Acting","name":"Delia
+        Tatiana","original_name":"Delia Tatiana","popularity":0.6,"profile_path":null,"cast_id":10,"character":"","credit_id":"63f655cf53f83300c5e4830b","order":9},{"adult":false,"gender":2,"id":3189773,"known_for_department":"Acting","name":"Austin
+        Trapp","original_name":"Austin Trapp","popularity":3.056,"profile_path":"/e4ef25z7AhUimXFsigiMGWmiVdZ.jpg","cast_id":11,"character":"","credit_id":"63f655d4b2681f00d416da5d","order":10}],"crew":[{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655f453f83300ddc46171","department":"Directing","job":"Director"},{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655ec2f791500f0e6412b","department":"Production","job":"Producer"},{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655e453f833007bb63d1a","department":"Writing","job":"Writer"}]}'
+  recorded_at: Thu, 21 Mar 2024 23:50:08 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - c19c21c4899cc4badf7add13266575f7
+      X-Memc-Age:
+      - '24885'
+      X-Memc-Expires:
+      - '1626'
+      Date:
+      - Thu, 21 Mar 2024 21:19:34 GMT
+      Cache-Control:
+      - public, max-age=11960
+      Etag:
+      - W/"f742d083f264ba1cae1658ffa2e5d278"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 a3fcfc1aa68473c1f8608ba55a0e426e.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - 7ABioSq3mUMIo0sKhWVQPxzyWVKdJyov67ObIfZSRJN3imiE1v8QoQ==
+      Age:
+      - '9034'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"adult":false,"backdrop_path":null,"belongs_to_collection":null,"budget":0,"genres":[{"id":80,"name":"Crime"}],"homepage":"","id":1090265,"imdb_id":"tt12793888","original_language":"en","original_title":"Porter","overview":"An
+        aging and mute rodeo clown struggles between macabre dreams and reality.","popularity":2.016,"poster_path":"/nUv3wjneRP6Eu6jQNjpZzPZAow0.jpg","production_companies":[{"id":194091,"logo_path":null,"name":"Pristine
+        Entertainment Ltd.","origin_country":""}],"production_countries":[{"iso_3166_1":"CA","name":"Canada"}],"release_date":"","revenue":0,"runtime":82,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"Good
+        clowns, Bad clowns","title":"Porter","video":false,"vote_average":0.0,"vote_count":0}'
+  recorded_at: Thu, 21 Mar 2024 23:50:08 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265/reviews?language=en-US&page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 64fa654978739ba90c2caf639e234fda
+      X-Memc-Age:
+      - '5851'
+      X-Memc-Expires:
+      - '21984'
+      Date:
+      - Thu, 21 Mar 2024 23:50:07 GMT
+      Cache-Control:
+      - public, max-age=24932
+      Etag:
+      - W/"d25a96f6a5be9d7fc601dc403ca0b909"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 77bc1ffb296c0481de483f3c16355b6e.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - "-Ig3e73aex3CpK1G4-u_VEoBWPLQFq7-OZRwOrFnEv93GZKf4qMDwA=="
+      Age:
+      - '1'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":1090265,"page":1,"results":[],"total_pages":0,"total_results":0}'
+  recorded_at: Thu, 21 Mar 2024 23:50:08 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265/credits?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - ba82768956ad4b0f4c0fbe3aa04be82d
+      X-Memc-Age:
+      - '5851'
+      X-Memc-Expires:
+      - '19072'
+      Date:
+      - Thu, 21 Mar 2024 21:19:34 GMT
+      Cache-Control:
+      - public, max-age=23199
+      Etag:
+      - W/"f458bd466aa69a33110684db413196d8"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 4a3c4fc40ddd2a09909acf925fc84d70.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - QmZQ27gXAxRGzcd0wx9e3fbiFRWY_X0hyXi9SnLMHD6I7YZ37tw9Tw==
+      Age:
+      - '9034'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":1090265,"cast":[{"adult":false,"gender":2,"id":1761051,"known_for_department":"Acting","name":"Moishe
+        Teichman","original_name":"Moishe Teichman","popularity":3.912,"profile_path":"/1KH5RBAgUkNmVVNL0Wp9pflSYKk.jpg","cast_id":1,"character":"Old
+        Clown","credit_id":"63f6557d9661fc00b6e4d65f","order":0},{"adult":false,"gender":2,"id":1376355,"known_for_department":"Acting","name":"Dayleigh
+        Nelson","original_name":"Dayleigh Nelson","popularity":7.923,"profile_path":"/q4kzO4l09yPiRDHsRGhgcLx9vgW.jpg","cast_id":2,"character":"Renter/
+        Psychopomp","credit_id":"63f6558853f83300c5e482f3","order":1},{"adult":false,"gender":2,"id":1327457,"known_for_department":"Acting","name":"Arpad
+        Balogh","original_name":"Arpad Balogh","popularity":15.427,"profile_path":"/qa8lXjPftAtgYg6kxsXDjtJcEC8.jpg","cast_id":3,"character":"Porter","credit_id":"63f65591b2681f00d416da43","order":2},{"adult":false,"gender":0,"id":1706924,"known_for_department":"Directing","name":"Tyrone
+        Martin Polanski","original_name":"Tyrone Martin Polanski","popularity":0.6,"profile_path":null,"cast_id":4,"character":"Citizen","credit_id":"63f6559b2f791500cdec5330","order":3},{"adult":false,"gender":0,"id":3731873,"known_for_department":"Acting","name":"Dick
+        Pugh","original_name":"Dick Pugh","popularity":0.6,"profile_path":null,"cast_id":5,"character":"","credit_id":"63f655a29661fc008a698556","order":4},{"adult":false,"gender":1,"id":3105797,"known_for_department":"Acting","name":"Madeline
+        Wahl","original_name":"Madeline Wahl","popularity":0.98,"profile_path":null,"cast_id":6,"character":"","credit_id":"63f655a853f83300ddc46159","order":5},{"adult":false,"gender":0,"id":3934011,"known_for_department":"Acting","name":"Braleigh
+        James","original_name":"Braleigh James","popularity":1.38,"profile_path":null,"cast_id":7,"character":"Silver","credit_id":"63f655ae2f791500f0e6411b","order":6},{"adult":false,"gender":2,"id":1245541,"known_for_department":"Acting","name":"Kerry
+        James","original_name":"Kerry James","popularity":18.386,"profile_path":"/cOSqTUcSjlJj8OSgigIk3RjWma3.jpg","cast_id":8,"character":"Angel","credit_id":"63f655c19661fc007c8df0a8","order":7},{"adult":false,"gender":0,"id":3934012,"known_for_department":"Acting","name":"Jason
+        Mireau","original_name":"Jason Mireau","popularity":0.6,"profile_path":null,"cast_id":9,"character":"","credit_id":"63f655ca9661fc00b6e4d688","order":8},{"adult":false,"gender":0,"id":2987467,"known_for_department":"Acting","name":"Delia
+        Tatiana","original_name":"Delia Tatiana","popularity":0.6,"profile_path":null,"cast_id":10,"character":"","credit_id":"63f655cf53f83300c5e4830b","order":9},{"adult":false,"gender":2,"id":3189773,"known_for_department":"Acting","name":"Austin
+        Trapp","original_name":"Austin Trapp","popularity":3.056,"profile_path":"/e4ef25z7AhUimXFsigiMGWmiVdZ.jpg","cast_id":11,"character":"","credit_id":"63f655d4b2681f00d416da5d","order":10}],"crew":[{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655f453f83300ddc46171","department":"Directing","job":"Director"},{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655ec2f791500f0e6412b","department":"Production","job":"Producer"},{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655e453f833007bb63d1a","department":"Writing","job":"Writer"}]}'
+  recorded_at: Thu, 21 Mar 2024 23:50:08 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - c19c21c4899cc4badf7add13266575f7
+      X-Memc-Age:
+      - '24885'
+      X-Memc-Expires:
+      - '1626'
+      Date:
+      - Thu, 21 Mar 2024 21:19:34 GMT
+      Cache-Control:
+      - public, max-age=11960
+      Etag:
+      - W/"f742d083f264ba1cae1658ffa2e5d278"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 c919eabe071323f9a1b4ff171a300ae6.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - u0sdVX6FN--YF1iPLuj-YmrKBYAZi50m5JTvqzyG-JuPIvnJh0GYNw==
+      Age:
+      - '9034'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"adult":false,"backdrop_path":null,"belongs_to_collection":null,"budget":0,"genres":[{"id":80,"name":"Crime"}],"homepage":"","id":1090265,"imdb_id":"tt12793888","original_language":"en","original_title":"Porter","overview":"An
+        aging and mute rodeo clown struggles between macabre dreams and reality.","popularity":2.016,"poster_path":"/nUv3wjneRP6Eu6jQNjpZzPZAow0.jpg","production_companies":[{"id":194091,"logo_path":null,"name":"Pristine
+        Entertainment Ltd.","origin_country":""}],"production_countries":[{"iso_3166_1":"CA","name":"Canada"}],"release_date":"","revenue":0,"runtime":82,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"Good
+        clowns, Bad clowns","title":"Porter","video":false,"vote_average":0.0,"vote_count":0}'
+  recorded_at: Thu, 21 Mar 2024 23:50:08 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265/reviews?language=en-US&page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 64fa654978739ba90c2caf639e234fda
+      X-Memc-Age:
+      - '5851'
+      X-Memc-Expires:
+      - '21984'
+      Date:
+      - Thu, 21 Mar 2024 23:50:07 GMT
+      Cache-Control:
+      - public, max-age=24932
+      Etag:
+      - W/"d25a96f6a5be9d7fc601dc403ca0b909"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 81750baaeda3b00efa861517fed1eb6c.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - Rc4SJE9ejfrJoFVVJzP1ovQeMFsbFGVC7tEkdvdwqxt4oURUVNfobA==
+      Age:
+      - '1'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":1090265,"page":1,"results":[],"total_pages":0,"total_results":0}'
+  recorded_at: Thu, 21 Mar 2024 23:50:08 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265/credits?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - ba82768956ad4b0f4c0fbe3aa04be82d
+      X-Memc-Age:
+      - '5851'
+      X-Memc-Expires:
+      - '19072'
+      Date:
+      - Thu, 21 Mar 2024 21:19:34 GMT
+      Cache-Control:
+      - public, max-age=23199
+      Etag:
+      - W/"f458bd466aa69a33110684db413196d8"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 084b168868a62755fef681094cd20582.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - UbRiYkVWl5Lftbu0zAXiHvpWlQAuYcgf0a16ax7PXgtiZ_ggA1yLJw==
+      Age:
+      - '9034'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":1090265,"cast":[{"adult":false,"gender":2,"id":1761051,"known_for_department":"Acting","name":"Moishe
+        Teichman","original_name":"Moishe Teichman","popularity":3.912,"profile_path":"/1KH5RBAgUkNmVVNL0Wp9pflSYKk.jpg","cast_id":1,"character":"Old
+        Clown","credit_id":"63f6557d9661fc00b6e4d65f","order":0},{"adult":false,"gender":2,"id":1376355,"known_for_department":"Acting","name":"Dayleigh
+        Nelson","original_name":"Dayleigh Nelson","popularity":7.923,"profile_path":"/q4kzO4l09yPiRDHsRGhgcLx9vgW.jpg","cast_id":2,"character":"Renter/
+        Psychopomp","credit_id":"63f6558853f83300c5e482f3","order":1},{"adult":false,"gender":2,"id":1327457,"known_for_department":"Acting","name":"Arpad
+        Balogh","original_name":"Arpad Balogh","popularity":15.427,"profile_path":"/qa8lXjPftAtgYg6kxsXDjtJcEC8.jpg","cast_id":3,"character":"Porter","credit_id":"63f65591b2681f00d416da43","order":2},{"adult":false,"gender":0,"id":1706924,"known_for_department":"Directing","name":"Tyrone
+        Martin Polanski","original_name":"Tyrone Martin Polanski","popularity":0.6,"profile_path":null,"cast_id":4,"character":"Citizen","credit_id":"63f6559b2f791500cdec5330","order":3},{"adult":false,"gender":0,"id":3731873,"known_for_department":"Acting","name":"Dick
+        Pugh","original_name":"Dick Pugh","popularity":0.6,"profile_path":null,"cast_id":5,"character":"","credit_id":"63f655a29661fc008a698556","order":4},{"adult":false,"gender":1,"id":3105797,"known_for_department":"Acting","name":"Madeline
+        Wahl","original_name":"Madeline Wahl","popularity":0.98,"profile_path":null,"cast_id":6,"character":"","credit_id":"63f655a853f83300ddc46159","order":5},{"adult":false,"gender":0,"id":3934011,"known_for_department":"Acting","name":"Braleigh
+        James","original_name":"Braleigh James","popularity":1.38,"profile_path":null,"cast_id":7,"character":"Silver","credit_id":"63f655ae2f791500f0e6411b","order":6},{"adult":false,"gender":2,"id":1245541,"known_for_department":"Acting","name":"Kerry
+        James","original_name":"Kerry James","popularity":18.386,"profile_path":"/cOSqTUcSjlJj8OSgigIk3RjWma3.jpg","cast_id":8,"character":"Angel","credit_id":"63f655c19661fc007c8df0a8","order":7},{"adult":false,"gender":0,"id":3934012,"known_for_department":"Acting","name":"Jason
+        Mireau","original_name":"Jason Mireau","popularity":0.6,"profile_path":null,"cast_id":9,"character":"","credit_id":"63f655ca9661fc00b6e4d688","order":8},{"adult":false,"gender":0,"id":2987467,"known_for_department":"Acting","name":"Delia
+        Tatiana","original_name":"Delia Tatiana","popularity":0.6,"profile_path":null,"cast_id":10,"character":"","credit_id":"63f655cf53f83300c5e4830b","order":9},{"adult":false,"gender":2,"id":3189773,"known_for_department":"Acting","name":"Austin
+        Trapp","original_name":"Austin Trapp","popularity":3.056,"profile_path":"/e4ef25z7AhUimXFsigiMGWmiVdZ.jpg","cast_id":11,"character":"","credit_id":"63f655d4b2681f00d416da5d","order":10}],"crew":[{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655f453f83300ddc46171","department":"Directing","job":"Director"},{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655ec2f791500f0e6412b","department":"Production","job":"Producer"},{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655e453f833007bb63d1a","department":"Writing","job":"Writer"}]}'
+  recorded_at: Thu, 21 Mar 2024 23:50:08 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - c19c21c4899cc4badf7add13266575f7
+      X-Memc-Age:
+      - '24885'
+      X-Memc-Expires:
+      - '1626'
+      Date:
+      - Thu, 21 Mar 2024 21:19:34 GMT
+      Cache-Control:
+      - public, max-age=11960
+      Etag:
+      - W/"f742d083f264ba1cae1658ffa2e5d278"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 9c625a1ab662710c3b6d251a0b27b20e.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - Qc5F2YAAwgpW4gfKm5Z-E-BeXcRj4Gb91C7MuqV_h0si_9chjzc8FA==
+      Age:
+      - '9035'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"adult":false,"backdrop_path":null,"belongs_to_collection":null,"budget":0,"genres":[{"id":80,"name":"Crime"}],"homepage":"","id":1090265,"imdb_id":"tt12793888","original_language":"en","original_title":"Porter","overview":"An
+        aging and mute rodeo clown struggles between macabre dreams and reality.","popularity":2.016,"poster_path":"/nUv3wjneRP6Eu6jQNjpZzPZAow0.jpg","production_companies":[{"id":194091,"logo_path":null,"name":"Pristine
+        Entertainment Ltd.","origin_country":""}],"production_countries":[{"iso_3166_1":"CA","name":"Canada"}],"release_date":"","revenue":0,"runtime":82,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"Good
+        clowns, Bad clowns","title":"Porter","video":false,"vote_average":0.0,"vote_count":0}'
+  recorded_at: Thu, 21 Mar 2024 23:50:08 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265/reviews?language=en-US&page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 64fa654978739ba90c2caf639e234fda
+      X-Memc-Age:
+      - '5851'
+      X-Memc-Expires:
+      - '21984'
+      Date:
+      - Thu, 21 Mar 2024 23:50:07 GMT
+      Cache-Control:
+      - public, max-age=24932
+      Etag:
+      - W/"d25a96f6a5be9d7fc601dc403ca0b909"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 123e69ce4c4641277ec2a7cbf9f44f26.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - 6o9mRvsViqUoeAoJPyuIo2BEtn2_V2jhipSjU5tS5k8b8Oo--PmjnA==
+      Age:
+      - '2'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":1090265,"page":1,"results":[],"total_pages":0,"total_results":0}'
+  recorded_at: Thu, 21 Mar 2024 23:50:09 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/1090265/credits?language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<TMDB_AUTHENTICATION_TOKEN>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - ba82768956ad4b0f4c0fbe3aa04be82d
+      X-Memc-Age:
+      - '5851'
+      X-Memc-Expires:
+      - '19072'
+      Date:
+      - Thu, 21 Mar 2024 21:19:34 GMT
+      Cache-Control:
+      - public, max-age=23199
+      Etag:
+      - W/"f458bd466aa69a33110684db413196d8"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 084b168868a62755fef681094cd20582.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - PHX50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - UfoU3Cp9g80_-kM_R4_KqLnkuliWVKRNlvlr7Xi8uP0kDAqqjGiq0g==
+      Age:
+      - '9035'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":1090265,"cast":[{"adult":false,"gender":2,"id":1761051,"known_for_department":"Acting","name":"Moishe
+        Teichman","original_name":"Moishe Teichman","popularity":3.912,"profile_path":"/1KH5RBAgUkNmVVNL0Wp9pflSYKk.jpg","cast_id":1,"character":"Old
+        Clown","credit_id":"63f6557d9661fc00b6e4d65f","order":0},{"adult":false,"gender":2,"id":1376355,"known_for_department":"Acting","name":"Dayleigh
+        Nelson","original_name":"Dayleigh Nelson","popularity":7.923,"profile_path":"/q4kzO4l09yPiRDHsRGhgcLx9vgW.jpg","cast_id":2,"character":"Renter/
+        Psychopomp","credit_id":"63f6558853f83300c5e482f3","order":1},{"adult":false,"gender":2,"id":1327457,"known_for_department":"Acting","name":"Arpad
+        Balogh","original_name":"Arpad Balogh","popularity":15.427,"profile_path":"/qa8lXjPftAtgYg6kxsXDjtJcEC8.jpg","cast_id":3,"character":"Porter","credit_id":"63f65591b2681f00d416da43","order":2},{"adult":false,"gender":0,"id":1706924,"known_for_department":"Directing","name":"Tyrone
+        Martin Polanski","original_name":"Tyrone Martin Polanski","popularity":0.6,"profile_path":null,"cast_id":4,"character":"Citizen","credit_id":"63f6559b2f791500cdec5330","order":3},{"adult":false,"gender":0,"id":3731873,"known_for_department":"Acting","name":"Dick
+        Pugh","original_name":"Dick Pugh","popularity":0.6,"profile_path":null,"cast_id":5,"character":"","credit_id":"63f655a29661fc008a698556","order":4},{"adult":false,"gender":1,"id":3105797,"known_for_department":"Acting","name":"Madeline
+        Wahl","original_name":"Madeline Wahl","popularity":0.98,"profile_path":null,"cast_id":6,"character":"","credit_id":"63f655a853f83300ddc46159","order":5},{"adult":false,"gender":0,"id":3934011,"known_for_department":"Acting","name":"Braleigh
+        James","original_name":"Braleigh James","popularity":1.38,"profile_path":null,"cast_id":7,"character":"Silver","credit_id":"63f655ae2f791500f0e6411b","order":6},{"adult":false,"gender":2,"id":1245541,"known_for_department":"Acting","name":"Kerry
+        James","original_name":"Kerry James","popularity":18.386,"profile_path":"/cOSqTUcSjlJj8OSgigIk3RjWma3.jpg","cast_id":8,"character":"Angel","credit_id":"63f655c19661fc007c8df0a8","order":7},{"adult":false,"gender":0,"id":3934012,"known_for_department":"Acting","name":"Jason
+        Mireau","original_name":"Jason Mireau","popularity":0.6,"profile_path":null,"cast_id":9,"character":"","credit_id":"63f655ca9661fc00b6e4d688","order":8},{"adult":false,"gender":0,"id":2987467,"known_for_department":"Acting","name":"Delia
+        Tatiana","original_name":"Delia Tatiana","popularity":0.6,"profile_path":null,"cast_id":10,"character":"","credit_id":"63f655cf53f83300c5e4830b","order":9},{"adult":false,"gender":2,"id":3189773,"known_for_department":"Acting","name":"Austin
+        Trapp","original_name":"Austin Trapp","popularity":3.056,"profile_path":"/e4ef25z7AhUimXFsigiMGWmiVdZ.jpg","cast_id":11,"character":"","credit_id":"63f655d4b2681f00d416da5d","order":10}],"crew":[{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655f453f83300ddc46171","department":"Directing","job":"Director"},{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655ec2f791500f0e6412b","department":"Production","job":"Producer"},{"adult":false,"gender":0,"id":3934014,"known_for_department":"Writing","name":"Gord
+        Stanfied","original_name":"Gord Stanfied","popularity":0.6,"profile_path":null,"credit_id":"63f655e453f833007bb63d1a","department":"Writing","job":"Writer"}]}'
+  recorded_at: Thu, 21 Mar 2024 23:50:09 GMT
+recorded_with: VCR 6.2.0

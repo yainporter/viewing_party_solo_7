@@ -33,6 +33,21 @@ RSpec.describe Movie do
     expect(movie.title).to be_a String
   end
 
+  it "has attributes from Facade's similar movies", :vcr do
+    facade = MovieFacade.new(240)
+    similar_movies = facade.similar_movies
+
+    similar_movies.each do |movie|
+      expect(movie).to be_a(Movie)
+      expect(movie.id.present?).to be(true)
+      expect(movie.title.present?).to be(true)
+      expect(movie.summary.present?).to be(true)
+      expect(movie.release_date.present?).to be(true)
+      expect(movie.poster_path.present?).to be(true)
+      expect(movie.vote_average.present?).to be(true)
+    end
+  end
+
   describe "instance methods" do
     describe "#convert_runtime" do
       it "converts the minutes into an hr..min format" do

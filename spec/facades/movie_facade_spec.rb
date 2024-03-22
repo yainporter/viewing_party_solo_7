@@ -51,7 +51,7 @@ RSpec.describe MovieFacade do
   describe "#movies_array" do
     it "returns an array of movies from top movies", :vcr do
       top_movies_info = @movies.movies_array(@movies.movie_service.get_top_movies_service)
-      movies_keys = [:id, :title, :vote_average]
+      movies_keys = [:id, :title, :vote_average, :overview, :poster_path, :release_date]
 
       expect(top_movies_info).to be_an(Array)
       expect(top_movies_info.size).to eq(20)
@@ -66,7 +66,7 @@ RSpec.describe MovieFacade do
     it "returns an array of movies from search results", :vcr do
       search_movies_info = @movies.movies_array(@movies.movie_service.get_search_results_service("Bad"))
 
-      movies_keys = [:id, :title, :vote_average]
+      movies_keys = [:id, :title, :vote_average, :overview, :poster_path, :release_date]
 
       expect(search_movies_info).to be_an(Array)
       expect(search_movies_info.size).to eq(20)
@@ -268,9 +268,14 @@ RSpec.describe MovieFacade do
     end
   end
 
-  describe "similar_movies_info" do
-    it "returns the necessary data for similar movies" do
-
+  describe "similar_movies" do
+    it "returns an array of Movie objects", :vcr do
+      movies = MovieFacade.new(240)
+      similar_movies = movies.similar_movies
+      expect(similar_movies).to be_an(Array)
+      similar_movies.each do |movie|
+        expect(movie).to be_a(Movie)
+      end
     end
   end
 end

@@ -92,35 +92,39 @@ RSpec.describe 'Movie Service' do
   end
 
   describe "get_similar_movies_service" do
-    it "returns data for similar movies", :vcr do
-      similar_movies_data = @service.get_similar_movies_service(240)
-      data_keys = [:page, :results, :total_pages, :total_results]
-      results_keys = [:adult,
-                      :backdrop_path,
-                      :genre_ids,
-                      :id,
-                      :original_language,
-                      :original_title,
-                      :overview,
-                      :popularity,
-                      :poster_path,
-                      :release_date,
-                      :title,
-                      :video,
-                      :vote_average,
-                      :vote_count]
+    it "returns data for similar movies" do
+      VCR.use_cassette("similar_movies_info") do
 
-      expect(similar_movies_data).to be_a(Hash)
-      expect(similar_movies_data.keys.sort).to eq(data_keys.sort)
-      expect(similar_movies_data[:results]).to be_an(Array)
-      expect(similar_movies_data[:results].first.keys.sort).to eq(results_keys.sort)
-      similar_movies_data[:results].each do |result|
-        expect(result[:id]).to be_an(Integer)
-        expect(result[:title]).to be_a(String)
-        expect(result[:overview]).to be_a(String)
-        expect(result[:release_date]).to be_a(String)
-        expect(result[:poster_path]).to be_a(String)
-        expect(result[:vote_average]).to be_a(Float)
+        similar_movies_data = @service.get_similar_movies_service(240)
+        data_keys = [:page, :results, :total_pages, :total_results]
+        results_keys = [:adult,
+                        :backdrop_path,
+                        :genre_ids,
+                        :id,
+                        :original_language,
+                        :original_title,
+                        :overview,
+                        :popularity,
+                        :poster_path,
+                        :release_date,
+                        :title,
+                        :video,
+                        :vote_average,
+                        :vote_count]
+
+        expect(similar_movies_data).to be_a(Hash)
+        expect(similar_movies_data.keys.sort).to eq(data_keys.sort)
+        expect(similar_movies_data[:results]).to be_an(Array)
+        expect(similar_movies_data[:results].first.keys.sort).to eq(results_keys.sort)
+
+        similar_movies_data[:results].each do |result|
+          expect(result[:id]).to be_an(Integer)
+          expect(result[:title]).to be_a(String)
+          expect(result[:overview]).to be_a(String)
+          expect(result[:release_date]).to be_a(String)
+          expect(result[:poster_path]).to be_a(String)
+          expect(result[:vote_average]).to be_a(Float)
+        end
       end
     end
   end

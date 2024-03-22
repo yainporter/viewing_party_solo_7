@@ -6,7 +6,9 @@ class Movie
               :summary,
               :runtime,
               :reviews,
-              :cast
+              :cast,
+              :release_date,
+              :poster_path
 
   def initialize(data)
       @id = data[:movie_info][:id]
@@ -15,6 +17,8 @@ class Movie
       @genres = data[:movie_info][:genres]
       @summary = data[:movie_info][:overview]
       @runtime = data[:movie_info][:runtime]
+      @release_date = data[:movie_info][:release_date]
+      @poster_path = data[:movie_info][:poster_path]
       @reviews = data[:movie_reviews]
       @cast = data[:movie_cast]
   end
