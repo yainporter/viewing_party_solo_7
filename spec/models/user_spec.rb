@@ -34,36 +34,42 @@ RSpec.describe User, type: :model do
     end
   end
 
-  # describe "instance methods" do
-  #   describe "#host?" do
-  #     it "returns true if a User is a host" do
-  #       user = User.create!(name: Faker::Name.name, email: Faker::Internet.email)
-  #       user2 = User.create!(name: Faker::Name.name, email: Faker::Internet.email)
-  #       user3 = User.create!(name: Faker::Name.name, email: Faker::Internet.email)
-  #       viewing_party1 = ViewingParty.create!(id: 1, duration: rand(0..240), date: "2024-03-30", start_time: "20:35")
-  #       viewing_party2 = ViewingParty.create!(id: 2, duration: rand(0..240), date: "2024-03-22", start_time: "14:15")
-  #       viewing_party3 = ViewingParty.create!(id: 3, duration: rand(0..240), date: "2024-03-22", start_time: "14:15")
-  #       party1 = UserParty.create!(viewing_party: viewing_party1, user: user, host: true)
-  #       party2 = UserParty.create!(viewing_party: viewing_party1, user: user2, host: false)
-  #       party3 = UserParty.create!(viewing_party: viewing_party1, user: user3, host: false)
+  describe "#movie_ids" do
+    it "returns a unique list of movie_ids for a User's viewing parties" do
+      movie_data1 = {
+        movie_info: {
+          id: 240
+        }
+      }
 
-  #       party4 = UserParty.create!(viewing_party: viewing_party2, user: user, host: true)
-  #       party5 = UserParty.create!(viewing_party: viewing_party2, user: user2, host: false)
-  #       party6 = UserParty.create!(viewing_party: viewing_party2, user: user3, host: false)
+      movie_data2 = {
+        movie_info: {
+          id: 300
+        }
+      }
 
-  #       party7 = UserParty.create!(viewing_party: viewing_party3, user: user, host: false)
-  #       party8 = UserParty.create!(viewing_party: viewing_party3, user: user2, host: false)
-  #       party9 = UserParty.create!(viewing_party: viewing_party3, user: user3, host: true)
+      movie_data3 = {
+        movie_info: {
+          id: 300
+        }
+      }
 
-  #       user.viewing_parties.each do |party|
-  #         require 'pry'; binding.pry
-  #         party.users.each do |attendee|
-  #           if attendee.id == user.id && (party.id == party1.id || party4.movie_id)
-  #             expect(user.host?).to eq(true)
-  #           end
-  #         end
-  #       end
-  #     end
-  #   end
-  # end
+      movie1 = Movie.new(movie_data1)
+      movie2 = Movie.new(movie_data2)
+      movie3 = Movie.new(movie_data3)
+      user1 = User.create!(id: 1, name: Faker::Name.name, email: Faker::Internet.email)
+      user2 = User.create!(id: 2, name: Faker::Name.name, email: Faker::Internet.email)
+      viewing_party1 = ViewingParty.create!(id: 1, duration: rand(0..240), date: "2024-03-30", start_time: "20:35", movie_id: movie1.id)
+      viewing_party2 = ViewingParty.create!(id: 2, duration: rand(0..240), date: "2024-03-22", start_time: "14:15", movie_id: movie2.id)
+      viewing_party3= ViewingParty.create!(id: 3, duration: rand(0..240), date: "2024-03-22", start_time: "14:15", movie_id: movie3.id)
+      UserParty.create!(viewing_party: viewing_party1, user: user1, host: true)
+      UserParty.create!(viewing_party: viewing_party2, user: user1, host: false)
+      UserParty.create!(viewing_party: viewing_party3, user: user1, host: false)
+
+
+      expect(user1.movie_ids).to be_an(Array)
+      expect(user1.movie_ids).to eq([240, 300])
+      expect(user2.movie_ids).to eq([])
+    end
+  end
 end

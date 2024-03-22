@@ -109,8 +109,10 @@ class MovieFacade
     movie_data = {movie_info: movie_info}
   end
 
-  def incomplete_movie(id)
-    Movie.new(title_and_poster_info(id))
+  def incomplete_movies(ids)
+    ids.each do |id|
+      Movie.new(title_and_poster_info(id))
+    end
   end
 
   def movie

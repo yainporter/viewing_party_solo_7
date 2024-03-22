@@ -9,6 +9,7 @@ class User < ApplicationRecord
       User.where.not("users.id = ?", id)
    end
 
-   def host?
+   def movie_ids
+      viewing_parties.map(&:movie_id).uniq
    end
 end

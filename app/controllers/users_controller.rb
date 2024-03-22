@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @facade = MovieFacade.new
+    @movies = movies_for_show(@user)
   end
 
   def create
@@ -23,5 +23,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email)
+  end
+
+  def movies_for_show(user)
+    facade = MovieFacade.new
+    facade.incomplete_movies(user.movie_ids)
   end
 end
