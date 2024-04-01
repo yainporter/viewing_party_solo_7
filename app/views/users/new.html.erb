@@ -1,9 +1,13 @@
-<%= form_with model: @user, url: users_path, method: :post, data: {turbo: false}, local: true do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name, class: "form-control" %><br>
-  <%= f.label :email %>
-  <%= f.text_field :email, class: "form-control" %><br>
-
-
-  <%= f.submit 'Create New User', class: "btn btn-primary" %>
-<% end %>
+<div id="registration_form">
+  <%= form_with model: @user, method: :post, data: { turbo: false } do |f| %> 
+    <%= f.label :name, 'Name:' %>
+    <%= f.text_field :name, class: "form-control" %>
+    <%= f.label :email, 'Email:' %>
+    <%= f.text_field :email, class: "form-control" %>
+    <%= f.label :password, 'Password:' %>
+    <%= f.password_field :password, class: "form-control" %>
+    <%= f.label :password_confirmation, 'Confirm Password:' %>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
+    <%= f.submit "Register", class: "btn btn-primary" %>
+  <% end %>
+</div>

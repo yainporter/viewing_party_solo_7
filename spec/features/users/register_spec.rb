@@ -5,25 +5,26 @@ RSpec.describe "Registration", type: :feature do
     visit "/register"
   end
 
-  describe "User Story 1 - Registration(w/ Authentication) Happy Path" do
+  describe "User Story 1 - Registration(w/ Authentication)" do
     it "authenticates a User successfully" do
-      expect(page).to have_css(:registration_form)
+      expect(page).to have_css("#registration_form")
 
       within "#registration_form" do
-        expect(page).to have_css(:name)
-        expect(page).to have_css(:email)
-        expect(page).to have_css(:password)
-        expect(page).to have_css(:password_confirmation)
+        expect(page).to have_field("Name")
+        expect(page).to have_field("Email")
+        expect(page).to have_field("Password")
+        expect(page).to have_field("Confirm Password")
         expect(page).to have_button("Register")
 
-        fill_in(:name, with: "User")
-        fill_in(:email, with: "User@test.com")
-        fill_in(:password, with: "testing")
-        fill_in(:password_confirmation, with: "testing")
+        fill_in("user[name]", with: "User")
+        fill_in("user[email]", with: "User@test.com")
+        fill_in("user[password]", with: "testing")
+        fill_in("user[password_confirmation]", with: "testing")
         click_button("Register")
       end
+      user = User.last
 
-      expect(page.current_path).to eq("/users/:id")
+      expect(page.current_path).to eq(user_path(user))
     end
   end
 end
