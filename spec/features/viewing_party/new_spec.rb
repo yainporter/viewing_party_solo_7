@@ -50,7 +50,6 @@ RSpec.describe 'Viewing Party New', type: :feature do
 
       visit new_user_movie_viewing_party_path(@user, @movie.id)
 
-      save_and_open_page
       page.find(:css, "#viewing_party_user_ids_#{User.second.id}").set(true)
       click_button("Create Party")
 
@@ -76,7 +75,6 @@ RSpec.describe 'Viewing Party New', type: :feature do
     end
 
     xit "displays an error when duration is less than the Movie runtime", :vcr do
-      # How do I do this? Because of my model method, it will not let duration be lower than the default amount
       fill_in "Duration", with: 100
 
       page.find(:css, "#viewing_party_user_ids_#{User.second.id}").set(true)

@@ -7,7 +7,6 @@ class ViewingPartyController < ApplicationController
   end
 
   def create
-    require 'pry'; binding.pry
     viewing_party = ViewingParty.new(viewing_party_params)
     viewing_party.update(movie_id: params[:movie_id])
     if valid_creation?(viewing_party)
