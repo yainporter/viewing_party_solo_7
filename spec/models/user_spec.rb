@@ -5,6 +5,7 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of :name }
     it { should validate_presence_of :email }
     it { should validate_presence_of :password }
+    it { should validate_presence_of :password_confirmation }
     it { should validate_presence_of :password_digest }
     it { should have_secure_password }
     it { should validate_uniqueness_of :email }
@@ -24,10 +25,10 @@ RSpec.describe User, type: :model do
     describe ".all_but" do
       it "returns all users but the one with the ID passed through" do
         10.times do
-          User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: "help")
+          User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: "help", password_confirmation: "help")
         end
 
-        user_1 = User.create!(name: "Jan", email: "tester@test.com", password: "test")
+        user_1 = User.create!(name: "Jan", email: "tester@test.com", password: "test", password_confirmation: "test")
         users = User.all_but(user_1.id)
 
         users.each do |user|
@@ -60,8 +61,8 @@ RSpec.describe User, type: :model do
       movie1 = Movie.new(movie_data1)
       movie2 = Movie.new(movie_data2)
       movie3 = Movie.new(movie_data3)
-      user1 = User.create!(id: 1, name: Faker::Name.name, email: Faker::Internet.email, password: "test")
-      user2 = User.create!(id: 2, name: Faker::Name.name, email: Faker::Internet.email, password: "test")
+      user1 = User.create!(id: 1, name: Faker::Name.name, email: Faker::Internet.email, password: "test", password_confirmation: "test")
+      user2 = User.create!(id: 2, name: Faker::Name.name, email: Faker::Internet.email, password: "test", password_confirmation: "test")
       viewing_party1 = ViewingParty.create!(id: 1, duration: rand(0..240), date: "2024-03-30", start_time: "20:35", movie_id: movie1.id)
       viewing_party2 = ViewingParty.create!(id: 2, duration: rand(0..240), date: "2024-03-22", start_time: "14:15", movie_id: movie2.id)
       viewing_party3= ViewingParty.create!(id: 3, duration: rand(0..240), date: "2024-03-22", start_time: "14:15", movie_id: movie3.id)
