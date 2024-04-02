@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   end
   get "/users/:user_id/movies/:movie_id/similar", to: "similar#index", as: :similar_movies
 
-  get "/login", to: "users#login_form", as: "user_login_form"
-  post "/login", to: "users#login_user", as: "user_login"
-  # How do I go about the routing? It seems to be too deeply routed
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
 end

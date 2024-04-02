@@ -22,14 +22,7 @@ class UsersController < ApplicationController
   def login_form;end
 
   def login_user
-    user = User.find_by(email: params[:email])
-    if !user.nil? && user.authenticate(params[:password])
-      flash[:success] = "Welcome, #{user.email}"
-      redirect_to user_path(user)
-    else
-      flash[:error] = "Invalid email/password, try again."
-      render :login_form
-    end
+
   end
 
   private

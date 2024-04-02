@@ -29,7 +29,7 @@ RSpec.describe "User Login", type: :feature do
     end
 
     it "redirects back to log in page with email that doesn't exist - sad path" do
-      visit user_login_form_path
+      visit login_path
 
       within "#login_form" do
         expect(page).to have_field("Email")
@@ -41,12 +41,12 @@ RSpec.describe "User Login", type: :feature do
         click_button("Log In")
       end
 
-      expect(page.current_path).to eq(user_login_form_path)
+      expect(page.current_path).to eq(login_path)
       expect(page).to have_content("Invalid email/password, try again.")
     end
 
     it "redirects back to log in page with password that doesn't match - sad path" do
-      visit user_login_form_path
+      visit login_path
 
       within "#login_form" do
         expect(page).to have_field("Email")
@@ -58,7 +58,7 @@ RSpec.describe "User Login", type: :feature do
         click_button("Log In")
       end
 
-      expect(page.current_path).to eq(user_login_form_path)
+      expect(page.current_path).to eq(login_path)
       expect(page).to have_content("Invalid email/password, try again.")
     end
   end

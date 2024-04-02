@@ -1,5 +1,5 @@
 <div id="login_form">
-  <%= form_with url: user_login_path, method: :post, data: { turbo: false } do |f| %> 
+  <%= form_with url: "/login", method: :post, data: { turbo: false } do |f| %> 
     <%= f.label :email, 'Email:' %>
     <%= f.text_field :email, class: "form-control" %>
     <%= f.label :password, 'Password:' %>
