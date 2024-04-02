@@ -5,7 +5,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @movies = movies_for_show(@user)
+
+    if current_user && current_user.id == @user.id
+      @movies = movies_for_show(@user)
+    else
+      flash[:alert] = "You must be logged in or registered to access a user's dashboard"
+      redirect_to root_path
+    end
   end
 
   def create

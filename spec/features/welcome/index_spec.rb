@@ -63,4 +63,13 @@ RSpec.describe 'Root Page, Welcome Index', type: :feature do
       end
     end
   end
+
+  describe "Part 6 - Dashboard Authorization" do
+    it "will not allow visits to other dashboards" do
+      visit user_path(@user_1)
+
+      expect(page.current_path).to eq(root_path)
+      expect(page).to have_content("You must be logged in or registered to access a user's dashboard")
+    end
+  end
 end
