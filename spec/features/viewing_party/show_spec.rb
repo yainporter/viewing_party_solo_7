@@ -9,9 +9,9 @@ RSpec.describe "Viewing Party Show Page" do
     }
 
     @movie = Movie.new(movie_data)
-    @user = User.create!(id: 1, name: Faker::Name.name, email: Faker::Internet.email)
+    @user = User.create!(id: 1, name: Faker::Name.name, email: Faker::Internet.email, password: "help", password_confirmation: "help")
     3.times do
-      User.create!(name: Faker::Name.name, email: Faker::Internet.email)
+      User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: "help", password_confirmation: "help")
     end
     viewing_party = ViewingParty.create!(id: 1, duration: rand(0..240), date: Faker::Date.forward(days: rand(1..14)), start_time: Time.new.strftime("%H:%M"))
     UserParty.create!(viewing_party: viewing_party, user: User.first, host: true)

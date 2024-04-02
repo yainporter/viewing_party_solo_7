@@ -19,8 +19,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def login_form
-  end
+  def login_form;end
 
   def login_user
     user = User.find_by(email: params[:email])
@@ -29,13 +28,14 @@ class UsersController < ApplicationController
       redirect_to user_path(user)
     else
       flash[:error] = "Invalid email/password, try again."
-      redirect_to user_login_form_path
+      render :login_form
     end
   end
 
   private
 
   def user_params
+    params[:user][:email] = params[:user][:email].downcase
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 

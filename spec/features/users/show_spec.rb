@@ -9,10 +9,10 @@ RSpec.describe "User Dashboard" do
     }
 
     3.times do
-      User.create!(name: Faker::Name.name, email: Faker::Internet.email)
+      User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: "help", password_confirmation: "help")
     end
     @movie = Movie.new(movie_data)
-    @user = User.create!(id: 1, name: Faker::Name.name, email: Faker::Internet.email)
+    @user = User.create!(id: 1, name: Faker::Name.name, email: Faker::Internet.email, password: "help", password_confirmation: "help")
     @viewing_party1 = ViewingParty.create!(id: 1, duration: rand(0..240), date: "2024-03-30", start_time: "20:35", movie_id: @movie.id)
     @viewing_party2 = ViewingParty.create!(id: 2, duration: rand(0..240), date: "2024-03-22", start_time: "14:15", movie_id: @movie.id)
     UserParty.create!(viewing_party: @viewing_party1, user: User.fourth, host: true)

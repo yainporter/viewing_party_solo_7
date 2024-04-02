@@ -8,9 +8,9 @@ RSpec.describe 'Viewing Party New', type: :feature do
       }
     }
 
-    @user = User.create!(name: Faker::Name.name, email: Faker::Internet.email)
+    @user = User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: "help", password_confirmation: "help")
     10.times do
-      User.create!(name: Faker::Name.name, email: Faker::Internet.email)
+      User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: "help", password_confirmation: "help")
     end
     @movie = Movie.new(movie_data)
 

@@ -18,7 +18,7 @@ RSpec.describe 'Movie Details Page', type: :feature do
         vote_average: 8.7
       }
     }
-    @user = User.create!(name: Faker::Name.name, email: Faker::Internet.email)
+    @user = User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: "help", password_confirmation: "help")
     @movie = Movie.new(movie_data)
     visit user_movie_path(@user, @movie.id)
   end

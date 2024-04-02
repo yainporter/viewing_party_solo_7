@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Movies Page', type: :feature do
   before do
-    @user = User.create!(name: Faker::Name.name, email: Faker::Internet.email)
+    @user = User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: "help", password_confirmation: "help")
     visit user_movies_path(@user)
   end
 

@@ -8,7 +8,7 @@ RSpec.describe "Similar Movies Page" do
       }
     }
 
-    @user = User.create!(name: Faker::Name.name, email: Faker::Internet.email)
+    @user = User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: "help", password_confirmation: "help")
     @movie = Movie.new(movie_data)
     visit similar_movies_path(@user, @movie.id)
   end
