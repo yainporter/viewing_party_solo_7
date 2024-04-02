@@ -72,7 +72,7 @@ RSpec.describe 'Viewing Party New', type: :feature do
     it "displays an error when no users are invited", :vcr do
       click_button("Create Party")
 
-      expect(page.current_path).to eq(new_user_movie_viewing_party_path(@user, @movie.id))
+      expect(page.current_path).to eq(new_movie_viewing_party_path(@movie.id))
       expect(page).to have_content("You must invite someone, try again")
     end
 
