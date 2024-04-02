@@ -7,14 +7,17 @@ Rails.application.routes.draw do
   get '/register', to: 'users#new', as: 'register_user'
 
   resources :users, only: %i[show create] do
-    resources :discover, only: :index
-    resources :movies, only: %i[index show] do
-      resources :viewing_party, only: %i[new create show]
-    end
+    resources :discover, only: [:destroy]
   end
-  get "/users/:user_id/movies/:movie_id/similar", to: "similar#index", as: :similar_movies
 
-  get "/login", to: "users#login_form", as: "user_login_form"
-  post "/login", to: "users#login_user", as: "user_login"
-  # How do I go about the routing? It seems to be too deeply routed
+  get "/movies/:movie_id/similar", to: "similar#index", as: :similar_movies
+
+  resources :movies, only: [:index, :show] do
+    resources :viewing_party, only: [:new, :create, :show]
+  end
+  resources :discover, only: :index
+
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
 end

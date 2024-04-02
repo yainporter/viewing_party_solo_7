@@ -1,9 +1,12 @@
+<h2>Location: <%= cookies[:message] %></h2>
 <div id="login_form">
-  <%= form_with url: user_login_path, method: :post, data: { turbo: false } do |f| %> 
+  <%= form_with url: "/login", method: :post, data: { turbo: false } do |f| %> 
     <%= f.label :email, 'Email:' %>
     <%= f.text_field :email, class: "form-control" %>
     <%= f.label :password, 'Password:' %>
     <%= f.password_field :password, class: "form-control" %>
+    <%= f.label :location, 'Location' %>
+    <%= f.text_field :location %>
     <%= f.submit "Log In", class: "btn btn-primary" %>
   <% end %>
 </div>

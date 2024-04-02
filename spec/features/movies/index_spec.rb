@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe 'Movies Page', type: :feature do
   before do
     @user = User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: "help", password_confirmation: "help")
-    visit user_movies_path(@user)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+    visit movies_path
   end
 
   describe "User Story 2 - Movie Results" do
@@ -11,21 +13,21 @@ RSpec.describe 'Movies Page', type: :feature do
       expect(page).to have_content("Viewing Party")
       expect(page).to have_button("Discover Page")
       click_button("Discover Page")
-      expect(page.current_path).to eq(user_discover_index_path(@user))
+      expect(page.current_path).to eq(discover_index_path)
     end
 
     it "filters page results", :vcr do
-      visit user_movies_path(@user, keyword: "top 20rated")
+      visit movies_path(keyword: "top 20rated")
 
       expect(find('#top-20-movies')).to have_selector('tr', count: 20)
 
-      visit user_movies_path(@user, keyword: "Bad")
+      visit movies_path(keyword: "Bad")
       expect(find('#search-params')).to have_selector('tr', count: 20)
       expect(page).to have_no_css("table#top-20-movies")
     end
 
     it "displays the filter results for top_20 as a link", :vcr do
-      visit user_movies_path(@user, keyword: "top 20rated")
+      visit movies_path(keyword: "top 20rated")
 
       movie_names = ["The Shawshank Redemption",
                      "The Godfather",
@@ -57,7 +59,7 @@ RSpec.describe 'Movies Page', type: :feature do
     end
 
     it "displays the filter results for movie search as a link", :vcr do
-      visit user_movies_path(@user, keyword: "Bad")
+      visit movies_path(keyword: "Bad")
 
       movie_names = ["Bad",
         "Badland Hunters",
@@ -89,10 +91,10 @@ RSpec.describe 'Movies Page', type: :feature do
     end
 
     it "takes you to the show page when you click on a link with a movie name", :vcr do
-      visit user_movies_path(@user, keyword: "top 20rated")
+      visit movies_path(keyword: "top 20rated")
 
       click_link("The Godfather")
-      expect(page.current_path).to eq("/users/#{@user.id}/movies/238")
+      expect(page.current_path).to eq("/movies/238")
     end
   end
 end

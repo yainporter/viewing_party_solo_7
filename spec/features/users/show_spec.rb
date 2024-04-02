@@ -26,6 +26,8 @@ RSpec.describe "User Dashboard" do
 
     @facade = MovieFacade.new(@movie.id)
 
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
     visit user_path(@user)
   end
 
@@ -58,6 +60,16 @@ RSpec.describe "User Dashboard" do
         expect(page).to have_css("li", text: "#{@user.name}")
         expect(page).to have_css("li", count: 4)
       end
+    end
+  end
+
+  describe "Log out" do
+    it "has a link to log out redirects to the login page when clicked", :vcr do
+      expect(page).to have_link("Log Out")
+
+      click_link("Log Out")
+
+      expect(page.current_path).to eq("/")
     end
   end
 end

@@ -20,7 +20,7 @@ RSpec.describe "Viewing Party Show Page" do
     UserParty.create!(viewing_party: ViewingParty.last, user: User.second, host: false)
     UserParty.create!(viewing_party: ViewingParty.last, user: User.first, host: false)
     @facade = MovieFacade.new(@movie.id)
-    visit user_movie_viewing_party_path(@user, @movie.id, viewing_party.id)
+    visit movie_viewing_party_path(@movie.id, viewing_party.id)
   end
 
   describe "User Story 5 - Where to Watch" do

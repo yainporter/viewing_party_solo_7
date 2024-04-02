@@ -6,7 +6,7 @@
       <p><%= image_tag "#{movie.poster_path}", size: "300x400" %></p>
     </div>
     <div class="column" id="similar-movie-<%= movie.id %>">
-      <p>Title: <%= link_to movie.title, user_movie_path(@facade.user_id, movie.id), data: { turbo_method: :get } %>
+      <p>Title: <%= link_to movie.title, movie_path(movie.id), data: { turbo_method: :get } %>
       <p>Overview: <%= movie.summary %></p>
       <p>Release Date: <%= movie.release_date %></p>
       <p>Vote Average: <%= movie.vote_average %></p>

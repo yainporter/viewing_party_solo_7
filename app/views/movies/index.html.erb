@@ -1,11 +1,11 @@
-<%= button_to "Discover Page", user_discover_index_path, method: :get %>
+<%= button_to "Discover Page", discover_index_path, method: :get %>
 <br>
 <% if @keyword == "top 20rated" %>
   <div>
     <table id="top-20-movies">
       <% @facade.top_20_movies.each do |movie| %>
         <tr>
-          <td><%= link_to movie.title, user_movie_path(@facade.user_id, movie.id), data: { turbo_method: :get } %></td>
+          <td><%= link_to movie.title, movie_path(movie.id), data: { turbo_method: :get } %></td>
           <td>Vote Average: <%= movie.vote_average %></td>
         </tr>
       <% end %>
@@ -16,7 +16,7 @@
     <table id="search-params">
       <% @facade.movie_search_results(@keyword).each do |movie| %>
         <tr>
-          <td><%= link_to movie.title, user_movie_path(@facade.user_id, movie.id), data: { turbo_method: :get } %></td>
+          <td><%= link_to movie.title, movie_path(movie.id), data: { turbo_method: :get } %></td>
           <td>Vote Average: <%= movie.vote_average %></td>
         </tr>
       <% end %>
