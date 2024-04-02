@@ -92,4 +92,29 @@ RSpec.describe "User Login", type: :feature do
 
     end
   end
+
+  describe "Part 2 - Remember a User" do
+    it "allows a user to stay logged in after leaving the site" do
+      fill_in("Email", with: "user@test.com")
+      fill_in("Password", with: "testing")
+
+      click_button("Log In")
+
+      visit "https://google.com"
+
+      visit user_path(@user)
+
+      expect(page).to have_content("#{@user.name}'s Dashboard")
+    end
+  end
+
+  describe "Part 3 - Log out a User" do
+    it "no longer displays 'Log In' or 'Create an Account' when logged in" do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
+      visit "/"
+      expect(page).to_not have_button("Create New User")
+      expect(page).to_not have_link("Log In")
+    end
+  end
 end
