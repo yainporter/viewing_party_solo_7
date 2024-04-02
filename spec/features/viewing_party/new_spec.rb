@@ -14,6 +14,8 @@ RSpec.describe 'Viewing Party New', type: :feature do
     end
     @movie = Movie.new(movie_data)
 
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
     visit new_user_movie_viewing_party_path(@user, @movie.id)
   end
 

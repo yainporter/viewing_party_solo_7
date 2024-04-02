@@ -2,15 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'Movie Details Page', type: :feature do
   before do
-    # json_response = File.read("spec/fixtures/movie_show_porter.json")
-
-    # stub_request(:get, "https://api.themoviedb.org/3/movie/1090265?language=en-US").
-    #   with(
-    #     headers: {
-    #       "Authorization": ENV["TMDB_ACCESS_TOKEN_KEY"]
-    #     }
-    #   ).to_return(status: 200, body: json_response)
-
     movie_data = {
       movie_info: {
         id: 1090265,
@@ -45,6 +36,8 @@ RSpec.describe 'Movie Details Page', type: :feature do
   end
 
   it "has a working create viewing party button", :vcr do
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
     visit user_movie_path(@user, 240)
 
     click_button("Create Viewing Party for The Godfather Part II Page")
@@ -53,11 +46,22 @@ RSpec.describe 'Movie Details Page', type: :feature do
 
   describe "User Story 6 - Similar Movies" do
     it "has a link to display similar movies", :vcr do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
       expect(page).to have_button("Get Similar Movies")
       click_button("Get Similar Movies")
 
       expect(page.current_path).to eq(similar_movies_path(@user, @movie.id))
       expect(page).to have_css("#similar-movies")
+    end
+  end
+
+  describe "Part 7 - Create a Viewing Party Authorization" do
+    it "can not be created if a User is not logged in", :vcr do
+      click_button("Create Viewing Party")
+
+      expect(page.current_path).to eq(user_movie_path(@user, @movie.id))
+      expect(page).to have_content("Must be logged in or registered to create a Viewing Party")
     end
   end
 end

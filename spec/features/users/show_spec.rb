@@ -26,6 +26,8 @@ RSpec.describe "User Dashboard" do
 
     @facade = MovieFacade.new(@movie.id)
 
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
     visit user_path(@user)
   end
 

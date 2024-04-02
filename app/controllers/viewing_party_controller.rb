@@ -1,9 +1,13 @@
 class ViewingPartyController < ApplicationController
   def new
-    # try passing only 1 param, not the full params
-    @facade = MovieFacade.new(params[:movie_id], params[:user_id])
-    @viewing_party = ViewingParty.new
-    @users = User.all_but(params[:user_id])
+    if current_user
+      @facade = MovieFacade.new(params[:movie_id], params[:user_id])
+      @viewing_party = ViewingParty.new
+      @users = User.all_but(params[:user_id])
+    else
+      flash[:alert] = "Must be logged in or registered to create a Viewing Party"
+      redirect_to user_movie_path(params[:user_id], params[:movie_id])
+    end
   end
 
   def create
