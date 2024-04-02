@@ -11,18 +11,15 @@ RSpec.describe 'Movie Details Page', type: :feature do
     }
     @user = User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: "help", password_confirmation: "help")
     @movie = Movie.new(movie_data)
-    visit user_movie_path(@user, @movie.id)
+    visit "/movies/#{@movie.id}"
   end
 
   it "displays default buttons", :vcr do
-      visit user_movie_path(@user, @movie.id)
-
       expect(page).to have_button("Discover Page")
       expect(page).to have_button("Create Viewing Party for Porter")
   end
 
   it "displays information about the Movie", :vcr do
-    visit user_movie_path(@user, @movie.id)
     expect(page).to have_selector("h2", text: "Porter")
     within "#movie_info" do
       expect(page).to have_content("Vote: 0")
@@ -38,10 +35,10 @@ RSpec.describe 'Movie Details Page', type: :feature do
   it "has a working create viewing party button", :vcr do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
-    visit user_movie_path(@user, 240)
+    visit "/movies/240"
 
     click_button("Create Viewing Party for The Godfather Part II Page")
-    expect(page.current_path).to eq(new_user_movie_viewing_party_path(@user.id, 240))
+    expect(page.current_path).to eq(new_movie_viewing_party_path(240))
   end
 
   describe "User Story 6 - Similar Movies" do
@@ -51,7 +48,7 @@ RSpec.describe 'Movie Details Page', type: :feature do
       expect(page).to have_button("Get Similar Movies")
       click_button("Get Similar Movies")
 
-      expect(page.current_path).to eq(similar_movies_path(@user, @movie.id))
+      expect(page.current_path).to eq(similar_movies_path(@movie.id))
       expect(page).to have_css("#similar-movies")
     end
   end
@@ -60,7 +57,7 @@ RSpec.describe 'Movie Details Page', type: :feature do
     it "can not be created if a User is not logged in", :vcr do
       click_button("Create Viewing Party")
 
-      expect(page.current_path).to eq(user_movie_path(@user, @movie.id))
+      expect(page.current_path).to eq(movie_path(@movie.id))
       expect(page).to have_content("Must be logged in or registered to create a Viewing Party")
     end
   end

@@ -1,9 +1,9 @@
 <h2><%= @facade.movie.title %></h2>
-<%= button_to "Discover Page", user_discover_index_path, method: :get %>
+<%= button_to "Discover Page", discover_index_path, method: :get %>
 <br>
-<%= button_to "Create Viewing Party for #{@facade.movie.title} Page", new_user_movie_viewing_party_path(@facade.user_id, @facade.movie_id), method: :get %>
+<%= button_to "Create Viewing Party for #{@facade.movie.title} Page", new_movie_viewing_party_path(@facade.movie_id), method: :get %>
 <br>
-<%= button_to "Get Similar Movies", similar_movies_path(@facade.user_id, @facade.movie_id), method: :get %>
+<%= button_to "Get Similar Movies", similar_movies_path(@facade.movie_id), method: :get %>
 <table id="movie_info">
   <tr>
     <td>Vote: <%= @facade.movie.vote_average %></td>

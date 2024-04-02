@@ -12,7 +12,13 @@ Rails.application.routes.draw do
       resources :viewing_party, only: %i[new create show]
     end
   end
-  get "/users/:user_id/movies/:movie_id/similar", to: "similar#index", as: :similar_movies
+  get "/movies/:movie_id/similar", to: "similar#index", as: :similar_movies
+
+  resources :movies, only: [:show] do
+    resources :viewing_party, only: [:new, :create]
+  end
+  resources :discover, only: :index
+
 
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
