@@ -1,10 +1,10 @@
 class SessionsController < ApplicationController
-  def new;end
+  def new; end
 
   def create
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
-      session[:user_id] = user.id #This is how you keep track of a User
+      session[:user_id] = user.id # This is how you keep track of a User
       flash[:success] = "Welcome, #{user.email}"
       cookies[:message] = params[:location]
 
@@ -16,6 +16,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[]
+    current_user = nil
+    session.delete(:user_id)
+    redirect_to "/"
   end
 end

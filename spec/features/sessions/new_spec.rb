@@ -109,12 +109,28 @@ RSpec.describe "User Login", type: :feature do
   end
 
   describe "Part 3 - Log out a User" do
-    it "no longer displays 'Log In' or 'Create an Account' when logged in" do
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+    before do
+      fill_in("Email", with: "user@test.com")
+      fill_in("Password", with: "testing")
 
+      click_button("Log In")
+    end
+    it "only displays a link to logout instead of log in or create new user" do
       visit "/"
+
       expect(page).to_not have_button("Create New User")
       expect(page).to_not have_link("Log In")
+      expect(page).to have_link("Log Out")
+    end
+
+    it "can log a user out and change the landing page accordingly" do
+      visit "/"
+
+      click_link("Log Out")
+      expect(page.current_path).to eq("/")
+      expect(page).to have_button("Create New User")
+      expect(page).to have_link("Log In")
+      expect(page).to_not have_link("Log Out")
     end
   end
 end
