@@ -8,7 +8,7 @@
         <div class="col viewing_party movie-<%= movie.id %>-party-<%= party.id %> container">
           <% if movie.id == party.movie_id %>
           <div class="text-center">
-            <h3><%= link_to movie.title, user_movie_path(@user.id, movie.id), data: { turbo_method: :get } %></h3><br>
+            <h3><%= link_to movie.title, movie_path(movie.id), data: { turbo_method: :get } %></h3><br>
             <%= image_tag  "#{movie.poster_path}", size: "200x300" %>
           </div>
           <% end %>

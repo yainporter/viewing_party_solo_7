@@ -8,9 +8,13 @@ RSpec.describe "Similar Movies Page" do
       }
     }
 
-    @user = User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: "help", password_confirmation: "help")
+    @user = User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: "help",
+                         password_confirmation: "help")
     @movie = Movie.new(movie_data)
-    visit similar_movies_path(@user, @movie.id)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
+    visit similar_movies_path(@movie.id)
   end
 
   describe "User Story 6 - Similar Movies" do
@@ -23,7 +27,6 @@ RSpec.describe "Similar Movies Page" do
           within "#img-#{movie.id}" do
             expect(page).to have_css("img[src]")
           end
-
           within "#similar-movie-#{movie.id}" do
             expect(page).to have_text("Title:")
             expect(page).to have_text("Overview:")

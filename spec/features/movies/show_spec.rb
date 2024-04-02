@@ -11,6 +11,8 @@ RSpec.describe 'Movie Details Page', type: :feature do
     }
     @user = User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: "help", password_confirmation: "help")
     @movie = Movie.new(movie_data)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     visit "/movies/#{@movie.id}"
   end
 
@@ -55,6 +57,8 @@ RSpec.describe 'Movie Details Page', type: :feature do
 
   describe "Part 7 - Create a Viewing Party Authorization" do
     it "can not be created if a User is not logged in", :vcr do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(nil)
+
       click_button("Create Viewing Party")
 
       expect(page.current_path).to eq(movie_path(@movie.id))

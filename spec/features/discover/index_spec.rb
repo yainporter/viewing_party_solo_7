@@ -3,7 +3,10 @@ require 'rails_helper'
 RSpec.describe 'Discover Page', type: :feature do
   before do
     @user = User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: "help", password_confirmation: "help")
-    visit user_discover_index_path(@user)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
+    visit discover_index_path
   end
 
   describe "User Story 1 - Discover Movies: Search by Title" do
@@ -24,10 +27,10 @@ RSpec.describe 'Discover Page', type: :feature do
 
   describe "User Story 2 - Movie Results Page" do
     it "has working links for the buttons", :vcr do
-      visit user_discover_index_path(@user)
+      visit discover_index_path(@user)
       fill_in(:keyword, with: "Bad")
       click_button("Find Movies")
-      expect(page.current_path).to eq(user_movies_path(@user))
+      expect(page.current_path).to eq(movies_path)
     end
   end
 end

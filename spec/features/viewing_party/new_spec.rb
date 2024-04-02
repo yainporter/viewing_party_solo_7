@@ -16,7 +16,7 @@ RSpec.describe 'Viewing Party New', type: :feature do
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
-    visit new_user_movie_viewing_party_path(@user, @movie.id)
+    visit new_movie_viewing_party_path(@movie.id)
   end
 
   it "displays the movie title", :vcr do
@@ -50,7 +50,7 @@ RSpec.describe 'Viewing Party New', type: :feature do
 
       expect(page).to have_no_css(".viewing_party")
 
-      visit new_user_movie_viewing_party_path(@user, @movie.id)
+      visit new_movie_viewing_party_path(@movie.id)
 
       page.find(:css, "#viewing_party_user_ids_#{User.second.id}").set(true)
       click_button("Create Party")
@@ -81,10 +81,10 @@ RSpec.describe 'Viewing Party New', type: :feature do
 
       page.find(:css, "#viewing_party_user_ids_#{User.second.id}").set(true)
 
-      visit new_user_movie_viewing_party_path(@user, @movie.id)
+      visit new_movie_viewing_party_path(@movie.id)
       click_button("Create Party")
 
-      expect(page.current_path).to eq(new_user_movie_viewing_party_path(@user, @movie.id))
+      expect(page.current_path).to eq(new_movie_viewing_party_path(@movie.id))
 
       expect(page).to have_content("Party duration must be longer than the movie runtime, try again")
     end
