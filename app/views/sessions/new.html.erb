@@ -4,6 +4,8 @@
     <%= f.text_field :email, class: "form-control" %>
     <%= f.label :password, 'Password:' %>
     <%= f.password_field :password, class: "form-control" %>
+    <%= f.label :location, 'Location' %>
+    <%= f.text_field :location %>
     <%= f.submit "Log In", class: "btn btn-primary" %>
   <% end %>
 </div>

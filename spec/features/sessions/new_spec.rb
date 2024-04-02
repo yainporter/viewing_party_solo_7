@@ -3,11 +3,14 @@ require "rails_helper"
 RSpec.describe "User Login", type: :feature do
   before(:each) do
     @user = User.create!(name: Faker::Name.name, email: "user@test.com", password: "testing", password_confirmation: "testing")
-    visit "/"
+
+    visit login_path
   end
 
   describe "User Story 3/4 - Loggin In" do
     it "lets a user log in - happy path" do
+      visit "/"
+
       expect(page).to have_link("Log In")
 
       click_link("Log In")
@@ -29,8 +32,6 @@ RSpec.describe "User Login", type: :feature do
     end
 
     it "redirects back to log in page with email that doesn't exist - sad path" do
-      visit login_path
-
       within "#login_form" do
         expect(page).to have_field("Email")
         expect(page).to have_field("Password")
@@ -46,8 +47,6 @@ RSpec.describe "User Login", type: :feature do
     end
 
     it "redirects back to log in page with password that doesn't match - sad path" do
-      visit login_path
-
       within "#login_form" do
         expect(page).to have_field("Email")
         expect(page).to have_field("Password")
@@ -60,6 +59,37 @@ RSpec.describe "User Login", type: :feature do
 
       expect(page.current_path).to eq(login_path)
       expect(page).to have_content("Invalid email/password, try again.")
+    end
+  end
+
+  describe "Part 1 - Implement a Cookie" do
+    it "has a text input field for 'Location'" do
+      within "#login_form" do
+        expect(page).to have_field("Location", type: "text")
+      end
+    end
+
+    it "displays my location on the landing page when I fill it in" do
+      fill_in("Email", with: "user@test.com")
+      fill_in("Password", with: "testing")
+      fill_in("Location", with: "Arizona")
+
+      click_button("Log In")
+
+      expect(page).to have_content("Location: Arizona")
+    end
+
+    it "doesn't display my location on the landing page if empty" do
+      fill_in("Email", with: "user@test.com")
+      fill_in("Password", with: "testing")
+
+      click_button("Log In")
+
+      expect(page).to have_no_content("Location: Arizona")
+    end
+
+    it "still shows my cookie on the login page after logging out" do
+
     end
   end
 end

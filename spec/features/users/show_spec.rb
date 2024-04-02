@@ -60,4 +60,14 @@ RSpec.describe "User Dashboard" do
       end
     end
   end
+
+  describe "Log out" do
+    it "has a link to log out redirects to the login page when clicked", :vcr do
+      expect(page).to have_link("Log Out")
+
+      click_link("Log Out")
+
+      expect(page.current_path).to eq(login_path)
+    end
+  end
 end
