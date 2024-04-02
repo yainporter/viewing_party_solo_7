@@ -89,7 +89,18 @@ RSpec.describe "User Login", type: :feature do
     end
 
     it "still shows my cookie on the login page after logging out" do
+      fill_in("Email", with: "user@test.com")
+      fill_in("Password", with: "testing")
+      fill_in("Location", with: "Arizona")
 
+      click_button("Log In")
+      click_link("Log Out")
+
+      expect(page.current_path).to eq("/")
+
+      visit login_path(@user)
+
+      expect(page).to have_content("Location: Arizona")
     end
   end
 
