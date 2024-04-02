@@ -67,7 +67,7 @@ RSpec.describe "User Dashboard" do
 
       click_link("Log Out")
 
-      expect(page.current_path).to eq(login_path)
+      expect(page.current_path).to eq("/")
     end
   end
 end

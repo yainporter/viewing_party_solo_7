@@ -31,8 +31,8 @@ RSpec.describe 'Root Page, Welcome Index', type: :feature do
       within("#existing_users") do
         expect(page).to have_content(User.first.email)
         expect(page).to have_content(User.last.email)
-        expect(page).to have_link("#{User.first.email}", href: "users/#{User.first.id}")
-        expect(page).to have_link("#{User.last.email}", href: "users/#{User.last.id}")
+        # expect(page).to have_link("#{User.first.email}", href: "users/#{User.first.id}")
+        # expect(page).to have_link("#{User.last.email}", href: "users/#{User.last.id}")
       end
     end
 
@@ -45,6 +45,22 @@ RSpec.describe 'Root Page, Welcome Index', type: :feature do
     it "displays limited info when a User is logged out" do
       expect(page).to have_no_text("Existing Users")
       expect(page).to have_no_css("#existing_users")
+    end
+  end
+
+  describe "Part 5 - Logged-in users and links on landing page" do
+    it "no longer displays existing users as a link" do
+      allow_any_instance_of(WelcomeController).to receive(:current_user).and_return(@user_1)
+
+      visit root_path
+
+      within("#existing_users") do
+        users = User.all
+
+        users.each do |user|
+          expect(page).to have_no_link("#{user.email}")
+        end
+      end
     end
   end
 end

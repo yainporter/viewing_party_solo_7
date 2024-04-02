@@ -1,4 +1,4 @@
-<h2>Location :<%= cookies[:message] %></h2>
+<h2>Location: <%= cookies[:message] %></h2>
 <div id="login_form">
   <%= form_with url: "/login", method: :post, data: { turbo: false } do |f| %> 
     <%= f.label :email, 'Email:' %>
